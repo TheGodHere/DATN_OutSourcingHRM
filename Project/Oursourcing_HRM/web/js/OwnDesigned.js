@@ -1,13 +1,13 @@
-
-
 function ChangeContentTab(contentTab) {
     var curTab = document.getElementById(contentTab);
     var parTab = curTab.parentNode;
-    var listChild = parTab.childNodes;
-    alert(listChild.length);
-    for (var i = 0; i < listChild.length; i++) {
-        listChild[i].setAttribute("hidden", "true");
+    var indexChild = parTab.firstChild.nextSibling;
+
+    while (indexChild) {
+        indexChild.setAttribute("hidden", "true");
+        indexChild = indexChild.nextElementSibling;
     }
-    curTab.removeAttribute("hidden", "false");
+
+    document.getElementById(contentTab).removeAttribute("hidden");
 }
 
