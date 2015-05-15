@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,6 +50,9 @@ public class LoginServlet extends HttpServlet {
             List<AccountDTO> result = a.getListObj();
             String url = invalidPage;
             if(result.size()>0){
+                Cookie cookie = new Cookie(username, password);
+                cookie.setMaxAge(60 * 5);
+                response.addCookie(cookie);
                 url = homePage;
                 HttpSession session = request.getSession();
                 session.setAttribute("USERACCOUNT", result);
