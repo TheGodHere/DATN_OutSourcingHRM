@@ -27,7 +27,9 @@
                         <li><a href="#2">About</a></li>
                         <li><a href="#3">Contact</a></li>
                         <li class="dropdown">
-                            <a href="#4" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome, Hoang<span class="caret"></span></a>
+                            <a href="#4" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <c:set var="acc" value="${sessionScope.USERACCOUNT[0]}"/>
+                                Welcome, ${acc.username}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#Profiles">Profiles</a></li>
                                 <li><a href="#">Change passwords</a></li>
@@ -50,7 +52,7 @@
                     <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
                 </div>
             </div>
-            <c:set var="UserAcc" value="${sessionScope.userAccount}" />
+            <c:set var="UserAcc" value="${acc.title}" />
             <c:choose>
                 <c:when test="${UserAcc.role eq 'Employee'}">
                     <%@include file="EmployeeNavBar.jsp" %>
