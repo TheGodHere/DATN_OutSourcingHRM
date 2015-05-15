@@ -17,10 +17,10 @@
 
         <style type="text/css"></style><link rel="stylesheet" type="text/css" href="chrome-extension://lfjamigppmepikjlacjdpgjaiojdjhoj/css/menu.css"></head>
     <body>
-        
+
         <nav class="navbar navbar-inverse navbar-fixed-top " 
              style="background-color: #00004B">
-            <div class="container">
+            <div>
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Logo here</a>
                 </div>
@@ -52,7 +52,7 @@
 
                 <!-- Main jumbotron for a primary marketing message or call to action -->
                 <div class="jumbotron-customized">
-                    <h1><img src="img/Homepage.png" alt="some_text" ></h1>                    
+                    <img src="img/Homepage.png" alt="some_text" >                    
                 </div>
             </div>
             <c:set var="UserAcc" value="${acc.title}" />
@@ -83,46 +83,5 @@
             <div class="wrapper row3">
                 <div class="rounded">
                     <main class="container clear"> 
-                        <!-- main body --> 
-                        <!-- ################################################################################################ -->
-
-                        <!-- ################################################################################################ -->
-                        <h2>Latest News &amp; Events</h2>
-                        <ul class="nospace listing">
-                            <li class="clear">
-                                <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
-                                <p class="nospace btmspace-15"><a href="#">News.</a></p>
-                                <p>This is Outsourcing Human Resource Management Website</p>
-                            </li>
-                            <li class="clear">
-                                <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
-                                <p class="nospace btmspace-15"><a href="#">News</a></p>
-                                <p>This is Outsourcing Human Resource Management Website</p>
-                            </li>
-                            <<li class="clear">
-                                <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
-                                <p class="nospace btmspace-15"><a href="#">News</a></p>
-                                <p>This is Outsourcing Human Resource Management Website</p>
-                            </li>
-                        </ul>
-                        <p class="right"><a href="#">Click here to view all of the latest news </a></p>
-                        <!-- ################################################################################################ --> 
-                </div>
-                <!-- ################################################################################################ --> 
-                <!-- ################################################################################################ --> 
-                <!-- ################################################################################################ -->
-                <div class="wrapper row4">
-                    <div class="rounded">
-                        <footer id="footer" class="clear"> 
-                            <!-- ################################################################################################ -->
-
-                            <!-- ################################################################################################ --> 
-                            <!-- ################################################################################################ --> 
-                            <!-- ################################################################################################ -->
-                            <div class="wrapper row5">
-                                <div id="copyright" class="clear"> 
-                                    <!-- ################################################################################################ -->
-                                    <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">OHRM</a></p>    
-                                    <!-- ################################################################################################ --> 
-                                </div>
-                            </div>
+                        
+                    

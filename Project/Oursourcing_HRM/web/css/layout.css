@@ -53,6 +53,52 @@
 #slider #slide-tabs li:last-child a{border-width:0 1px 1px 1px;}
 
 
+/* Content Area
+--------------------------------------------------------------------------------------------------------------- */
+.container{padding:20px 10px;}
+
+.container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .container .heading{padding-bottom:8px; border-bottom:1px solid;}
+
+/* Content */
+.container #content{}
+
+#twitter{display:block; padding:15px;}
+#twitter div{padding:25px 0;}
+#twitter div:first-child{border-right:2px solid;}
+
+.listing li{margin:0 0 30px 0; padding:0 0 20px 0; border-bottom:1px solid;}
+.listing li:last-child{margin-bottom:0;}
+
+.mediacontainer, .mediacontainer iframe{display:block; margin:0; padding:0;}
+.mediacontainer{width:100%; position:relative;}
+
+.quickinfo{text-align:center; text-transform:uppercase; font-weight:bold; word-wrap:break-word;}
+.quickinfo li{display:block; width:100%; min-height:80px; margin:0 0 20px 0; overflow:hidden;}
+.quickinfo li:last-child{margin-bottom:0;}
+.quickinfo li a{display:block; position:relative; width:100%; min-height:80px; padding:18px 0 0 80px; box-sizing:border-box;}
+.quickinfo li a img{position:absolute; top:0; left:0; width:80px; height:80px;}
+
+/* Comments */
+#comments ul{margin:0 0 40px 0; padding:0; list-style:none;}
+#comments li{margin:0 0 10px 0; padding:15px;}
+#comments .avatar{float:right; margin:0 0 10px 10px; padding:3px; border:1px solid;}
+#comments address{font-weight:bold;}
+#comments time{font-size:smaller;}
+#comments .comcont{display:block; margin:0; padding:0;}
+#comments .comcont p{margin:10px 5px 10px 0; padding:0;}
+
+#comments form{display:block; width:100%;}
+#comments input, #comments textarea{width:100%; padding:10px; border:1px solid;}
+#comments textarea{overflow:auto;}
+#comments div{margin-bottom:15px;}
+#comments input[type="submit"], #comments input[type="reset"]{display:inline-block; width:auto; min-width:150px; margin:0; padding:8px 5px; cursor:pointer;}
+
+/* Sidebar */
+.container .sidebar{}
+
+.sidebar .sdb_holder{margin-bottom:50px;}
+.sidebar .sdb_holder:last-child{margin-bottom:0;}
+
 
 /* Footer
 --------------------------------------------------------------------------------------------------------------- */
@@ -155,6 +201,74 @@ td{border-width:0 1px;}
 #gallery figure figcaption{display:block; width:100%; clear:both;}
 #gallery li{margin-bottom:30px;}
 #gallery li a{display:block;}
+
+
+/* Portfolio
+--------------------------------------------------------------------------------------------------------------- */
+#portfolio{display:block; width:100%; margin-bottom:20px;}
+#portfolio li, #portfolio img{margin-bottom:30px;}
+
+
+/* Font Awesome Social Icons
+--------------------------------------------------------------------------------------------------------------- */
+.faico{margin:0; padding:0; list-style:none;}
+.faico li{display:inline-block; margin:0 2px 0 0; padding:0; line-height:normal;}
+.faico li:last-child{margin-right:0;}
+
+.faico a{display:block; width:40px; height:40px; line-height:40px; font-size:20px; text-align:center;}
+
+.faico a{color:#FFFFFF;}
+.faico a:hover{color:#FFFFFF; background-color:#CCCCCC;}
+
+.faicon-facebook{background-color:#3B5998;}
+.faicon-flickr{background-color:#FF0084;}
+.faicon-linkedin{background-color:#0E76A8;}
+.faicon-rss{background-color:#EE802F;}
+.faicon-twitter{background-color:#00ACEE;}
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+
+/* Rounded Corners
+--------------------------------------------------------------------------------------------------------------- */
+.rounded, input, button, textarea, #header input, #footer input, #slide-wrapper figcaption, .avatar, #comments li, .faico a, #twitter, 
+.pagination a, .pagination strong{border-radius:8px;}
+
+#header button, #footer button{border-radius:0 8px 8px 0;}
+
+#mainav li li:first-child a, #mainav li li:first-child li:first-child a, #mainav li li:last-child li:first-child a{border-radius:8px 8px 0 0;}
+#mainav li li:last-child a, #mainav li li:last-child li:last-child a, #mainav li li:first-child li:last-child a{border-radius:0 0 8px 8px;}
+#mainav li li:first-child li a, #mainav li li:last-child li a{border-radius:0;}
+
+#slide-wrapper figure img, #slide-wrapper figure .view:hover::before{border-radius:8px 8px 0 0;}
+
+#slider #slide-tabs li:first-child a{border-radius:0 0 0 8px;}
+#slider #slide-tabs li:last-child a{border-radius:0 0 8px 0;}
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+
+/* Colours
+--------------------------------------------------------------------------------------------------------------- */
+body{color:#F9F9F9; background-color:#06213F;}
+
+a{color:#55ABDA;}
+
+hr, .borderedbox{border-color:#D7D7D7;}
+
+label span{color:#FF0000; background-color:inherit;}
+
+.rounded{color:inherit; background-color:#F9F9F9;}
 
 
 /* Rows */
@@ -306,7 +420,6 @@ table a, #comments a{background-color:inherit;}
 	.scrollable{display:block; width:100%; margin:0 0 30px 0; padding:0 0 15px 0; overflow:auto; overflow-x:scroll;}
 	.scrollable table{margin:0; padding:0; white-space:nowrap;}
 }
-
 /* jumbotron-customized-customized-customized
 ---------------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (min-width: 768px) {
@@ -325,7 +438,7 @@ table a, #comments a{background-color:inherit;}
 @media screen and (min-width: 768px) {
 .jumbotron-customized {
   /*padding: 48px 0;*/
-  padding-top: 70px;
+  padding-top: 40px;
 }
 .jumbotron-customized {
   /*padding: 30px 15px;*/
@@ -333,3 +446,4 @@ table a, #comments a{background-color:inherit;}
   color: inherit;
 }
 }
+
