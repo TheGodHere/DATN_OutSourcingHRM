@@ -31,8 +31,8 @@
                                 <c:set var="acc" value="${sessionScope.USERACCOUNT[0]}"/>
                                 Welcome, ${acc.username}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#Profiles">Profiles</a></li>
-                                <li><a href="#">Change passwords</a></li>
+                                <li><a href="#Profiles">Profile</a></li>
+                                <li><a href="#">Change password</a></li>
                                 <li><a href="#">Log out</a></li>
                             </ul>
                         </li>
@@ -54,22 +54,22 @@
             </div>
             <c:set var="UserAcc" value="${acc.title}" />
             <c:choose>
-                <c:when test="${UserAcc.role eq 'Employee'}">
+                <c:when test="${acc.title eq 'Employee'}">
                     <%@include file="EmployeeNavBar.jsp" %>
                 </c:when>
-                <c:when test="${UserAcc.role eq 'Manager'}">
+                <c:when test="${acc.title eq 'Manager'}">
                     <%@include file="EmployeeNavBar.jsp" %>
                 </c:when>
-                <c:when test="${UserAcc.role eq 'Director'}">
+                <c:when test="${acc.title eq 'Director'}">
                     <%@include file="EmployeeNavBar.jsp" %>
                 </c:when>
-                <c:when test="${UserAcc.role eq 'Customer'}">
+                <c:when test="${acc.title eq 'Customer'}">
                     <%@include file="EmployeeNavBar.jsp" %>
                 </c:when>
-                <c:when test="${UserAcc.role eq 'Admin'}">
+                <c:when test="${acc.title eq 'Admin'}">
                     <%@include file="EmployeeNavBar.jsp" %>
                 </c:when>
-                <c:when test="${UserAcc.role eq 'HResource'}">
+                <c:when test="${acc.title eq 'HResource'}">
                     <%@include file="EmployeeNavBar.jsp" %>
                 </c:when>
                 <c:otherwise>
