@@ -5,7 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="firstHead.jsp" %>
 <div id="home" ><img src="img/AdvertiseHomepage.JPG" style="width:100%"></div>
-<div id="about" hidden>hello cac ban</div>
+<div id="about" >
+    
+     
+        
+</div>
 <%@include file="firstFoot.jsp" %>

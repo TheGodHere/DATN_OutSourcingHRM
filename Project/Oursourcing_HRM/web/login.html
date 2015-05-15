@@ -14,11 +14,11 @@ and open the template in the editor.
 
     </head>
     <body>
-        <form action="index.html" class="login">
+        <form action="CenterServlet" class="login" method="POST">
             <h1>Login</h1>            
             <input type="text" name="username" class="login-input" placeholder="Username" autofocus>
-            <input type="text" name="password" class="login-input" placeholder="Password">
-            <input type="submit" value="Login" class="login-submit">
+            <input type="password" name="password" class="login-input" placeholder="Password">
+            <input type="submit" value="Login" class="login-submit" name="btAction">
             <table style="width: 100%">
                 <tr>
                     <td><div class="checkbox">
