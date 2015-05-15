@@ -11,9 +11,13 @@
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/justified-nav.css" rel="stylesheet">
+        <link href="css/Framework.css" rel="stylesheet">
+        <link href="css/layout.css" rel="stylesheet">
+
 
         <style type="text/css"></style><link rel="stylesheet" type="text/css" href="chrome-extension://lfjamigppmepikjlacjdpgjaiojdjhoj/css/menu.css"></head>
     <body>
+        
         <nav class="navbar navbar-inverse navbar-fixed-top " 
              style="background-color: #00004B">
             <div class="container">
@@ -42,14 +46,13 @@
             </div>
         </nav>
 
-        <div style="background-color: black">
+        <div style="background-color: #06213F">
 
             <div class="container theme-showcase" role="main">
 
                 <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron">
-                    <h1>Theme example</h1>
-                    <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+                <div class="jumbotron-customized">
+                    <h1><img src="img/Homepage.png" alt="some_text" ></h1>                    
                 </div>
             </div>
             <c:set var="UserAcc" value="${acc.title}" />
@@ -77,5 +80,49 @@
                 </c:otherwise>
             </c:choose>
 
-            <div class="panel panel-default" style="background-color: white;
-                 margin-top: 30px; margin-left: 5%; margin-right: 5%">
+            <div class="wrapper row3">
+                <div class="rounded">
+                    <main class="container clear"> 
+                        <!-- main body --> 
+                        <!-- ################################################################################################ -->
+
+                        <!-- ################################################################################################ -->
+                        <h2>Latest News &amp; Events</h2>
+                        <ul class="nospace listing">
+                            <li class="clear">
+                                <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
+                                <p class="nospace btmspace-15"><a href="#">News.</a></p>
+                                <p>This is Outsourcing Human Resource Management Website</p>
+                            </li>
+                            <li class="clear">
+                                <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
+                                <p class="nospace btmspace-15"><a href="#">News</a></p>
+                                <p>This is Outsourcing Human Resource Management Website</p>
+                            </li>
+                            <<li class="clear">
+                                <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
+                                <p class="nospace btmspace-15"><a href="#">News</a></p>
+                                <p>This is Outsourcing Human Resource Management Website</p>
+                            </li>
+                        </ul>
+                        <p class="right"><a href="#">Click here to view all of the latest news </a></p>
+                        <!-- ################################################################################################ --> 
+                </div>
+                <!-- ################################################################################################ --> 
+                <!-- ################################################################################################ --> 
+                <!-- ################################################################################################ -->
+                <div class="wrapper row4">
+                    <div class="rounded">
+                        <footer id="footer" class="clear"> 
+                            <!-- ################################################################################################ -->
+
+                            <!-- ################################################################################################ --> 
+                            <!-- ################################################################################################ --> 
+                            <!-- ################################################################################################ -->
+                            <div class="wrapper row5">
+                                <div id="copyright" class="clear"> 
+                                    <!-- ################################################################################################ -->
+                                    <p class="fl_left">Copyright &copy; 2015 - All Rights Reserved - <a href="#">OHRM</a></p>    
+                                    <!-- ################################################################################################ --> 
+                                </div>
+                            </div>
