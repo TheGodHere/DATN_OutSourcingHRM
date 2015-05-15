@@ -8,6 +8,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Servlets.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NullServlet</servlet-name>
+        <servlet-class>Servlets.NullServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CenterServlet</servlet-name>
         <url-pattern>/CenterServlet</url-pattern>
@@ -16,12 +20,16 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NullServlet</servlet-name>
+        <url-pattern>/NullServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.html</welcome-file>
+        <welcome-file>CenterServlet</welcome-file>
     </welcome-file-list>
 </web-app>
