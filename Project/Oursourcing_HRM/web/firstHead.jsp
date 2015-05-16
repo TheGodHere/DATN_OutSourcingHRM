@@ -92,7 +92,7 @@
                     <%@include file="EmployeeNavBar.jsp" %>
                 </c:when>
                 <c:when test="${acc.title eq 'Admin'}">
-                    <%@include file="EmployeeNavBar.jsp" %>
+                    <%@include file="AdminNavBar.jsp" %>
                 </c:when>
                 <c:when test="${acc.title eq 'HResource'}">
                     <%@include file="EmployeeNavBar.jsp" %>
