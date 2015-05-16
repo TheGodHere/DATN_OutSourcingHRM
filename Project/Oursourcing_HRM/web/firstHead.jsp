@@ -17,11 +17,13 @@
         <!--<link rel="stylesheet" href="bootstrap-table.css">-->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
-        <script src="js/bootstrap.min.js"></script>
+        
         <script src="js/OwnDesigned.js"></script>
-        <script src="js/bootstrap-table.js"></script>
+        
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.dataTables.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-table.js"></script>
 
 
         <script>
