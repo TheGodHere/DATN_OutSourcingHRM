@@ -32,6 +32,12 @@
                 $('#example').dataTable({
                     "pagingType": "full_numbers"
                 });
+                $('#empTable').dataTable({
+                    "pagingType": "full_numbers"
+                });
+                $('#cusTable').dataTable({
+                    "pagingType": "full_numbers"
+                });
             });
         </script>
 
@@ -77,32 +83,8 @@
                     <img src="img/Homepage.png" alt="some_text" >                    
                 </div>
             </div>
-            <c:set var="UserAcc" value="${acc.title}" />
-            <c:choose>
-                <c:when test="${acc.title eq 'Employee'}">
-                    <%@include file="EmployeeNavBar.jsp" %>
-                </c:when>
-                <c:when test="${acc.title eq 'Manager'}">
-                    <%@include file="ManagerNavBar.jsp" %>
-                </c:when>
-                <c:when test="${acc.title eq 'Director'}">
-                    <%@include file="EmployeeNavBar.jsp" %>
-                </c:when>
-                <c:when test="${acc.title eq 'Customer'}">
-                    <%@include file="EmployeeNavBar.jsp" %>
-                </c:when>
-                <c:when test="${acc.title eq 'Admin'}">
-                    <%@include file="AdminNavBar.jsp" %>
-                </c:when>
-                <c:when test="${acc.title eq 'HResource'}">
-                    <%@include file="EmployeeNavBar.jsp" %>
-                </c:when>
-                <c:otherwise>
-                    <%@include file="ManagerNavBar.jsp" %>
-                </c:otherwise>
-            </c:choose>
 
-            <div class="wrapper row3">
-                <div class="rounded">
-                    <main class="container clear"> 
+
+
+            
 

@@ -7,6 +7,35 @@
 <link rel="stylesheet" href="css/Test.css"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="firstHead.jsp" %>
+
+<%-- 
+================================================================================
+--%>
+<div class="wrapper row2">
+  <div class="rounded">
+    <nav id="mainav" class="clear"> 
+      <!-- ################################################################################################ -->
+      <div style="margin-left: 10%; margin-right: 10%">
+      <ul class="clear">
+        <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Home</a></li>
+        <li onclick="ChangeContentTab('work')"><a href="#work">Work place</a></li>
+        <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Recruitment</a></li>
+        <li onclick="ChangeContentTab('employee')"><a href="#employee">Employee</a></li>
+        <li onclick="ChangeContentTab('knowledge')"><a href="#knowledge">Knowledge</a></li>       
+
+      </ul>
+          </div>
+      <!-- ################################################################################################ --> 
+    </nav>
+  </div>
+</div>
+<%-- 
+================================================================================
+--%>
+
+<div class="wrapper row3">
+    <div class="rounded">
+        <main class="container clear" style="width: 100%">
 <div id="home" ><img src="img/AdvertiseHomepage.JPG" style="width:100%"></div>
 <div id="work" hidden="true">
     <h1 style="text-align: center">Working project</h1>
@@ -447,29 +476,37 @@
         <table style="width: 100%">
             <tr>
                 <td>
-                    <label ><font color="black">Manager Name:</font></label>
-                    <input type="text" id="name" name="user_name" style="width: 50%">
+                    <label style="margin-top: 15px"><font color="black">Manager Name:</font></label>
+                    <br/>
+                    <input type="text" id="name" name="user_name" style="width: 50%"> <br/>
 
                     <label><font color="black">Project Name :</font></label>
-                    <input type="text" id="name" name="project_name" style="width: 50%">
+                    <br/>
+                    <input type="text" id="name" name="project_name" style="width: 50%"> <br/>
 
                     <label><font color="black">How many people?:</font></label>
+                    <br/>
                     <input type="text" id="name" name="people" style="width: 50%"> <br/>
 
                 </td>
                 <td>
 
 
-                    <label for="scale"><font color="black">Start date:</font></label>
+                    <label for="scale" style="margin-top: 15px"><font color="black">Start date:</font></label>
+                    <br/>
                     <input type="text" id="name" name="date" style="width: 50%"> 
+                    <br/>
 
                     <label><font color="black">Skills:</font></label>
+                    <br/>
                     <div>
                         <input type="radio" value="java" name="skillBtn" style="display: inline" checked="true"><font color="black" style="margin-right: 60px"> Java</font>
                         <input type="radio" value="cnet" name="skillBtn" style="display: inline"><font color="black"> Cnet</font> <br/>
                     </div>
+                    
 
                     <label style="margin-top: 40px"><font color="black">Job Role:</font></label>
+                    <br/>
                     <select id="job" name="user_job" style="color: #8a97a0">
                         <optgroup label="Web">
                             <option value="frontend_developer">Tester</option>
@@ -483,9 +520,9 @@
         <div style="float: right; margin-right: 40px" ><input class="btn btn-lg btn-success" type="submit" value="Submit" /></div>
         
     </form>
+</main>
+</div>
 
-</body>
-</html>
 
 
 
