@@ -9,13 +9,35 @@
         <title>Home</title>
 
         <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/jquery.dataTables.css">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/justified-nav.css" rel="stylesheet">
+        <!--<link href="css/justified-nav.css" rel="stylesheet">-->
         <link href="css/Framework.css" rel="stylesheet">
         <link href="css/layout.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="bootstrap-table.css">-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/OwnDesigned.js"></script>
+        <script src="js/bootstrap-table.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.dataTables.min.js"></script>
 
 
-        <style type="text/css"></style><link rel="stylesheet" type="text/css" href="chrome-extension://lfjamigppmepikjlacjdpgjaiojdjhoj/css/menu.css"></head>
+        <script>
+//            $(document).ready(function() {
+//                $('#myTable').dataTable();
+//            });
+            $(document).ready(function() {
+                $('#example').dataTable({
+                    "pagingType": "full_numbers"
+                });
+            });
+        </script>
+
+
+        <style type="text/css"></style><link rel="stylesheet" type="text/css" href="chrome-extension://lfjamigppmepikjlacjdpgjaiojdjhoj/css/menu.css">
+    </head>
     <body>
 
         <nav class="navbar navbar-inverse navbar-fixed-top " 
@@ -83,5 +105,4 @@
             <div class="wrapper row3">
                 <div class="rounded">
                     <main class="container clear"> 
-                        
-                    
+
