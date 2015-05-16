@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  * @author Mon
  */
 public class LoginServlet extends HttpServlet {
-    private final String invalidPage = "invalid.html";
+    private final String loginPage = "Login.jsp";
     private final String homePage = "Homepage.jsp";
     
 
@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
             AccountDAO a = new AccountDAO();
             a.checkLogin(username, password);
             List<AccountDTO> result = a.getListObj();
-            String url = invalidPage;
+            String url = loginPage;
             if(result.size()>0){
                 Cookie cookie = new Cookie(username, password);
                 cookie.setMaxAge(60 * 5);
@@ -57,6 +57,8 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("USERACCOUNT", result);
             }
+            String checkWrong = "Wrong";
+            request.setAttribute("WRONGUSERPASS", checkWrong);
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         } finally {
