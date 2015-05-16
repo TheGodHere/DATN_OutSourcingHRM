@@ -98,13 +98,7 @@ table {
   margin: 0 -1px;
 }
 
-/*
- * Copyright (c) 2013 Thibaut Courouble
- * http://www.cssflow.com
- *
- * Licensed under the MIT License:
- * http://www.opensource.org/licenses/mit-license.php
- */
+
 ::-moz-focus-inner {
   padding: 0;
   border: 0;

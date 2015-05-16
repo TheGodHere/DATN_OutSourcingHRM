@@ -9,23 +9,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>OHRM</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
     </head>
+    <style>
+        body {
+            background-image: url("img/Login.jpg");
+        }
+    </style>
     <body>
         <form action="CenterServlet" class="login" method="POST">
-            <h1>Login</h1>            
+            <h1>OHRM</h1>            
             <input type="text" name="username" class="login-input" placeholder="Username" autofocus>
             <input type="password" name="password" class="login-input" placeholder="Password">
             <input type="submit" value="Login" class="login-submit" name="btAction">
             <table style="width: 100%">
                 <tr>
-                <c:if test="${requestScope.WRONGUSERPASS eq 'Wrong'}">
-                   <div style="text-align: center"> <font color = "yellow" size = "2" >Invalid login, please try again</font></div>
-                </c:if>
+                    <c:if test="${requestScope.WRONGUSERPASS eq 'Wrong'}">
+                    <div style="text-align: center"> <font color = "yellow" size = "2" >Invalid login, please try again</font></div>
+                    </c:if>
                 </tr>
                 <tr>
                     <td><div class="checkbox">
