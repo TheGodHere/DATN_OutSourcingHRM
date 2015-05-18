@@ -7,7 +7,7 @@
 <!--<link rel="stylesheet" href="css/Test.css"/>-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="firstHead.jsp" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%-- 
 ================================================================================
 --%>
@@ -22,7 +22,6 @@
                     <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Recruitment</a></li>
                     <li onclick="ChangeContentTab('employee')"><a href="#employee">Employee</a></li>
                     <li onclick="ChangeContentTab('knowledge')"><a href="#knowledge">Knowledge</a></li>       
-
                 </ul>
             </div>
             <!-- ################################################################################################ --> 
@@ -51,212 +50,25 @@
                             <th>Customer</th>
                         </tr>  
                     </thead>  
-                    <tbody>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
+                    <tbody> 
+                        <c:forEach begin="1" end="50" step="1" varStatus="counter">
+                            <tr>  
+                                <td>${counter.count}</td>  
+                                <td>Anusha</td>  
+                                <td>India</td>  
+                                <td>10000</td>  
+                                <td>Anusha</td>  
+                                <td>India</td>  
+                                <td>10000</td>  
+                            </tr>  
+                        </c:forEach>
                     </tbody>  
                 </table>  
             </div>
 
-            <div id="about" hidden="true">
+            <div id="employee" hidden="true">
                 <h1 style="text-align: center">Employee</h1>
-                <table id="example" class="table table-striped display">  
+                <table id="empTable" class="table table-striped display">  
                     <thead>  
                         <tr>  
                             <th>#</th>  
@@ -269,204 +81,47 @@
                         </tr>  
                     </thead>  
                     <tbody>  
+                        <c:forEach begin="1" end="50" step="1" varStatus="counter">
+                            <tr>  
+                                <td>${counter.count}</td>  
+                                <td>Anusha</td>  
+                                <td>India</td>  
+                                <td>10000</td>  
+                                <td>Anusha</td>  
+                                <td>India</td>  
+                                <td>10000</td>  
+                            </tr>  
+                        </c:forEach>
+                    </tbody>  
+                </table>  
+            </div>
+            <div id="knowledge" hidden="true">
+                <h1 style="text-align: center">Project Knowledge</h1>
+                <button type="btAction" class="btn btn-success" style="width: 160px">Create knowledge</button>
+                <table id="knowTable" class="table table-striped display">  
+                    <thead>  
                         <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
+                            <th>#</th>  
+                            <th>Discussion</th>  
+                            <th>Started by</th>  
+                            <th>Project name</th>  
+                            <th>Replies</th>  
+                            <th>Last post</th>  
+                            <th>?????????</th>
                         </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                        </tr>  
+                    </thead>  
+                    <tbody>  
+                        <c:forEach begin="1" end="50" step="1" varStatus="counter">
+                            <tr>  
+                                <td>${counter.count}</td>  
+                                <td><a href="">Anusha</a></td>  
+                                <td>${acc.username}</td>  
+                                <td>OHRM</td>  
+                                <td>7</td>  
+                                <td>18/05/2015</td>  
+                                <td>?????</td>  
+                            </tr>  
+                        </c:forEach>
                     </tbody>  
                 </table>  
             </div>
