@@ -12,9 +12,9 @@
 
 <div class="wrapper row2">
     <div class="rounded">
-        <nav id="mainav" class="clear"> 
+        <nav id="mainav" class="nav-customize"> 
             <!-- ################################################################################################ -->
-            <div class="nav-customized" style="margin-left: 10%; margin-right: 10%">
+            <div class="nav-customize" style="margin-left: 10%; margin-right: 10%;">
                 <ul class="clear" style="padding-left: 0px; margin-left: 0px">
                     <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Home</a></li>
                     <!--<li onclick="ChangeContentTab('work')"><a href="#work">Work place</a></li>-->

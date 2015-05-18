@@ -13,16 +13,16 @@
         <link href="css/layout-customize.css" rel="stylesheet">
         <link href="css/framework-customize.css" rel="stylesheet">
         <link href="css/Test.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">        
         <!--<link href="css/justified-nav.css" rel="stylesheet">-->
-        
-        
+
+
         <!--<link rel="stylesheet" href="bootstrap-table.css">-->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
-        
+
         <script src="js/OwnDesigned.js"></script>
-        
+
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.dataTables.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -55,7 +55,9 @@
              style="background-color: #00004B">
             <div>
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Logo here</a>
+                    <a class="navbar-brand" href="#" style="padding: 0; padding-left: 15px; width: 65px">
+                        <img src="img/Logo.png" alt="">
+                    </a>
                 </div>
                 <div id="navbar" class="navbar-collapse  ">
                     <ul class="nav navbar-nav" style="float: right; text-emphasis-color: white">
@@ -91,5 +93,5 @@
 
 
 
-            
+
 
