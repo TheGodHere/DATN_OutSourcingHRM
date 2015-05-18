@@ -6,7 +6,6 @@
 
 package Servlets;
 
-import Common.CommonFunction;
 import DAO.ProjectDAO;
 import DTO.ProjectDTO;
 import java.io.IOException;
@@ -17,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -44,13 +42,9 @@ public class ListAllProject extends HttpServlet {
             ProjectDAO p = new ProjectDAO();
             p.listAllPro();
             List<ProjectDTO> result = p.getList();
-//            Common.CommonFunction common = new CommonFunction();
-//            String ResultJSon = common.ConvertListProjectToJSON(result);
             request.setAttribute("LISTPRO", result);
             RequestDispatcher rd = request.getRequestDispatcher(printPage);
             rd.forward(request, response);
-//            System.out.println(ResultJSon);
-//            out.println("hihi");
         } finally {
             out.close();
         }
