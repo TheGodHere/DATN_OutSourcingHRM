@@ -40,17 +40,6 @@ function getXmlHttpRequestObject()
 }
 
 var xmlhttp;
-//        = new getXmlHttpRequestObject(); //xmlhttp holds the ajax object
-
-function servletPost() {
-    if (xmlhttp) {
-//        var txtname = document.getElementById("txtname");
-        xmlhttp.open("POST", "ListAllProject", true);
-        xmlhttp.onreadystatechange = handleServletPost;
-        xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xmlhttp.send("txtname=MHoang");
-    }
-}
 
 function handleServletPost() {
     if (xmlhttp.readyState === 4) {
@@ -58,11 +47,14 @@ function handleServletPost() {
             var divProject = document.getElementById("project");
             var child = document.getElementById("example_wrapper");
             divProject.removeChild(child);
-            var newTable = xmlhttp.responseText;
 
+            var table = $('#example').DataTable();
+            table.destroy();
+
+            var newTable = xmlhttp.responseText;
             var newDiv = document.createElement("div");
             newDiv.innerHTML = newTable;
-            
+
             divProject = document.getElementById("project");
             divProject.appendChild(newDiv);
             $(document).ready(function() {
@@ -101,7 +93,7 @@ function ChangeContentTab(contentTab) {
 }
 
 /*------------------------------------------------------------------------------
-    Kien
+ Kien
  **/
 
 function ChangeToEditForm(labCri, ediCri, labDes, ediDes, labSco, ediSco, btnEdi, btnSav, btnCan, btnDel) {
@@ -240,4 +232,4 @@ function createRow() {
 }
 
 /*
-------------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------------*/

@@ -10,6 +10,7 @@ import DAO.ProjectDAO;
 import DTO.ProjectDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ListAllProject extends HttpServlet {
     private final String homePage = "EmpHome.jsp";
     private final String printPage = "PrintHTMLServlet";
+    private final String convertPage = "TableHTMLConvert.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,7 +45,9 @@ public class ListAllProject extends HttpServlet {
             p.listAllPro();
             List<ProjectDTO> result = p.getList();
             request.setAttribute("LISTPRO", result);
-            RequestDispatcher rd = request.getRequestDispatcher(printPage);
+            request.setAttribute("PROJECTID", "projectTable");
+            request.setAttribute("TYPE", "projectT1");
+            RequestDispatcher rd = request.getRequestDispatcher(convertPage);
             rd.forward(request, response);
         } finally {
             out.close();

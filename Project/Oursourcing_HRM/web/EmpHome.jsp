@@ -17,10 +17,10 @@
             <!-- ################################################################################################ -->
             <div style="margin-left: 10%; margin-right: 10%">
                 <ul class="clear">
-                    <li class="active navbar-home mainpage" onclick="ChangeContentTab('home')"><a href="#home">Home</a></li>
-                    <li class="navbar-project mainpage" onclick="ChangeContentTab('project')"><a href="#project">Project</a></li>
-                    <li class="navbar-employee mainpage" onclick="ChangeContentTab('employee')"><a href="#employee">Employee</a></li>
-                    <li class="navbar-knowledge mainpage"><a href="#contact">Knowledge</a></li>
+                    <li class="active navbar-home mainpage" onclick="ChangeContentTab('home')"><a href="#">Home</a></li>
+                    <li class="navbar-project mainpage" onclick="ChangeContentTab('project')"><a href="#">Project</a></li>
+                    <li class="navbar-employee mainpage" onclick="ChangeContentTab('employee')"><a href="#">Employee</a></li>
+                    <li class="navbar-knowledge mainpage" onclick="ChangeContentTab('knowledge')"><a href="#">Knowledge</a></li>
                 </ul>
             </div>
         </nav>
@@ -61,7 +61,7 @@
                         </tr>  
                     </tbody>  
                 </table>  
-                
+
                 <%--
                 <table id="example" class="table table-striped display">
                     <thead>
@@ -97,7 +97,7 @@
                 --%>
             </div>
 
-            <div id="about" hidden="true">
+            <div id="employee" hidden="true">
                 <h1 style="text-align: center">Employee</h1>
                 <table id="empTable" class="table table-striped display">  
                     <thead>  
@@ -123,8 +123,39 @@
                         </tr>  
                     </tbody>  
                 </table>  
+            </div>
+            <div id="knowledge" hidden="true">
+                <h1 style="text-align: center">Project Knowledge</h1>
+                <input type="button" class="btn-success" value="Create new knowledge">
+                <table id="knowTable" class="table table-striped display">  
+                    <thead>  
+                        <tr>  
+                            <th>#</th>  
+                            <th>Discussion</th>  
+                            <th>Started by</th>  
+                            <th>Project name</th>  
+                            <th>Replies</th>  
+                            <th>Last post</th>  
+                            <th>?????????</th>
+                        </tr>  
+                    </thead>  
+                    <tbody>  
+                        <c:forEach begin="1" end="50" step="1" varStatus="counter">
+                            <tr>  
+                                <td>${counter.count}</td>  
+                                <td><a href="#">Anusha</a></td>  
+                                <td>${acc.username}</td>  
+                                <td>OHRM</td>  
+                                <td>7</td>  
+                                <td>18/05/2015</td>  
+                                <td>?????</td>  
+                            </tr>  
+                        </c:forEach>
+                    </tbody>  
+                </table>  
+            </div>
+
         </main>
     </div>
-
 
     <%@include file="firstFoot.jsp" %>
