@@ -132,7 +132,7 @@
 
 /* Navigation
 --------------------------------------------------------------------------------------------------------------- */
-.nav ul-customize, .nav ol-customize{
+.nav-customized, .nav-customized ul, .nav-customized ol{
     margin:0; 
     padding:0; 
     list-style:none;

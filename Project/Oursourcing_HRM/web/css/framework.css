@@ -34,8 +34,15 @@ body, h1, h2, h3, h4, h5, h6, .heading{font-family:Georgia, "Times New Roman", T
 --------------------------------------------------------------------------------------------------------------- */
 form, fieldset, legend{margin:0; padding:0; border:none;}
 legend{display:none;}
-label, input, textarea, select{display:inline; resize:none; outline:none; color:inherit; font-size:inherit; font-family:inherit; box-sizing:border-box;}
-label{margin-bottom:5px;}
+.label-customize, .input-customize, .textarea-customize, .select-customize {
+    display:inline; resize:none; outline:none; color:inherit; font-size:inherit; font-family:inherit; 
+    box-sizing:border-box;
+}
+.label-customize {
+    margin-bottom:5px;
+}
+/*label, input, textarea, select{display:inline; resize:none; outline:none; color:inherit; font-size:inherit; font-family:inherit; box-sizing:border-box;}
+label{margin-bottom:5px;}*/
 
 
 /* Generalise

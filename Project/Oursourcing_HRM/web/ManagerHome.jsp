@@ -15,8 +15,8 @@
     <div class="rounded">
         <nav id="mainav" class="clear"> 
             <!-- ################################################################################################ -->
-            <div style="margin-left: 10%; margin-right: 10%">
-                <ul class="clear">
+            <div class="nav-customize" style="margin-left: 10%; margin-right: 10%">
+                <ul  class="clear">
                     <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Home</a></li>
                     <li onclick="ChangeContentTab('work')"><a href="#work">Work place</a></li>
                     <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Recruitment</a></li>

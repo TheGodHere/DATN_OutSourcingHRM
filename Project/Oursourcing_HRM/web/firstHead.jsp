@@ -10,10 +10,13 @@
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="css/jquery.dataTables.css">
+        <link href="css/layout-customize.css" rel="stylesheet">
+        <link href="css/framework-customize.css" rel="stylesheet">
+        <link href="css/Test.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!--<link href="css/justified-nav.css" rel="stylesheet">-->
-        <link href="css/Framework.css" rel="stylesheet">
-        <link href="css/layout.css" rel="stylesheet">
+        
+        
         <!--<link rel="stylesheet" href="bootstrap-table.css">-->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
