@@ -5,6 +5,10 @@
         <servlet-class>Servlets.CenterServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ListAllProject</servlet-name>
+        <servlet-class>Servlets.ListAllProject</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Servlets.LoginServlet</servlet-class>
     </servlet>
@@ -12,9 +16,17 @@
         <servlet-name>NullServlet</servlet-name>
         <servlet-class>Servlets.NullServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PrintHTMLServlet</servlet-name>
+        <servlet-class>Servlets.PrintHTMLServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CenterServlet</servlet-name>
         <url-pattern>/CenterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListAllProject</servlet-name>
+        <url-pattern>/ListAllProject</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -23,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>NullServlet</servlet-name>
         <url-pattern>/NullServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PrintHTMLServlet</servlet-name>
+        <url-pattern>/PrintHTMLServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
