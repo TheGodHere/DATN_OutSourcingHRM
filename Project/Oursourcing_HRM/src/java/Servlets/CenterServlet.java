@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CenterServlet extends HttpServlet {
     private final String nullServlet = "NullServlet";
     private final String loginServlet = "LoginServlet";
+    private final String logoutServlet = "LogoutServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,6 +43,9 @@ public class CenterServlet extends HttpServlet {
                 rd.forward(request, response);
             }else if (button.equals("Login")){
                  RequestDispatcher rd = request.getRequestDispatcher(loginServlet);
+                rd.forward(request, response);
+            }else if (button.equals("Log out")){
+                 RequestDispatcher rd = request.getRequestDispatcher(logoutServlet);
                 rd.forward(request, response);
             }
         } finally {
