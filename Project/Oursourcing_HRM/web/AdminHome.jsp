@@ -45,7 +45,7 @@
             --%>
             <div id="employee" hidden="true">
                 <h1 style="text-align: center">Employee accounts</h1>
-                <div style="margin-bottom: 10px; margin-top: 10px"><input type="button" class="btn btn-primary" value="Create new account"></div>                
+                <div style="margin-bottom: 10px; margin-top: 10px"><input type="button" class="btn-success" value="Create new account"></div>                
                 <table id="empTable" class="table table-striped display">  
                     <thead>  
                         <tr>  
@@ -263,7 +263,7 @@
 
             <div id="customer" hidden="true">
                 <h1 style="text-align: center">Customer</h1>
-                <div style="margin-bottom: 10px; margin-top: 10px"><input type="button" class="btn btn-primary" value="Create new account"></div>                
+                <div style="margin-bottom: 10px; margin-top: 10px"><input type="button" class="btn-success" value="Create new account"></div>                
                 <table id="cusTable" class="table table-striped display">  
                     <thead>  
                         <tr>  
@@ -484,37 +484,50 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <td>
+                            <td style="width: 5%">
                                 #
                             </td>
-                            <td>
+                            <td style="width: 25%">
                                 Criterion
                             </td>
-                            <td>
+                            <td style="width: 50%">
+                                Description
+                            </td>
+                            <td style="width: 5%">
                                 Score
                             </td>
-                            <td>
+                            <td style="width: 15%">
                                 Action
                             </td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="workTable">
                         <tr>
                             <td>
                                 1
                             </td>
                             <td>
-                                <input type="text" title="This is description for criterion number 1" value="This is criterion number 1" readonly>
+                                <label id="labCri1">This is criterion number 1</label>
+                                <input id="ediCri1" type="text" value="This is criterion number 1" hidden="true" style="width: 100%; margin-top: 0; margin-bottom: 0">
                             </td>
                             <td>
-                                <input type="text" title="This is the score for this criterion" value="10" maxlength="2" readonly>
+                                <label id="labDes1">This is description for criterion number 1</label>
+                                <textarea id="ediDes1" type="text" hidden="true" rows="5" style="width: 100%">This is description for criterion number 1</textarea>
                             </td>
                             <td>
-                                <input type="button" value="Edit">
+                                <label id="labSco1">10</label>
+                                <input id="ediSco1" type="text" value="10" maxlength="2" hidden="true" style="width: 100%; margin-top: 0; margin-bottom: 0">
+                            </td>
+                            <td>
+                                <input id="btnEdi1" onclick="ChangeToEditForm('labCri1','ediCri1','labDes1','ediDes1','labSco1','ediSco1','btnEdi1','btnSav1','btnCan1','btnDel1')" type="button" class="btn-primary" value="Edit">
+                                <input id="btnSav1" type="button" class="btn-primary" value="Save" hidden="true">
+                                <input id="btnCan1" onclick="ChangeToLabelForm('labCri1','ediCri1','labDes1','ediDes1','labSco1','ediSco1','btnEdi1','btnSav1','btnCan1','btnDel1')" type="button" class="btn-default" value="Cancel" hidden="true">
+                                <input id="btnDel1" type="button" class="btn-danger" value="Delete">
                             </td>
                         </tr>                        
                     </tbody>
                 </table>
+                <div style="margin-bottom: 10px; margin-top: 10px"><input type="button" class="btn-success" value="Add more criterion" onclick="addCriterion()"></div>
             </div>
             
             <div id="feedback" hidden="true">
