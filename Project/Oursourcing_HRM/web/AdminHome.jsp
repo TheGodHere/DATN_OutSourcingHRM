@@ -35,7 +35,7 @@
 <div class="wrapper row3">
     <div class="rounded">
         <main class="container clear" style="width: 100%"> 
-            <div id="home" ><img src="img/AdvertiseHomepage.JPG" style="width:100%"></div>
+            <div id="home" ><img src="img/Home.png" style="width:100%"></div>
             
             <%--
             <div id="work" hidden="true">

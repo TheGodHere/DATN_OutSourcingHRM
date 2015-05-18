@@ -34,7 +34,7 @@
 <div class="wrapper row3">
     <div class="rounded">
         <main class="container clear" style="width: 100%"> 
-            <div id="home" ><img src="img/AdvertiseHomepage.JPG" style="width:100%"></div>
+            <div id="home" ><img src="img/Home.png" style="width:100%"></div>
             <div id="about" hidden="true">
                 <h1 style="text-align: center">Working project</h1>
                 <table id="example" class="table table-striped display">  
