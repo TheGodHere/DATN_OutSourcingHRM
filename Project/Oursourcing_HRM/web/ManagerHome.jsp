@@ -97,7 +97,7 @@
             </div>
             <div id="knowledge" hidden="true">
                 <h1 style="text-align: center">Project Knowledge</h1>
-                <button type="btAction" class="btn btn-success" style="width: 160px">Create knowledge</button>
+                <input type="button" class="btn-success" value="Create new knowledge">
                 <table id="knowTable" class="table table-striped display">  
                     <thead>  
                         <tr>  
@@ -114,7 +114,7 @@
                         <c:forEach begin="1" end="50" step="1" varStatus="counter">
                             <tr>  
                                 <td>${counter.count}</td>  
-                                <td><a href="">Anusha</a></td>  
+                                <td><a href="#">Anusha</a></td>  
                                 <td>${acc.username}</td>  
                                 <td>OHRM</td>  
                                 <td>7</td>  
