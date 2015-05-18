@@ -48,6 +48,9 @@
                 $('#empTable').dataTable({
                     "pagingType": "full_numbers"
                 });
+                $('#knowTable').dataTable({
+                    "pagingType": "full_numbers"
+                });
                 $('#cusTable').dataTable({
                     "pagingType": "full_numbers"
                 });
@@ -81,7 +84,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#Profiles">Profile</a></li>
                                 <li><a href="#">Change password</a></li>
-                                <li><a href="#">Log out</a></li>
+                                <li><a href="CenterServlet?btAction=Log out">Log out</a></li>
                             </ul>
                         </li>
 
