@@ -180,7 +180,7 @@
                             </td>
                         </tr>
                     </table>
-                    <div style="float: right; margin-right: 40px" ><input class="btn btn-lg btn-success" type="submit" value="Submit" /></div>
+                    <div style="margin-right: 650px" ><input class="btn btn-lg btn-success" type="submit" value="Submit" /></div>
 
                 </form>
         </main>
