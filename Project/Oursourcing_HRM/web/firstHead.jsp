@@ -9,7 +9,7 @@
         <title>Home</title>
 
         <!-- Bootstrap -->
-        
+
         <link href="css/layout-customize.css" rel="stylesheet">
         <link href="css/framework-customize.css" rel="stylesheet">
         <link href="css/Test.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.dataTables.min.js"></script>
-        
+        <script src="js/jquery-ui.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap-table.js"></script>
         <script src="js/OwnDesigned.js"></script>
@@ -36,7 +36,7 @@
 //                    $(".navbar-project").addClass("active");
 //                });
 //            });
-            
+
         </script>
         <script>
 //            $(document).ready(function() {
@@ -72,7 +72,7 @@
                         <img src="img/Logo.png" alt="">
                     </a>
                 </div>
-                <div id="navbar" class="navbar-collapse  ">
+                <div id="navbar" class="navbar-collapse">
                     <ul class="nav navbar-nav" style="float: right; text-emphasis-color: white">
                         <b></b>
                         <li class="active"><a href="#1">Home</a></li>
@@ -83,7 +83,7 @@
                                 <c:set var="acc" value="${sessionScope.USERACCOUNT[0]}"/>
                                 Welcome, ${acc.username}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#Profiles">Profile</a></li>
+                                <li><a href="#" class="openPopup" name="userID">Profile</a></li>
                                 <li><a href="#">Change password</a></li>
                                 <li><a href="CenterServlet?btAction=Log out">Log out</a></li>
                             </ul>
@@ -94,12 +94,16 @@
             </div>
         </nav>
 
-        
+
         <div style="background-color: #06213F">
             <div id="blanket" style="background-color: transparent">
-            <div style="margin-bottom: 30px; height: 45px">
-                
-            </div>
+                <div style="margin-bottom: 30px; height: 45px">
+
+                </div>
+
+                <div id="dialog-form" style="display: none; background-color: white">
+                    <form></form>
+                </div>
 
 
 
