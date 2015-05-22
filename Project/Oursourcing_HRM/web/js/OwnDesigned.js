@@ -84,15 +84,15 @@ function ChangeContentTab(contentTab) {
  */
 
 //<script>
-        $(function() {
-            var dialog, form,
-                    // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-                    emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-                    name = $("#name"),
-                    email = $("#email"),
-                    password = $("#password"),
-                    allFields = $([]).add(name).add(email).add(password),
-                    tips = $(".validateTips");
+$(function() {
+    var dialog, form,
+            // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+            emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+            name = $("#name"),
+            email = $("#email"),
+            password = $("#password"),
+            allFields = $([]).add(name).add(email).add(password),
+            tips = $(".validateTips");
 
 //            function updateTips(t) {
 //                tips
@@ -147,45 +147,60 @@ function ChangeContentTab(contentTab) {
 //                return valid;
 //            }
 
-            dialog = $("#dialog-form").dialog({
-                autoOpen: false,
-                height: 300,
-                width: 350,
-                modal: true,
+    dialog = $("#dialog-form").dialog({
+        autoOpen: false,
+        height: 300,
+        width: 350,
+        modal: true,
 //                buttons: {
 //                    "Create an account": addUser,
 //                    Cancel: function() {
 //                        dialog.dialog("close");
 //                    }
 //                },
-                close: function() {
-                    form[ 0 ].reset();
-                    allFields.removeClass("ui-state-error");
-                }
-            });
+        close: function() {
+            form[ 0 ].reset();
+            allFields.removeClass("ui-state-error");
+        }
+    });
 
-            form = dialog.find("form").on("submit", function(event) {
-                event.preventDefault();
+    form = dialog.find("form").on("submit", function(event) {
+        event.preventDefault();
 //                addUser();
-            });
+    });
 
-            $(".openPopupProfile").on("click", function() {
-                dialog.dialog("open");
-                var parameterIdFromLink = $(this).attr("name");
-                xmlhttp = new getXmlHttpRequestObject();
-                
-                if (xmlhttp) {
-                    locationP = "dialog-form";
-                    xmlhttp.open("POST", "employeePopup.jsp", true);
-                    xmlhttp.onreadystatechange = handleServletPost;
-                    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    xmlhttp.send("txtname=MHoang");
-                }
-                    
-            });
-        });
+    $(".openPopupProfile").on("click", function() {
+        dialog.dialog("open");
+        var parameterIdFromLink = $(this).attr("name");
+        xmlhttp = new getXmlHttpRequestObject();
+
+        if (xmlhttp) {
+            locationP = "dialog-form";
+            xmlhttp.open("POST", "employeePopup.jsp", true);
+            xmlhttp.onreadystatechange = handleServletPost;
+            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xmlhttp.send("txtname=MHoang");
+        }
+
+    });
+});
 //    </script>
 
+
+function changeProfile() {
+//    alert(document.getElementById("nameTest"));
+//    $(document).ready(function() {
+//        $(".profileTextbox").style.display = "block";
+//        $(".profileInfo").style.display = "none";
+//    });
+//    var tempInput = document.getElementById("nameTest");
+//    tempInput.style.display = "block";
+//    var tempInput = document.getElementsByClassName("profileTextbox");
+//    tempInput.style.display = "block";
+//    document.getElementsByClassName("profileTextbox").style.display = "block";
+    $(".profileTextbox").css("display", "block");
+    $(".profileInfo").css("display", "none");
+}
 
 /*------------------------------------------------------------------------------
  Kien

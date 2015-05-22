@@ -16,8 +16,8 @@
                     <label><font color="black">Department:</font></label>
                 </td>
                 <td style="width: 35%">
-                    <input type="text" id="name" name="date" style="display: none">
-                    <label>Department 1</label>
+                    <input type="text" id="name" class="profileTextbox" name="date" style="display: none">
+                    <label class="profileInfo">Department 1</label>
                 </td>
                 <td style="width: 15%">
                     <label><font color="black">Role:</font></label>
@@ -57,8 +57,8 @@
                     <label><font color="black">Phone:</font></label>
                 </td>
                 <td style="width: 35%">
-                    <input type="text" id="name" name="date" style="display: none">
-                    <label>8989898989</label>
+                    <input type="text" id="name" class="profileTextbox" name="date" style="display: none">
+                    <label class="profileInfo">8989898989</label>
                 </td>
             </tr>
             <tr style="background-color: inherit" >
@@ -66,13 +66,23 @@
                     <label><font color="black">Email:</font></label>
                 </td>
                 <td style="width: 35%">
-                    <input type="text" id="name" name="date" style="display: none">
-                    <label>Beca@gmail.com</label>
+                    <input type="text" id="nameTest" class="profileTextbox" name="date" style="display: none">
+                    <label class="profileInfo">Beca@gmail.com</label>
                 </td>
             </tr>
 
         </table>
-        <div class="btn-in-popup" style="margin-top: 25px" ><input type="button" class="btn-warning" value="Edit Profile" style="font-size: 24px;"/></div>
+        <div class="btn-in-popup" style="margin-top: 25px">
+            <input type="button" class="btn-warning editProfile" onclick="changeProfile()" value="Edit Profile" style="font-size: 24px;"/>
+        </div>
         <div class="btn-in-popup" style="margin-top: 25px; display: none" ><input class="btn btn-lg btn-success" type="Submit" value="Submit" /></div>
     </form>
 </div>
+<script>
+    $(".editProfile").on("click", function(){
+        $(".profileTextbox").style.display = "block";
+        $(".profileInfo").style.display = "none";
+    });
+    
+    
+</script>
