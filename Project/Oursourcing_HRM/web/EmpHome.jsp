@@ -124,38 +124,39 @@
                     </tbody>  
                 </table>  
             </div>
-            <div id="knowledge" hidden="true">
-                <h1 style="text-align: center">Project Knowledge</h1>
-                <input type="button" class="btn-success" value="Create new knowledge">
-                <table id="knowTable" class="table table-striped display">  
-                    <thead>  
-                        <tr>  
-                            <th>#</th>  
-                            <th>Discussion</th>  
-                            <th>Started by</th>  
-                            <th>Project name</th>  
-                            <th>Replies</th>  
-                            <th>Last post</th>  
-                            <th>?????????</th>
-                        </tr>  
-                    </thead>  
-                    <tbody>  
-                        <c:forEach begin="1" end="50" step="1" varStatus="counter">
-                            <tr>  
-                                <td>${counter.count}</td>  
-                                <td><a href="#">Anusha</a></td>  
-                                <td>${acc.username}</td>  
-                                <td>OHRM</td>  
-                                <td>7</td>  
-                                <td>18/05/2015</td>  
-                                <td>?????</td>  
-                            </tr>  
-                        </c:forEach>
-                    </tbody>  
-                </table>  
-            </div>
+            
+                        <div id="knowledge" hidden="true">
+                            <h1 style="text-align: center">Project Knowledge</h1>
+                            <input type="button" class="btn-success" value="Create new knowledge">
+                            <table id="knowTable" class="table table-striped display">  
+                                <thead>  
+                                    <tr>  
+                                        <th>#</th>  
+                                        <th>Discussion</th>  
+                                        <th>Started by</th>  
+                                        <th>Project name</th>  
+                                        <th>Replies</th>  
+                                        <th>Last post</th>  
+                                        <th>?????????</th>
+                                    </tr>  
+                                </thead>  
+                                <tbody>  
+                                    <c:forEach begin="1" end="50" step="1" varStatus="counter">
+                                        <tr>  
+                                            <td>${counter.count}</td>  
+                                            <td><a href="#">Anusha</a></td>  
+                                            <td>${acc.username}</td>  
+                                            <td>OHRM</td>  
+                                            <td>7</td>  
+                                            <td>18/05/2015</td>  
+                                            <td>?????</td>  
+                                        </tr>  
+                                    </c:forEach>
+                                </tbody>  
+                            </table>  
+                        </div>
 
-        </main>
-    </div>
+                        </main>
+                        </div>
 
-    <%@include file="firstFoot.jsp" %>
+                        <%@include file="firstFoot.jsp" %>

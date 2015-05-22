@@ -119,6 +119,7 @@ label.light {
 }
 
 .form-search input[type="text"] {
+    margin: 0 0 20px 0;
     width: 70%;
 }
 
