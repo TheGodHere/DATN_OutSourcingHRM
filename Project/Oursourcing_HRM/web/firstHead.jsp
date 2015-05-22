@@ -94,14 +94,11 @@
             </div>
         </nav>
 
+        
         <div style="background-color: #06213F">
-
-            <div class="container theme-showcase" role="main">
-
-                <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron-customized">
-                    <img src="img/Homepage.png" alt="some_text" >                    
-                </div>
+            <div id="blanket" style="background-color: transparent">
+            <div style="margin-bottom: 30px; height: 45px">
+                
             </div>
 
 
