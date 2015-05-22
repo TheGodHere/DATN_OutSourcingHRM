@@ -169,7 +169,7 @@ function ChangeContentTab(contentTab) {
 //                addUser();
             });
 
-            $(".openPopup").on("click", function() {
+            $(".openPopupProfile").on("click", function() {
                 dialog.dialog("open");
                 var parameterIdFromLink = $(this).attr("name");
                 xmlhttp = new getXmlHttpRequestObject();

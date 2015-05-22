@@ -83,7 +83,7 @@
                                 <c:set var="acc" value="${sessionScope.USERACCOUNT[0]}"/>
                                 Welcome, ${acc.username}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#" class="openPopup" name="userID">Profile</a></li>
+                                <li><a href="#" class="openPopupProfile" name="userID">Profile</a></li>
                                 <li><a href="#">Change password</a></li>
                                 <li><a href="CenterServlet?btAction=Log out">Log out</a></li>
                             </ul>

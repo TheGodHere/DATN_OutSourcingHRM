@@ -57,7 +57,7 @@
 
                         <tr>
                             <td>1</td>
-                            <td><a href="#" class="openPopup" name="beca">Beca</a></td>
+                            <td><a href="#" class="openPopupProfile" name="beca">Beca</a></td>
                             <td>Department 1</td>
                             <td>Manager</td>
                             <td>09/12/1989</td>
@@ -66,7 +66,7 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><a href="#" class="openPopup" name="chloe">Chloe</a></td>
+                            <td><a href="#" class="openPopupProfile" name="chloe">Chloe</a></td>
                             <td>Department 2</td>
                             <td>Developer</td>
                             <td>08/11/1989</td>
@@ -75,7 +75,7 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td><a href="#" class="openPopup" name="amy">Amy</a></td>
+                            <td><a href="#" class="openPopupProfile" name="amy">Amy</a></td>
                             <td>Department 3</td>
                             <td>Tester</td>
                             <td>16/03/1989</td>
