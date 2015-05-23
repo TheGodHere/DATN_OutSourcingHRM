@@ -20,7 +20,7 @@
 <div class="wrapper row3">
     <div class="rounded">
         <main class="container clear" style="width: 100%">
-            <div>
+            <div style="font-weight: 700; color: #333;">
                 <h1 style="text-align: center">Search Project</h1>
                 <div >
                     Year 
@@ -40,7 +40,7 @@
                     <thead>  
                         <tr>  
                             <th>#</th>  
-                            <th>Project</th>  
+                            <th>Project Name</th>  
                             <th>Manager</th>  
                             <th>Language</th>  
                             <th>Start date</th>  
@@ -51,12 +51,30 @@
                     <tbody>  
                         <tr>  
                             <td>001</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
-                            <td>Anusha</td>  
-                            <td>India</td>  
-                            <td>10000</td>  
+                            <td>Accounting</td>  
+                            <td>Anna</td>  
+                            <td>Java</td>  
+                            <td>22/06/2015</td>  
+                            <td>15</td>  
+                            <td>Pitch Inc</td>  
+                        </tr>  
+                        <tr>  
+                            <td>001</td>  
+                            <td>Accounting</td>  
+                            <td>Anna</td>  
+                            <td>Java</td>  
+                            <td>22/06/2015</td>  
+                            <td>15</td>  
+                            <td>Pitch Inc</td> 
+                        </tr>  
+                        <tr>  
+                            <td>001</td>  
+                            <td>Accounting</td>  
+                            <td>Anna</td>  
+                            <td>Java</td>  
+                            <td>22/06/2015</td>  
+                            <td>15</td>  
+                            <td>Pitch Inc</td> 
                         </tr>  
                     </tbody>  
                 </table>
