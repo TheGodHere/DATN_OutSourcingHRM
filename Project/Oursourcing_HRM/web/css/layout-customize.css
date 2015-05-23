@@ -434,6 +434,29 @@ table a, #comments a{background-color:inherit;}
     margin: 0 0 0 0 !important;
 }
 
+
+.table tbody tr .tdCenter {
+    text-align: center;
+}
+.table tbody tr .tdFix{
+    display:  block;
+    width: 417px;
+    height: 43px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.datepicker_customize {
+    width: 230px !important;
+    position: absolute;
+    top: 249px;
+    left: 316.5px;
+    z-index: 1;
+    display: block;
+}
+
+
 .tableInPopup {
     width: 100%;
 }
@@ -441,6 +464,7 @@ table a, #comments a{background-color:inherit;}
 .tableInPopup tbody tr {
     background-color: inherit;
 }
+
 
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
