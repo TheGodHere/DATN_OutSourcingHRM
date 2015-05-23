@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginServlet extends HttpServlet {
     private final String loginPage = "Login.jsp";
-    private final String homePage = "Homepage.jsp";
+    private final String homePage = "ManagerHome.jsp";
     
 
     /**

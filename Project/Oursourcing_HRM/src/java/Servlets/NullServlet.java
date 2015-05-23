@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 public class NullServlet extends HttpServlet {
 
     private final String loginPage = "Login.jsp";
-    private final String homePage = "Homepage.jsp";
+    private final String homePage = "ManagerHome.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
