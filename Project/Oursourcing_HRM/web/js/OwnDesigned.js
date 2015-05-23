@@ -188,18 +188,17 @@ $(function() {
 
 
 function changeProfile() {
-//    alert(document.getElementById("nameTest"));
-//    $(document).ready(function() {
-//        $(".profileTextbox").style.display = "block";
-//        $(".profileInfo").style.display = "none";
-//    });
-//    var tempInput = document.getElementById("nameTest");
-//    tempInput.style.display = "block";
-//    var tempInput = document.getElementsByClassName("profileTextbox");
-//    tempInput.style.display = "block";
-//    document.getElementsByClassName("profileTextbox").style.display = "block";
     $(".profileTextbox").css("display", "block");
     $(".profileInfo").css("display", "none");
+    $("#btn-Editprofile").css("display", "none");
+    $("#btn-Submitprofile").css("display", "block");
+}
+
+function submitProfile() {
+    $(".profileTextbox").css("display", "none");
+    $(".profileInfo").css("display", "block");
+    $("#btn-Editprofile").css("display", "block");
+    $("#btn-Submitprofile").css("display", "none");
 }
 
 /*------------------------------------------------------------------------------

@@ -414,7 +414,7 @@ table a, #comments a{background-color:inherit;}
     border: 1px solid #aaaaaa;
     background: #D4F4C1 50% 50% repeat-x;
     color: #222222;
-    overflow: hidden;
+    overflow: auto;
     padding: .2em;
     outline: 0;
 }
@@ -432,6 +432,14 @@ table a, #comments a{background-color:inherit;}
 
 .profileTextbox {
     margin: 0 0 0 0 !important;
+}
+
+.tableInPopup {
+    width: 100%;
+}
+
+.tableInPopup tbody tr {
+    background-color: inherit;
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
