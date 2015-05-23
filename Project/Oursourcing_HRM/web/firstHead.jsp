@@ -43,7 +43,7 @@
 //                $('#myTable').dataTable();
 //            });
             $(document).ready(function() {
-                $('#example').dataTable({
+                $('#projectTbl').dataTable({
                     "pagingType": "full_numbers"
                 });
                 $('#empTable').dataTable({
