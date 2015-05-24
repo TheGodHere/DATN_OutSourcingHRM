@@ -1,0 +1,24 @@
+Database
+-Knowledge: lastEdit, numOfCmt -> replies, isClose 
+-Comment: lastEdit
+-Recruitment: isApprove, isClose
+-ProjectMember: isApprove
+-Timesheet: ko can managerID
+
+------
+Classdiagram ver database
+-Evaluation: projectName
+-Position: quan he 1-0..n
+Thieu quan he giua Account va Project -> DirectorID
+
+---------
+ERD
+Thieu quan he Director approve ProjectMember
+Thieu quan he Director approve Recruitment
+Quan he giua Knowledge: phai co nguoi create -> can abstract
+Tuong chu cho comment
+
+---------
+Class diagram ver ERD
+-HR: Khong co department
+Quan he aggressive?
