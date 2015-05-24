@@ -77,7 +77,7 @@
                                     <label class="projectInfo">18/09/2015 </label>
                                 </td> 
                             </tr>                           
-                            
+
                         </table>
 
                         <div id="btn-Editproject" class="btn-in-popup" style="margin-top: 25px" >
@@ -137,20 +137,117 @@
                             <button type="button" class="btn btn-success assignPopup" style="width: auto">Add more engineers</button>
                         </div>
                     </div>
+
+                    <div id="knowledge" style="display: none">
+                        <div class="tab-content" style="margin-top: 20px">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Topics</th>
+                                    <th>Project</th>
+                                    <th>Replies</th>
+                                    <th>Last comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
+                                        <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                    </td>
+                                    <td>Outsourcing HR Management</td>
+                                    <td>50</td>
+                                    <td>HoangLM2 <br/>
+                                        05/22/2015, 10:34:22 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
+                                        <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                    </td>
+                                    <td>Outsourcing HR Management</td>
+                                    <td>50</td>
+                                    <td>HoangLM2 <br/>
+                                        05/22/2015, 10:34:22 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
+                                        <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                    </td>
+                                    <td>Outsourcing HR Management</td>
+                                    <td>50</td>
+                                    <td>HoangLM2 <br/>
+                                        05/22/2015, 10:34:22 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="number-paging" style="float: right">
+                            <c:if test="${curpage == 1}">
+                                <a href="#" class="current-page">1</a>
+                            </c:if>
+                            <c:if test="${curpage == 2}">
+                                <a href="${urlQ}&page=1">1</a>
+                                <a href="#" class="current-page">2</a>
+                            </c:if>
+                            <c:if test="${curpage == 3}">
+                                <a href="${urlQ}&page=1">1</a>
+                                <a href="${urlQ}&page=2">2</a>
+                                <a href="#" class="current-page">3</a>
+                            </c:if>
+                            <c:if test="${curpage == 4}">
+                                <a href="${urlQ}&page=1">1</a>
+                                <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
+                                <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
+                                <a href="#" class="current-page">${curpage}</a>
+                            </c:if>
+                            <c:if test="${curpage > 4}">
+                                <a href="${urlQ}&page=1">1</a>
+                                ...
+                                <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
+                                <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
+                                <a href="#" class="current-page">${curpage}</a>
+                            </c:if>
+
+                            <%--After page--%>    
+
+                            <c:if test="${maxpage - curpage == 1}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                            </c:if>
+                            <c:if test="${maxpage - curpage == 2}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                                <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                            </c:if>
+                            <c:if test="${maxpage - curpage == 3}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                                <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                                <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
+                            </c:if>
+                            <c:if test="${maxpage - curpage > 3}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                                <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                                ...
+                                <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
+                            </c:if>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-        </main>
     </div>
-    <script type="text/javascript">
-        function tab(tab) {
-            document.getElementById('info').style.display = 'none';
-            document.getElementById('employee').style.display = 'none';            
-            document.getElementById('li_tab1').setAttribute("class", "");
-            document.getElementById('li_tab2').setAttribute("class", "");            
-            document.getElementById(tab).style.display = 'block';
-            document.getElementById('li_' + tab).setAttribute("class", "active");
-        }
-    </script>
-    <%@include file="firstFoot.jsp" %>
+</main>
+</div>
+<script type="text/javascript">
+    function tab(tab) {
+        document.getElementById('info').style.display = 'none';
+        document.getElementById('employee').style.display = 'none';
+        document.getElementById('li_tab1').setAttribute("class", "");
+        document.getElementById('li_tab2').setAttribute("class", "");
+        document.getElementById(tab).style.display = 'block';
+        document.getElementById('li_' + tab).setAttribute("class", "active");
+    }
+</script>
+<%@include file="firstFoot.jsp" %>
 
 

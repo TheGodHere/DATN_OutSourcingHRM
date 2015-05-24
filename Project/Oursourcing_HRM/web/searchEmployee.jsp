@@ -1,5 +1,23 @@
 <%@include file="firstHead.jsp" %>
 
+<c:set var="maxpage" value="11" />
+<c:set var="curpage" value="${param.page}" />
+<c:set var="dept" value="${param.dept}" />
+<c:set var="searchQ" value="${param.searchQ}" />
+<c:if test="${empty dept}">
+    <c:set var="dept" value="all"/>
+</c:if>
+<c:set var="urlQ" value="searchEmployee.jsp?dept=${dept}" />
+<c:if test="${not empty searchQ}" >
+    <c:set var="searchQ" value="${urlQ}&code=${searchQ}" />
+</c:if>
+
+<c:if test="${empty curpage}">
+    <c:set var="curpage" value="1"/>
+</c:if>
+
+
+
 <div class="wrapper row2">
     <div class="rounded">
         <nav id="mainav" class="mainav"> 
@@ -84,14 +102,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <ul class="pagination">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a>.....</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                </ul>
+
             </div>
         </main>
     </div>
