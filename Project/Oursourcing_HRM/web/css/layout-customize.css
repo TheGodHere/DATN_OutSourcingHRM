@@ -535,6 +535,99 @@ table a, #comments a{background-color:inherit;}
 }
 
 
+.posthead {
+    background-color: #43A6DF;
+    color: white;
+}
+
+.topic-control {
+    background-color: rgb(239, 245, 243);
+    float: right;
+    font-style: italic;
+    color: #979797;
+}
+
+.userInfo {
+    width: 20%;
+    text-align: center;
+    background-color: #e5edf2;
+}
+
+.userInfo label:first-child {
+    color: black;
+    font-size: 18px;
+}
+
+.userInfo label:nth-child(3) {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.knowledge-topic-title {
+    height: 45px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid gray;
+    color: blue;
+}
+
+.knowledge-topic-comment {
+    height: 35px;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 700;
+    border-bottom: 1px solid gray;
+    color: blue;
+}
+
+.knowledge-topic-content {
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.knowledge-topic {
+    width: 100% !important;
+}
+
+.knowledge-topic tbody {
+    vertical-align: top;
+}
+
+.editKnowledge {
+    width: 50px;
+    height: 30px;
+    float: right;
+        
+}
+
+.topic-comment {
+    margin-top: 40px;
+    margin-left: 60px;
+}
+
+.commenthead {
+    background-color: gray;
+    color: white;
+}
+
+.number-paging {
+    float: right;
+    font-size: 16px;
+}
+
+.number-paging a {
+    padding: 5px 5px;
+}
+
+.number-paging .current-page {
+    font-weight: 900;
+    background-color: orange;
+}
+
+
+
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
