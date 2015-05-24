@@ -183,7 +183,7 @@ $(function() {
         }
 
     });
-    
+
     $(".assignPopup").on("click", function() {
         dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
@@ -198,8 +198,8 @@ $(function() {
         }
 
     });
-    
-     $(".openPopupAppraisal").on("click", function() {
+
+    $(".openPopupAppraisal").on("click", function() {
         dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
         xmlhttp = new getXmlHttpRequestObject();
@@ -230,6 +230,28 @@ function submitProfile() {
     $("#btn-Editprofile").css("display", "block");
     $("#btn-Submitprofile").css("display", "none");
 }
+
+
+/*This is for knowledgeDetail.jsp only*/
+var commentID = 0;
+function editComment(commentName) {
+    commentID = commentName;
+    var commentContent = document.getElementById("comment" + commentName).innerHTML;
+    document.getElementById("newComment").innerHTML = commentContent;
+    document.getElementById("newComment").focus();
+    $("#stopEdit").css("display", "block");
+}
+
+function stopEditComment() {
+    document.getElementById("newComment").innerHTML = "";
+    $("#stopEdit").css("display", "none");
+    document.getElementById("comment" + commentID).focus();
+    document.getElementById('formComment').onsubmit = function() {
+        return false;
+    };
+    commentID = 0;
+}
+
 
 /*------------------------------------------------------------------------------
  Kien

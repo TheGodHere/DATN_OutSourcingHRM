@@ -52,7 +52,8 @@
                                 </td>
                                 <td>
                                     <div class="knowledge-topic-title">Question: Where should we put SRS files?
-                                        <button type="button" class="btn btn-warning editKnowledge">Edit</button>
+                                        <button type="button" class="btn btn-warning editKnowledge">
+                                            Edit</button>
                                     </div>
 
                                     <div class="knowledge-topic-content">I need to confirm customer's answer with the SRS documents. 
@@ -76,11 +77,12 @@
                                 </td>
                                 <td>
                                     <div class="knowledge-topic-comment">Re:Question: Where should we put SRS files?
-                                        <button type="button" class="btn btn-warning editKnowledge">Edit</button>
+                                        <button type="button" class="btn btn-warning editComment" onclick="editComment(1)">
+                                            Edit</button>
                                     </div>
 
-                                    <div class="knowledge-topic-content">I need to confirm customer's answer with the SRS documents. 
-                                        Where can I found it in the tree project.
+                                    <div id="comment1" class="knowledge-topic-content">
+                                        I need to confirm customer's answer with the SRS documents. Where can I found it in the tree project.
                                     </div>
                                 </td>
                             </tr>
@@ -101,10 +103,11 @@
                                 </td>
                                 <td>
                                     <div class="knowledge-topic-comment">Re:Question: Where should we put SRS files?
-                                        <button type="button" class="btn btn-warning editKnowledge">Edit</button>
+                                        <button type="button" class="btn btn-warning editComment" onclick="editComment(2)">
+                                            Edit</button>
                                     </div>
 
-                                    <div class="knowledge-topic-content">Who knows.
+                                    <div id="comment2" class="knowledge-topic-content">Who knows.
                                     </div>
                                 </td>
                             </tr>
@@ -114,9 +117,6 @@
                 </div>
                 <%-- END COMMENT --%>
             </div>
-
-
-
 
             <div class="number-paging" style="float: right">
                 <a href="#">1</a>
@@ -129,17 +129,22 @@
                 ...
                 <a href="#">11</a>
             </div>
-            <%-- NEW COMMENT --%>
+            <%-- BEGIN ADD NEW COMMENT --%>
             <div class="panel new-comment" style="margin-top: 60px">
                 <div class="commenthead">Add new comment</div>
-                <form style="max-width: inherit; margin: 0 0">
-                    <textarea style="height: 100px; width: 100%; background-color: white"></textarea>
+                
+                <form id="formComment" style="max-width: inherit; margin: 0 0">
+                    <textarea id="newComment" style="height: 100px; width: 100%; background-color: white"></textarea>
                     <div style="height: 30px">
+                        
                         <input type="submit" class="btn btn-success" value="Send" style="float: right"/>
+                        <button class="btn btn-warning" id="stopEdit" onclick="stopEditComment()">Stop editting</button>
                     </div>
+                    
                 </form>
+                
             </div>
-            <%-- END NEW COMMENT --%>
+            <%-- END ADD NEW COMMENT --%>
     </div>
 </main>
 </div>

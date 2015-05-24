@@ -5438,6 +5438,7 @@ $.extend(Datepicker.prototype, {
 			"<a class='ui-datepicker-next ui-corner-all' data-handler='next' data-event='click'" +
 			" title='" + nextText + "'><img src='img/next.png' /></a>" :
 			(hideIfNoPrevNext ? "" : "<a class='ui-datepicker-next ui-corner-all ui-state-disabled' title='"+ nextText + "'><img src='img/next.png' /></a>"));
+
 		currentText = this._get(inst, "currentText");
 		gotoDate = (this._get(inst, "gotoCurrent") && inst.currentDay ? currentDate : today);
 		currentText = (!navigationAsDateFormat ? currentText :
@@ -8400,7 +8401,7 @@ var dialog = $.widget( "ui.dialog", {
 
 	_createWrapper: function() {
 		this.uiDialog = $("<div>")
-			.addClass( "ui-dialog ui-widget ui-widget-content ui-corner-all ui-front " +
+			.addClass( "ui-dialog ui-widget ui-widget-content ui-front-div ui-corner-all ui-front " +
 				this.options.dialogClass )
 			.hide()
 			.attr({
@@ -8477,7 +8478,7 @@ var dialog = $.widget( "ui.dialog", {
 		// support: IE
 		// Use type="button" to prevent enter keypresses in textboxes from closing the
 		// dialog in IE (#9312)
-		this.uiDialogTitlebarClose = $( "<button type='button'></button>" )
+		this.uiDialogTitlebarClose = $( "<button type='button'>Close</button>" )
 			.button({
 				label: this.options.closeText,
 				icons: {
@@ -8486,6 +8487,7 @@ var dialog = $.widget( "ui.dialog", {
 				text: false
 			})
 			.addClass( "ui-dialog-titlebar-close" )
+			.addClass( "bt btn-danger btn-sm" )
 			.appendTo( this.uiDialogTitlebar );
 		this._on( this.uiDialogTitlebarClose, {
 			click: function( event ) {
@@ -8914,7 +8916,8 @@ var dialog = $.widget( "ui.dialog", {
 		}
 
 		this.overlay = $( "<div>" )
-			.addClass( "ui-widget-overlay ui-front" )
+//			.addClass( "ui-widget-overlay ui-front" )
+			.addClass( "ui-overlay" )
 			.appendTo( this._appendTo() );
 		this._on( this.overlay, {
 			mousedown: "_keepFocus"
