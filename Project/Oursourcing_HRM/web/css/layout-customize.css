@@ -362,18 +362,21 @@ table a, #comments a{background-color:inherit;}
 
 .ul-navtabs li {
     display: block;
-    background-color: #1fae66;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 5px;
     width: 150px;
-    border-right: cornsilk solid;
+    border: #C7B5B5 double;
     text-align: center;
 }
 
 .ul-navtabs li a {
-    color: white;
     padding: 0px !important;
+    color: black;
+}
 
+.ul-navtabs .active {
+    background-color: #EFFF00;
 }
 
 /* 4rum css */
@@ -639,6 +642,13 @@ table a, #comments a{background-color:inherit;}
     width: 100px; 
     margin-right: 10px
 }
+
+/*For searchKnowledge page only*/
+.navbar-knowledge input[type=submit] {
+    background-color: inherit;
+    padding: 0 0;
+}
+
 
 
 /* ------------------------------------------------------------------------------------------------------------ */
