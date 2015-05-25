@@ -2,9 +2,10 @@ Database
 -Knowledge: lastEdit, numOfCmt -> replies, isClose 
 -Comment: lastEdit
 -Recruitment: isApprove, isClose
--ProjectMember: isApprove
+-ProjectMember: isApprove, removeDate
 -Timesheet: ko can managerID
-
+-Account: address
+===>Edited: PhuocNH
 ------
 Classdiagram ver database
 -Evaluation: projectName

@@ -1,0 +1,10 @@
+Project:
+	View history
+Knowledge:
+	Reply/quote/thank
+review:
+	khi reject co giai thich ly do ko?
+Manager:
+	danh gia manager
+
+
