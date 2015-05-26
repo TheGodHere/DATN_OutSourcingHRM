@@ -657,6 +657,13 @@ table a, #comments a{background-color:inherit;}
     padding: 0 0;
 }
 
+/*For createKnowledge page only*/
+.knowledge-topic-header {
+    height: 45px;
+    background-color: #2E3539;
+    color: white;
+    margin: auto 0;
+}
 .editableTable { 
     /*border:solid 1px;*/ 
     width:100% 
@@ -672,6 +679,20 @@ table a, #comments a{background-color:inherit;}
     border:0; 
     background-color:rgb(255,253,210); 
 }
+
+.knowledge-title-textbox {
+    background-color: white !important; 
+    width: 50% !important;
+    margin: 5px 0 10px 0 !important;
+}
+
+.commentContent-textarea {
+    height: 100px; 
+    width: 100%; 
+    background-color: white;
+    margin: 5px 0 10px 0; 
+}
+
 
 
 

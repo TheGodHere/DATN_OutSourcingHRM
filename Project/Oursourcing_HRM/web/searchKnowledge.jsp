@@ -39,9 +39,12 @@
             <div>
                 <h1 style="text-align: center">Knowledge</h1>
 
-                <form style="max-width: none; padding: 0">
+                <form action="createKnowledge.jsp" style="max-width: none; padding: 0">
+                    <input type="hidden" name="projectCode" value="OHRM" readonly="readonly" />
                     <input type="submit" class="btn btn-success" value="Create new knowledge" 
                            style="float: right">
+                </form>
+                <form style="max-width: none; padding: 0">
                     <ul class="nav nav-tabs ul-navtabs">
                         <c:if test="${typeQ eq 'All knowledge'}" >
                             <li id="allKnowledge" class="navbar-knowledge active">
@@ -188,7 +191,7 @@
                                 </tr>  
                             </thead>  
                             <tbody>  
-                                
+
                                 <tr>  
                                     <td>001</td>  
                                     <td>OHRM</td>  
@@ -215,7 +218,7 @@
                                     <td>22/06/2015</td>  
                                     <td>Pitch Inc</td> 
                                 </tr>  
-                                
+
                                 <%--<%@include file="testPopup.jsp" %>--%>
                             </tbody>  
                         </table>
