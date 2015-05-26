@@ -436,6 +436,11 @@ table a, #comments a{background-color:inherit;}
 .profileTextbox {
     margin: 0 0 0 0 !important;
 }
+.accountTextbox {
+    margin: 0 0 0 0 !important;
+}
+
+
 
 
 .dataTables_length {
@@ -535,6 +540,9 @@ table a, #comments a{background-color:inherit;}
 
 .tableInPopup tbody tr {
     background-color: inherit;
+}
+.tablecreate tbody tr td input[type="text"]{
+    margin: 10px 0;
 }
 
 

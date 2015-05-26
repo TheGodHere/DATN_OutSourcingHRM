@@ -20,6 +20,7 @@
 <div class="wrapper row3">
     <div class="rounded">
         <main class="container clear" style="width: 100%">
+            <h1 style="text-align: center">Project Details</h1>
             <div id="tabs">
                 <ul>
                     <li id="li_tab1" onclick="tab('info')"><a>Info</a></li>
