@@ -482,13 +482,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">468</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">788</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">166</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">179</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">O9pbIioAyU6hEoboEO9+UAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="nWpNzCmgKUuaww2K5VTkegAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Zs0AR7Lpu0WkwpllP0tiPwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Evaluate engineer</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Evaluate period time</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="hLOhgL66P0Kj6y/qQgQbUgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2843,7 +2843,7 @@
 <XPD:OBJ name="OwnedViews[65]" type="UMLAssociationView" guid="gbcKjr2wp0q1IRYrCZU0uwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">468,795;104,726</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">468,793;104,726</XPD:ATTR>
 <XPD:REF name="Model">DUAvFvrwoUO4Np6PJTo3rAAA</XPD:REF>
 <XPD:REF name="Head">n7dw68Fmt0+Et2oFQ2nFNAAA</XPD:REF>
 <XPD:REF name="Tail">GxBuRVem8U6Q9sDMVoeDlgAA</XPD:REF>
@@ -5496,7 +5496,7 @@
 <XPD:REF name="Views[3]">gIiWQOPF702eh/NhIew54QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[18]" type="UMLUseCase" guid="O9pbIioAyU6hEoboEO9+UAAA">
-<XPD:ATTR name="Name" type="string">Evaluate engineer</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Evaluate period time</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">GxBuRVem8U6Q9sDMVoeDlgAA</XPD:REF>
