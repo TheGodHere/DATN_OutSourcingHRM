@@ -1,4 +1,4 @@
-
+a
 $(document).ready(function() {
     $(".navbar-main").click(function() {
         $(".navbar-main").removeClass("active");
@@ -198,6 +198,7 @@ $(function() {
         }
 
     });
+    
 
     $(".openPopupAppraisal").on("click", function() {
         dialog.dialog("open");
@@ -216,6 +217,22 @@ $(function() {
 });
 //    </script>
 
+/*This is for searchAccount.jsp only*/
+function changeAccount(row) {
+    $(".accountTextbox"+row).css("display", "block");    
+    $(".accountInfo"+row).css("display", "none");    
+    $("#btn-Editaccount"+row).css("display", "none");
+    $("#btn-Submitaccount"+row).css("display", "block");
+}
+
+function submitAccount(row) {
+    $(".accountTextbox"+row).css("display", "none");    
+    $(".accountInfo"+row).css("display", "block");    
+    $("#btn-Editaccount"+row).css("display", "block");
+    $("#btn-Submitaccount"+row).css("display", "none");
+}
+
+/*This is for employeePopup.jsp only*/
 
 function changeProfile() {
     $(".profileTextbox").css("display", "block");
