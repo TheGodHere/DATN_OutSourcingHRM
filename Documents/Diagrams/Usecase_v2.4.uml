@@ -1469,7 +1469,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="im6Ann5nFk2fxdpZNEfoswAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="lZWRpomnt0qkZjBNc024dAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Edit appraisal criteriton</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Edit evaluation criteriton</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="AK/b+6SX9UCXfzMi/xujBQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -3842,13 +3842,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">760</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">420</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">195</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">206</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">hatIUvLmmk6tVT0v7gwPlQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="6RfxQWPQ/UqtnaD0iu0LSAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="oXqgBcOy1USz58HLrbQlxQAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Add appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Add evaluation criterion</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="xL7RME3WE02ZA3dv1/NDtAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -3908,13 +3908,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">796</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">524</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">230</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">241</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">IQ+MbuihskSz4jgYjIuAhwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="+iV5kSDtVU6+CqFlkxZ3bwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="x/AjlE8Ca0OmCv0r1HQ/VgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Remove appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Remove evaluation criterion</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="I26hgeivrUGta5D0IyW3EwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -4050,7 +4050,7 @@
 <XPD:OBJ name="OwnedViews[94]" type="UMLGeneralizationView" guid="MwQTKbQ62kGKylkZhBiD/AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">954,456;1024,466</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">965,457;1024,466</XPD:ATTR>
 <XPD:REF name="Model">PVaqqA2jYkS9QAEFr1+X1AAA</XPD:REF>
 <XPD:REF name="Head">Nodvuru0hUyEClHr3UPYeAAA</XPD:REF>
 <XPD:REF name="Tail">WFKyYfVpHkudHCWjnpOtxQAA</XPD:REF>
@@ -4102,7 +4102,7 @@
 <XPD:OBJ name="OwnedViews[96]" type="UMLGeneralizationView" guid="tMYjzVC+4Um2zDkCBsAjlAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">988,524;1059,504</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">992,524;1061,504</XPD:ATTR>
 <XPD:REF name="Model">Yky+1ZmFfUCSgACsT7Ym6gAA</XPD:REF>
 <XPD:REF name="Head">Nodvuru0hUyEClHr3UPYeAAA</XPD:REF>
 <XPD:REF name="Tail">aDtaCrWLQUuqW31LnJqWxgAA</XPD:REF>
@@ -5729,13 +5729,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">804</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">804</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">195</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">206</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">hatIUvLmmk6tVT0v7gwPlQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="KV78PybOHUKRl6+ZbFPQFQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="2kxsMT2dfk6jBYFKTRyk7QAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Add appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Add evaluation criterion</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="PdYEhSrtbU2LKOCSbxWELgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5768,7 +5768,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="h3R5Z/tX0kK/NQxY/chODgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Emj8aixevkeDC0mmAH4NFwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Edit appraisal criteriton</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Edit evaluation criteriton</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="InOuXm4wBkKVxJW7rwTpEwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5795,13 +5795,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">1012</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">968</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">230</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">241</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">IQ+MbuihskSz4jgYjIuAhwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="FJlo2OrxJECqjggFgb8cHgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="VUez007bskKKRJbQIDDD5AAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Remove appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Remove evaluation criterion</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="kHLzols9IEyaYrxjSPTvewAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5826,7 +5826,7 @@
 <XPD:OBJ name="OwnedViews[129]" type="UMLGeneralizationView" guid="bgFKB+fG7kSelqpch+rwggAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">981,848;1054,868</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">985,848;1056,868</XPD:ATTR>
 <XPD:REF name="Model">7lUrk5YhhEyYihWWvpVLzAAA</XPD:REF>
 <XPD:REF name="Head">U6vA36ebXEKoTfK3XHq7XgAA</XPD:REF>
 <XPD:REF name="Tail">f1lt9RlIUkq5+yqyLN6NfgAA</XPD:REF>
@@ -5878,7 +5878,7 @@
 <XPD:OBJ name="OwnedViews[131]" type="UMLGeneralizationView" guid="InPpaO1IqU2T6KmnIJJMiQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1128,968;1133,912</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1133,968;1134,912</XPD:ATTR>
 <XPD:REF name="Model">H9nPjHZulkq+Zm7t6smpwgAA</XPD:REF>
 <XPD:REF name="Head">U6vA36ebXEKoTfK3XHq7XgAA</XPD:REF>
 <XPD:REF name="Tail">aEaIBM6uuU2kWzE12MJIcwAA</XPD:REF>
@@ -6869,7 +6869,7 @@
 <XPD:REF name="Associations[0]">zkWopurlCEGY7U6Wkhcg1wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[60]" type="UMLUseCase" guid="zi5gIjs1ZkWDYcrUE9GMmQAA">
-<XPD:ATTR name="Name" type="string">Edit appraisal criteriton</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Edit evaluation criteriton</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">8</XPD:ATTR>
 <XPD:REF name="Views[0]">Z+pNU0PMGkunOrWEYnnnVQAA</XPD:REF>
@@ -7933,7 +7933,7 @@
 <XPD:REF name="Generalizations[0]">ss9vEYHm90+mfCdpjsm+WQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[138]" type="UMLUseCase" guid="hatIUvLmmk6tVT0v7gwPlQAA">
-<XPD:ATTR name="Name" type="string">Add appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Add evaluation criterion</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">8</XPD:ATTR>
 <XPD:REF name="Views[0]">WFKyYfVpHkudHCWjnpOtxQAA</XPD:REF>
@@ -7960,7 +7960,7 @@
 <XPD:REF name="Generalizations[0]">mSwlWyACyUuyfIp+w0UDgQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[140]" type="UMLUseCase" guid="IQ+MbuihskSz4jgYjIuAhwAA">
-<XPD:ATTR name="Name" type="string">Remove appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Remove evaluation criterion</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">8</XPD:ATTR>
 <XPD:REF name="Views[0]">aDtaCrWLQUuqW31LnJqWxgAA</XPD:REF>
