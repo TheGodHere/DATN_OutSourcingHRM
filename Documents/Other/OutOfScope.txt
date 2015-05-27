@@ -5,6 +5,6 @@ Knowledge:
 review:
 	khi reject co giai thich ly do ko?
 Manager:
-	danh gia manager
+	danh gia manager dinh ky
 
 
