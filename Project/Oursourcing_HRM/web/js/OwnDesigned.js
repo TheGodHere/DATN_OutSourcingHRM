@@ -1,4 +1,4 @@
-a
+
 $(document).ready(function() {
     $(".navbar-main").click(function() {
         $(".navbar-main").removeClass("active");

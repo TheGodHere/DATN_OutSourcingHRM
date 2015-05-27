@@ -46,7 +46,7 @@ public class AccountDAO implements Serializable {
                     String _username = rs.getString("username");
                     String _password = rs.getString("password");
                     String title = rs.getString("title");
-                    AccountDTO dto = new AccountDTO(_username, _password, title);
+                    AccountDTO dto = new AccountDTO(_username, _password);
                     listObj.add(dto);
                 }
             } catch (SQLException ex) {

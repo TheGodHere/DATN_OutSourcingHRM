@@ -1,5 +1,7 @@
 <%@include file="firstHead.jsp" %>
 
+<c:set var="result" value="${requestScope.result}" />
+
 <c:set var="maxpage" value="11" />
 <c:set var="curpage" value="${param.page}" />
 <c:set var="dept" value="${param.dept}" />
@@ -47,15 +49,15 @@
                         <input type="submit" value="Search"/>
                     </form>
                     <!--</div>-->
-                    Department <select style=" width: 15%" onchange="">
-                        <optgroup label="Department">
-                            <option value="all">All</option>
-                            <option value="Department 1">Department 1</option>
-                            <option value="Department 2">Department 2</option>
-                            <option value="Department 3">Department 3</option>
-                            <option value="Department 4">Department 4</option>
-                        </optgroup>
-                    </select>
+                    <!--                    Department <select style=" width: 15%" onchange="">
+                                            <optgroup label="Department">
+                                                <option value="all">All</option>
+                                                <option value="Department 1">Department 1</option>
+                                                <option value="Department 2">Department 2</option>
+                                                <option value="Department 3">Department 3</option>
+                                                <option value="Department 4">Department 4</option>
+                                            </optgroup>
+                                        </select>-->
 
                 </div>
 
@@ -72,38 +74,39 @@
                         </tr>  
                     </thead>  
                     <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td><a href="#" class="openPopupProfile" name="beca">Beca</a></td>
-                            <td>Department 1</td>
-                            <td>Manager</td>
-                            <td>09/12/1989</td>
-                            <td>Beca@gmail.com</td>
-                            <td>9999999999</td>                            
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><a href="#" class="openPopupProfile" name="chloe">Chloe</a></td>
-                            <td>Department 2</td>
-                            <td>Developer</td>
-                            <td>08/11/1989</td>
-                            <td>Chloe@gmail.com</td>
-                            <td>7777777777</td>                            
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><a href="#" class="openPopupProfile" name="amy">Amy</a></td>
-                            <td>Department 3</td>
-                            <td>Tester</td>
-                            <td>16/03/1989</td>
-                            <td>Amy@gmail.com</td>
-                            <td>3333333333</td>                            
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-        </main>
-    </div>
-    <%@include file="firstFoot.jsp" %>
+                        <c:forEach items="${result}" var="acc" varStatus="counter" >
+                            <tr>
+                                <td>${counter.count}</td>
+                                <td><a href="#" class="openPopupProfile" name="beca">${acc.username}</a></td>
+                                <td>Department 1</td>
+                                <td>Manager</td>
+                                <td>09/12/1989</td>
+                                <td>Beca@gmail.com</td>
+                                <td>9999999999</td>                            
+                            </tr>
+                        </c:forEach>
+                        <!--                       <%-- <tr>
+                                                    <td>2</td>
+                                                    <td><a href="#" class="openPopupProfile" name="chloe">Chloe</a></td>
+                                                    <td>Department 2</td>
+                                                    <td>Developer</td>
+                                                    <td>08/11/1989</td>
+                                                    <td>Chloe@gmail.com</td>
+                                                    <td>7777777777</td>                            
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td><a href="#" class="openPopupProfile" name="amy">Amy</a></td>
+                                                    <td>Department 3</td>
+                                                    <td>Tester</td>
+                                                    <td>16/03/1989</td>
+                                                    <td>Amy@gmail.com</td>
+                                                    <td>3333333333</td>                            
+                                                </tr> --%>
+                                            </tbody>
+                                        </table>
+                        
+                                    </div>
+                                </main>
+                            </div>
+                        <%@include file="firstFoot.jsp" %>
