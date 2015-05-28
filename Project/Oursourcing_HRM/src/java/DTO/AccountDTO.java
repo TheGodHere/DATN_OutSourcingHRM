@@ -14,9 +14,10 @@ import java.util.Date;
  * @author Mon
  */
 public class AccountDTO implements Serializable, Comparable<AccountDTO> {
-
+    private int accountID;
     private String username;
     private String password;
+    private int roleID;
     private String role;
     private boolean isActive;
     private String fullName;
@@ -31,7 +32,6 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
 
     
     
-
     public AccountDTO() {
     }
 
@@ -40,6 +40,23 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
         this.password = password;
     }
 
+    public int getRoleID() {
+        return roleID;
+    }
+
+    public void setRoleID(int roleID) {
+        this.roleID = roleID;
+    }
+
+    public int getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
+    }
+
+    
     public String getRole() {
         return role;
     }

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlets;
 
 import DAO.ProjectDAO;
+import DTO.AccountDTO;
 import DTO.ProjectDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,12 +17,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Mon
  */
 public class ListAllProject extends HttpServlet {
+
     private final String homePage = "EmpHome.jsp";
     private final String printPage = "PrintHTMLServlet";
     private final String convertPage = "TableHTMLConvert.jsp";
@@ -41,13 +43,20 @@ public class ListAllProject extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            ProjectDAO p = new ProjectDAO();
-            p.listAllPro();
-            List<ProjectDTO> result = p.getList();
-            request.setAttribute("LISTPRO", result);
-            request.setAttribute("PROJECTID", "projectTable");
-            request.setAttribute("TYPE", "projectT1");
-            RequestDispatcher rd = request.getRequestDispatcher(convertPage);
+            HttpSession session = request.getSession(false);
+            //Day la code dung de lay role cua user dang tren session
+//            AccountDTO curAcc = (AccountDTO) session.getAttribute("USERACCOUNT");
+//            if (curAcc.getRole().equals("engineer")) {
+                ProjectDAO p = new ProjectDAO();
+                //Day la code chinh se su dung
+//                ArrayList<ProjectDTO> result = p.projectByCurrentUser(curAcc.getAccountID());
+                //Day la code dung de test voi accountID = 3
+                ArrayList<ProjectDTO> result = p.projectByCurrentUser(3);
+                request.setAttribute("LISTPRO", result);
+                System.out.println(result.get(0).getDirectorName());
+//            }
+
+            RequestDispatcher rd = request.getRequestDispatcher("searchProject.jsp");
             rd.forward(request, response);
         } finally {
             out.close();

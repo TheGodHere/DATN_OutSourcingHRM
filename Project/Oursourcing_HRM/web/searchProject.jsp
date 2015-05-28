@@ -1,5 +1,19 @@
 <%@include file="firstHead.jsp" %>
 
+
+<c:set var="curpage" value="${param.page}" />
+<c:set var="year" value="${param.year}" />
+<c:set var="codeQ" value="${param.code}" />
+<c:if test="${empty year}">
+    <c:set var="year" value="All project" />
+</c:if>
+
+<c:set var="urlQ" value="searchProject.jsp?year=${year}" />
+
+<c:if test="${empty curpage}">
+    <c:set var="curpage" value="1"/>
+</c:if>
+
 <div class="wrapper row2">
     <div class="rounded">
         <nav id="mainav" class="mainav"> 
@@ -27,57 +41,102 @@
                     <select style=" width: 15%" onchange="">
                         <optgroup label="Year">
                             <option value="all">All</option>
-                            <option value="Department 1">2015</option>
-                            <option value="Department 2">2014</option>
-                            <option value="Department 3">2013</option>
-                            <option value="Department 4">2012</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
                         </optgroup>
                     </select>
-
                 </div>
 
-                <table id="projectTbl" class="table table-striped display">  
-                    <thead>  
+                <table class="table">
+                    <thead>
                         <tr>  
                             <th>#</th>  
                             <th>Project Name</th>  
-                            <th>Manager</th>  
-                            <th>Language</th>  
+                            <th>Skill</th>  
                             <th>Start date</th>  
-                            <th>Scale</th>  
+                            <th>End date</th>  
                             <th>Customer</th>
-                        </tr>  
-                    </thead>  
-                    <tbody>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Accounting</td>  
-                            <td>Anna</td>  
-                            <td>Java</td>  
-                            <td>22/06/2015</td>  
-                            <td>15</td>  
-                            <td>Pitch Inc</td>  
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Accounting</td>  
-                            <td>Anna</td>  
-                            <td>Java</td>  
-                            <td>22/06/2015</td>  
-                            <td>15</td>  
-                            <td>Pitch Inc</td> 
-                        </tr>  
-                        <tr>  
-                            <td>001</td>  
-                            <td>Accounting</td>  
-                            <td>Anna</td>  
-                            <td>Java</td>  
-                            <td>22/06/2015</td>  
-                            <td>15</td>  
-                            <td>Pitch Inc</td> 
-                        </tr>  
-                    </tbody>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <c:set var="result" value="${requestScope.LISTPRO}" />
+                        <c:set var="maxpage" value="${result.size()}" />
+                        <c:forEach var="proj" items="${result}" varStatus="counter" >
+                            <tr>
+                                <td>
+                                    ${counter.count}
+                                </td>
+                                <td>
+                                    <a href="projectDetail.jsp?projCode=${proj.projectCode}" >
+                                        ${proj.projectName}
+                                    </a>
+                                </td>
+                                <td>
+                                    <c:forEach var="skill" items="${proj.listOfSkill}" >
+                                        ${skill.skillName} <br/>
+                                    </c:forEach>
+                                </td>
+                                <td>${proj.startDate}</td>
+                                <td>${proj.endDate}</td>
+                                <td>${proj.customerName}</td>
+                            </tr>
+                        </c:forEach>
+                        
+                    </tbody>
                 </table>
+                  
+                <div class="number-paging" style="float: right">
+                    <c:if test="${curpage == 1}">
+                        <a href="#" class="current-page">1</a>
+                    </c:if>
+                    <c:if test="${curpage == 2}">
+                        <a href="${urlQ}&page=1">1</a>
+                        <a href="#" class="current-page">2</a>
+                    </c:if>
+                    <c:if test="${curpage == 3}">
+                        <a href="${urlQ}&page=1">1</a>
+                        <a href="${urlQ}&page=2">2</a>
+                        <a href="#" class="current-page">3</a>
+                    </c:if>
+                    <c:if test="${curpage == 4}">
+                        <a href="${urlQ}&page=1">1</a>
+                        <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
+                        <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
+                        <a href="#" class="current-page">${curpage}</a>
+                    </c:if>
+                    <c:if test="${curpage > 4}">
+                        <a href="${urlQ}&page=1">1</a>
+                        ...
+                        <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
+                        <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
+                        <a href="#" class="current-page">${curpage}</a>
+                    </c:if>
+                   
+                    <%--After page--%>    
+                    
+                    <c:if test="${maxpage - curpage == 1}">
+                        <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                    </c:if>
+                    <c:if test="${maxpage - curpage == 2}">
+                        <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                        <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                    </c:if>
+                    <c:if test="${maxpage - curpage == 3}">
+                        <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                        <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                        <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
+                    </c:if>
+                    <c:if test="${maxpage - curpage > 3}">
+                        <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                        <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                        ...
+                        <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
+                    </c:if>
+                </div>
+                    
             </div>
         </main>
     </div>

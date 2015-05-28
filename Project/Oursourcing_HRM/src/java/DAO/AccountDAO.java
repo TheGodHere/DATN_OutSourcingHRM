@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,13 +24,7 @@ import java.util.logging.Logger;
  */
 public class AccountDAO implements Serializable {
 
-    List<AccountDTO> listObj;
-
-    public List<AccountDTO> getListObj() {
-        return listObj;
-    }
-
-    public void checkLogin(String username, String password) {
+    public AccountDTO checkLogin(String username, String password) {
         Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;
         ResultSet rs = null;
@@ -41,13 +36,11 @@ public class AccountDAO implements Serializable {
                 stm.setString(1, username);
                 stm.setString(2, password);
                 rs = stm.executeQuery();
-                listObj = new ArrayList<AccountDTO>();
                 while (rs.next()) {
                     String _username = rs.getString("username");
                     String _password = rs.getString("password");
-                    String title = rs.getString("title");
                     AccountDTO dto = new AccountDTO(_username, _password);
-                    listObj.add(dto);
+                    return dto;
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,5 +60,57 @@ public class AccountDAO implements Serializable {
                 }
             }
         }
+        return null;
+    }
+
+    public AccountDTO getAccountByID(int accountID) {
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        if (con != null) {
+            String sql = "select * from Account where accountID = " + accountID;
+            /*select * from Account where accountID = 1*/
+            try {
+                stm = con.prepareStatement(sql);
+                rs = stm.executeQuery();
+
+                while (rs.next()) {
+                    AccountDTO newAcc = new AccountDTO();
+                    newAcc.setAccountID(rs.getInt("accountID"));
+                    newAcc.setUsername(rs.getString("username"));
+                    newAcc.setPassword(rs.getString("username"));
+                    newAcc.setRoleID(rs.getInt("roleID"));
+                    newAcc.setIsActive(rs.getBoolean("isActive"));
+                    newAcc.setFullName(rs.getString("fullName"));
+                    newAcc.setSex(rs.getBoolean("sex"));
+                    newAcc.setBirthday(rs.getDate("birthday"));
+                    newAcc.setPhone(rs.getString("phone"));
+                    newAcc.setEmail(rs.getString("email"));
+                    newAcc.setAvgPoint(rs.getFloat("avgPoint"));
+                    newAcc.setAvgPoint(rs.getInt("numOfEva"));
+                    newAcc.setCompany(rs.getString("company"));
+                    newAcc.setAddress(rs.getString("address"));
+                    return newAcc;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (stm != null) {
+                        stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return null;
     }
 }

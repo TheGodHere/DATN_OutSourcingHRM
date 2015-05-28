@@ -9,6 +9,7 @@ import DAO.AccountDAO;
 import DTO.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,9 +49,8 @@ public class NullServlet extends HttpServlet {
                     String username = cookies[i].getName();
                     String password = cookies[i].getValue();
                     AccountDAO a = new AccountDAO();
-                    a.checkLogin(username, password);
-                    List<AccountDTO> result = a.getListObj();
-                    if (result.size() > 0) {
+                    AccountDTO result = a.checkLogin(username, password);
+                    if (result != null) {
                         url = homePage;
                         HttpSession session = request.getSession();
                         session.setAttribute("USERACCOUNT", result);

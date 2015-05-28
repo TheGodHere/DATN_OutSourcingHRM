@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlets;
 
 import DAO.AccountDAO;
@@ -24,9 +23,9 @@ import javax.servlet.http.HttpSession;
  * @author Mon
  */
 public class LoginServlet extends HttpServlet {
+
     private final String loginPage = "Login.jsp";
     private final String homePage = "ManagerHome.jsp";
-    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,12 +43,11 @@ public class LoginServlet extends HttpServlet {
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            
+
             AccountDAO a = new AccountDAO();
-            a.checkLogin(username, password);
-            List<AccountDTO> result = a.getListObj();
+            AccountDTO result = a.checkLogin(username, password);
             String url = loginPage;
-            if(result.size()>0){
+            if (result != null) {
                 Cookie cookie = new Cookie(username, password);
                 cookie.setMaxAge(60 * 5);
                 response.addCookie(cookie);

@@ -6,149 +6,119 @@
 package DTO;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Mon
  */
 public class ProjectDTO implements Serializable {
-
-    private String proCode;
-    private String proName;
-    private String manaName;
-    private String startDate;
-    private String endDate;
-    private int size;
-    private String language;
-    private String customer;
+    private int projectID;
+    private int directorID;
+    private String directorName;
+    private int customerID;
+    private String customerName;
+    
+    private String projectCode;
+    private String projectName;
+    private Date startDate;
+    private Date endDate;
+    private ArrayList<SkillDTO> listOfSkill;
 
     public ProjectDTO() {
     }
 
-    public ProjectDTO(String proCode, String proName, String manaName, String startDate, String endDate, int size, String language, String customer) {
-        this.proCode = proCode;
-        this.proName = proName;
-        this.manaName = manaName;
+    public ProjectDTO(int projectID, String directorName, String customerName, String projectCode, String projectName, Date startDate, Date endDate, ArrayList<SkillDTO> listOfSkill) {
+        this.projectID = projectID;
+        this.directorName = directorName;
+        this.customerName = customerName;
+        this.projectCode = projectCode;
+        this.projectName = projectName;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.size = size;
-        this.language = language;
-        this.customer = customer;
+        this.listOfSkill = listOfSkill;
     }
 
-    /**
-     * @return the proCode
-     */
-    public String getProCode() {
-        return proCode;
+    public int getDirectorID() {
+        return directorID;
     }
 
-    /**
-     * @param proCode the proCode to set
-     */
-    public void setProCode(String proCode) {
-        this.proCode = proCode;
+    public void setDirectorID(int directorID) {
+        this.directorID = directorID;
     }
 
-    /**
-     * @return the proName
-     */
-    public String getProName() {
-        return proName;
+    public int getCustomerID() {
+        return customerID;
     }
 
-    /**
-     * @param proName the proName to set
-     */
-    public void setProName(String proName) {
-        this.proName = proName;
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 
-    /**
-     * @return the manaName
-     */
-    public String getManaName() {
-        return manaName;
+    public int getProjectID() {
+        return projectID;
     }
 
-    /**
-     * @param manaName the manaName to set
-     */
-    public void setManaName(String manaName) {
-        this.manaName = manaName;
+    public void setProjectID(int projectID) {
+        this.projectID = projectID;
     }
 
-    /**
-     * @return the startDate
-     */
-    public String getStartDate() {
+    public String getDirectorName() {
+        return directorName;
+    }
+
+    public void setDirectorName(String directorName) {
+        this.directorName = directorName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getProjectCode() {
+        return projectCode;
+    }
+
+    public void setProjectCode(String projectCode) {
+        this.projectCode = projectCode;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public Date getStartDate() {
         return startDate;
     }
 
-    /**
-     * @param startDate the startDate to set
-     */
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    /**
-     * @return the endDate
-     */
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    /**
-     * @param endDate the endDate to set
-     */
-    public void setEndDate(String endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
-    /**
-     * @return the size
-     */
-    public int getSize() {
-        return size;
+    public ArrayList<SkillDTO> getListOfSkill() {
+        return listOfSkill;
     }
 
-    /**
-     * @param size the size to set
-     */
-    public void setSize(int size) {
-        this.size = size;
+    public void setListOfSkill(ArrayList<SkillDTO> listOfSkill) {
+        this.listOfSkill = listOfSkill;
     }
 
-    /**
-     * @return the language
-     */
-    public String getLanguage() {
-        return language;
-    }
-
-    /**
-     * @param language the language to set
-     */
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    /**
-     * @return the customer
-     */
-    public String getCustomer() {
-        return customer;
-    }
-
-    /**
-     * @param customer the customer to set
-     */
-    public void setCustomer(String customer) {
-        this.customer = customer;
-    }
-    
-    
-    
-    
+   
 }
