@@ -7,19 +7,21 @@ package DTO;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
  *
  * @author Mon
  */
-public class ProjectDTO implements Serializable {
+public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
+
     private int projectID;
     private int directorID;
     private String directorName;
     private int customerID;
     private String customerName;
-    
+
     private String projectCode;
     private String projectName;
     private Date startDate;
@@ -120,5 +122,60 @@ public class ProjectDTO implements Serializable {
         this.listOfSkill = listOfSkill;
     }
 
-   
+    public int compareTo(ProjectDTO proj) {
+        Date targetEndDate = ((ProjectDTO) proj).getEndDate();
+        if (this.endDate == null) {
+            return 1;
+        } else if (targetEndDate == null) {
+            return -1;
+        }
+        return this.endDate.compareTo(targetEndDate);
+    }
+
+    public static Comparator<ProjectDTO> EndDateComparatorDESC
+            = new Comparator<ProjectDTO>() {
+                public int compare(ProjectDTO proj1, ProjectDTO proj2) {
+                    Date targetEndDate1 = ((ProjectDTO) proj1).getEndDate();
+                    Date targetEndDate2 = ((ProjectDTO) proj2).getEndDate();
+                    if (targetEndDate1 == null) {
+                        return -1;
+                    } else if (targetEndDate2 == null) {
+                        return 1;
+                    }
+                    return -targetEndDate1.compareTo(targetEndDate2);
+                }
+            };
+    
+    public static Comparator<ProjectDTO> ProjnameComparatorASC
+            = new Comparator<ProjectDTO>() {
+                public int compare(ProjectDTO proj1, ProjectDTO proj2) {
+                    String targetName1 = ((ProjectDTO) proj1).getProjectName();
+                    String targetName2 = ((ProjectDTO) proj2).getProjectName();
+                    return targetName1.compareTo(targetName2);
+                }
+            };
+    public static Comparator<ProjectDTO> ProjnameComparatorDESC
+            = new Comparator<ProjectDTO>() {
+                public int compare(ProjectDTO proj1, ProjectDTO proj2) {
+                    String targetName1 = ((ProjectDTO) proj1).getProjectName();
+                    String targetName2 = ((ProjectDTO) proj2).getProjectName();
+                    return -targetName1.compareTo(targetName2);
+                }
+            };
+    public static Comparator<ProjectDTO> ProjcodeComparatorASC
+            = new Comparator<ProjectDTO>() {
+                public int compare(ProjectDTO proj1, ProjectDTO proj2) {
+                    String targetCode1 = ((ProjectDTO) proj1).getProjectCode();
+                    String targetCode2 = ((ProjectDTO) proj2).getProjectCode();
+                    return targetCode1.compareTo(targetCode2);
+                }
+            };
+    public static Comparator<ProjectDTO> ProjcodeComparatorDESC
+            = new Comparator<ProjectDTO>() {
+                public int compare(ProjectDTO proj1, ProjectDTO proj2) {
+                    String targetCode1 = ((ProjectDTO) proj1).getProjectCode();
+                    String targetCode2 = ((ProjectDTO) proj2).getProjectCode();
+                    return -targetCode1.compareTo(targetCode2);
+                }
+            };
 }

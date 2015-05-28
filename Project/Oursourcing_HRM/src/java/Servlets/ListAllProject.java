@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Common.CommonFunction;
 import DAO.ProjectDAO;
 import DTO.AccountDTO;
 import DTO.ProjectDTO;
@@ -43,17 +44,51 @@ public class ListAllProject extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            HttpSession session = request.getSession(false);
+//            HttpSession session = request.getSession(false);
+            HttpSession session = request.getSession(true);
             //Day la code dung de lay role cua user dang tren session
 //            AccountDTO curAcc = (AccountDTO) session.getAttribute("USERACCOUNT");
 //            if (curAcc.getRole().equals("engineer")) {
-                ProjectDAO p = new ProjectDAO();
-                //Day la code chinh se su dung
-//                ArrayList<ProjectDTO> result = p.projectByCurrentUser(curAcc.getAccountID());
-                //Day la code dung de test voi accountID = 3
-                ArrayList<ProjectDTO> result = p.projectByCurrentUser(3);
-                request.setAttribute("LISTPRO", result);
-                System.out.println(result.get(0).getDirectorName());
+            ProjectDAO p = new ProjectDAO();
+                
+            int year = 0;
+            try {
+                year = Integer.parseInt(request.getParameter("year"));
+            } catch (NullPointerException ne) {
+                year = 0;
+            } catch (NumberFormatException e) {
+                year = 0;
+            }
+            
+            String projname = request.getParameter("projname");
+            
+            int page = 1;
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+            } catch (NullPointerException ne) {
+                page = 1;
+            } catch (NumberFormatException e) {
+                page = 1;
+            }
+            
+            
+            //Day la code chinh se su dung
+//                ArrayList<ProjectDTO> result = 
+//            p.projectByCurrentUser(curAcc.getAccountID(), year);
+            //Day la code dung de test voi accountID = 3
+            ArrayList<ProjectDTO> result = p.projectByCurrentUser(3, year, projname);
+            CommonFunction common = new CommonFunction();
+            result = common.sortCollection(result, ProjectDTO.EndDateComparatorDESC);
+            
+            int maxpage = page*10-1;
+            if (maxpage > result.size()) {
+                maxpage = result.size();
+            }
+            
+            List<ProjectDTO> resultPage = result.subList((page-1)*10, maxpage);
+//            ArrayList<ProjectDTO> result = p.listAllPro();
+            
+            request.setAttribute("LISTPRO", resultPage);
 //            }
 
             RequestDispatcher rd = request.getRequestDispatcher("searchProject.jsp");

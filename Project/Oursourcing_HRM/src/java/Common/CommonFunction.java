@@ -7,13 +7,14 @@ package Common;
 
 import DTO.AccountDTO;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class CommonFunction {
 
-    public List sortCollection(ArrayList list, Comparator a) {
+    public ArrayList sortCollection(ArrayList list, Comparator a) {
         Collections.sort(list, a);
         System.out.println(list);
         return list;
