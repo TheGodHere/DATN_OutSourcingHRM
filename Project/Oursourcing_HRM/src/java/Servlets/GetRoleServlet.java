@@ -5,8 +5,11 @@
  */
 package Servlets;
 
+import DAO.RoleDAO;
+import DTO.RoleDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,17 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Mon
+ * @author Jenny
  */
-public class CenterServlet extends HttpServlet {
-
-    private final String nullServlet = "NullServlet";
-    private final String loginServlet = "LoginServlet";
-    private final String logoutServlet = "LogoutServlet";
-    private final String searchAccountServlet = "SearchAccountServlet";
-    private final String updateAccountServlet = "UpdateAccountServlet";
-    private final String getRoleServlet = "GetRoleServlet";
-    private final String createAccountServlet = "CreateAccountServlet";
+public class GetRoleServlet extends HttpServlet {
+    private final String createaccountPage = "createAccount.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,34 +36,20 @@ public class CenterServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            String button = request.getParameter("btAction");
-            if (button == null) {
-                RequestDispatcher rd = request.getRequestDispatcher(nullServlet);
-                rd.forward(request, response);
-            } else if (button.equals("Login")) {
-                RequestDispatcher rd = request.getRequestDispatcher(loginServlet);
-                rd.forward(request, response);
-            } else if (button.equals("Log out")) {
-                RequestDispatcher rd = request.getRequestDispatcher(logoutServlet);
-                rd.forward(request, response);
-            } else if (button.equals("SearchAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(searchAccountServlet);
-                rd.forward(request, response);
-            } else if (button.equals("UpdateAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(updateAccountServlet);
-                rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(getRoleServlet);
-                rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount1")) {
-                RequestDispatcher rd = request.getRequestDispatcher(createAccountServlet);
-                rd.forward(request, response);
-                System.out.println("fuck");
-            }
+        try {            
+            RoleDAO a = new RoleDAO();
+            ArrayList<RoleDTO> result = a.getRole();
             
+//            List<AccountDTO> result = a.getListObj();
+
+            String url = createaccountPage;
+            if (result.size() > 0) {
+                url = createaccountPage;
+//                HttpSession session = request.getSession();
+                request.setAttribute("ROLE", result);
+            }
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
         } finally {
             out.close();
         }

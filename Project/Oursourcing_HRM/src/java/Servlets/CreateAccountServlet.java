@@ -5,8 +5,11 @@
  */
 package Servlets;
 
+import DAO.AccountDAO;
+import DTO.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,17 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Mon
+ * @author Jenny
  */
-public class CenterServlet extends HttpServlet {
+public class CreateAccountServlet extends HttpServlet {
 
-    private final String nullServlet = "NullServlet";
-    private final String loginServlet = "LoginServlet";
-    private final String logoutServlet = "LogoutServlet";
-    private final String searchAccountServlet = "SearchAccountServlet";
-    private final String updateAccountServlet = "UpdateAccountServlet";
-    private final String getRoleServlet = "GetRoleServlet";
-    private final String createAccountServlet = "CreateAccountServlet";
+    private final String accountPage = "GetRoleServlet";
+    private final String errorPage = "Maiexcelsoir.html";
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,39 +40,43 @@ public class CenterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String button = request.getParameter("btAction");
-            if (button == null) {
-                RequestDispatcher rd = request.getRequestDispatcher(nullServlet);
-                rd.forward(request, response);
-            } else if (button.equals("Login")) {
-                RequestDispatcher rd = request.getRequestDispatcher(loginServlet);
-                rd.forward(request, response);
-            } else if (button.equals("Log out")) {
-                RequestDispatcher rd = request.getRequestDispatcher(logoutServlet);
-                rd.forward(request, response);
-            } else if (button.equals("SearchAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(searchAccountServlet);
-                rd.forward(request, response);
-            } else if (button.equals("UpdateAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(updateAccountServlet);
-                rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(getRoleServlet);
-                rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount1")) {
-                RequestDispatcher rd = request.getRequestDispatcher(createAccountServlet);
-                rd.forward(request, response);
-                System.out.println("fuck");
-            }
+            String url = errorPage;
+            String fullname = request.getParameter("txtFullname");
+            System.out.println("fullname" + fullname);
+            String username = request.getParameter("txtUsername");
+            System.out.println("username= " + username);
+            String password = request.getParameter("txtPassword");
+            System.out.println("pass =" + password);
+            String conpassword = request.getParameter("txtConpassword");
+            System.out.println("compass " + conpassword);
+
+            if (password.equals(conpassword) ) {
+               url=accountPage; 
+            int role = Integer.parseInt(request.getParameter("Role"));
+            System.out.println("role"+role);
             
+            String isActive = request.getParameter("chkActive");
+            boolean active = false;
+            if (isActive != null) {
+                active = true;
+            }
+            System.out.println("active = " + active);
+            AccountDAO a = new AccountDAO();
+            System.out.println("1");
+            boolean result = a.createAccount(fullname, username, password, conpassword, active, role);
+            System.out.println("result result" + result);
+            
+
+             }RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
+        } catch (Exception E) {
+            E.printStackTrace();
         } finally {
             out.close();
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

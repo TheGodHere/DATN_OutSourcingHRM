@@ -3,29 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Servlets;
 
+import DAO.AccountDAO;
+import DTO.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Mon
+ * @author Jenny
  */
-public class CenterServlet extends HttpServlet {
-
-    private final String nullServlet = "NullServlet";
-    private final String loginServlet = "LoginServlet";
-    private final String logoutServlet = "LogoutServlet";
-    private final String searchAccountServlet = "SearchAccountServlet";
-    private final String updateAccountServlet = "UpdateAccountServlet";
-    private final String getRoleServlet = "GetRoleServlet";
-    private final String createAccountServlet = "CreateAccountServlet";
+public class SearchAccountServlet extends HttpServlet {
+    private final String accountPage = "searchAccount.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,33 +39,23 @@ public class CenterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String button = request.getParameter("btAction");
-            if (button == null) {
-                RequestDispatcher rd = request.getRequestDispatcher(nullServlet);
-                rd.forward(request, response);
-            } else if (button.equals("Login")) {
-                RequestDispatcher rd = request.getRequestDispatcher(loginServlet);
-                rd.forward(request, response);
-            } else if (button.equals("Log out")) {
-                RequestDispatcher rd = request.getRequestDispatcher(logoutServlet);
-                rd.forward(request, response);
-            } else if (button.equals("SearchAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(searchAccountServlet);
-                rd.forward(request, response);
-            } else if (button.equals("UpdateAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(updateAccountServlet);
-                rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount")) {
-                RequestDispatcher rd = request.getRequestDispatcher(getRoleServlet);
-                rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount1")) {
-                RequestDispatcher rd = request.getRequestDispatcher(createAccountServlet);
-                rd.forward(request, response);
-                System.out.println("fuck");
-            }
+           String fullname = request.getParameter("txtSearch");
+            AccountDAO a = new AccountDAO();
+            List<AccountDTO> result = a.searchAccount(fullname);
             
+//            List<AccountDTO> result = a.getListObj();
+            
+            
+            String url = accountPage;
+            if(result.size()>0){               
+                url = accountPage;
+                HttpSession session = request.getSession();
+                session.setAttribute("FULLNAME", result);
+            }            
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
+            
+                    
         } finally {
             out.close();
         }
