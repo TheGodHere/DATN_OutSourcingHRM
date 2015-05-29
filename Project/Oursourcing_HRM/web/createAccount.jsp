@@ -29,7 +29,7 @@
                                 <label><font color="black">Name</font></label>
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="name" data-fv-field="name">                                                                   
+                                <input type="text" class="form-control" name="txtFullname" data-fv-field="name">                                                                   
                                 <i class="form-control-feedback" data-fv-icon-for="name" style="display: none;"></i>
                                 <small class="help-block" data-fv-validator="notEmpty" data-fv-for="name" data-fv-result="NOT_VALIDATED" ></small>
                             </td>
@@ -39,7 +39,7 @@
                                 <label><font color="black">Username</font></label>
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="name" data-fv-field="name">                                                                   
+                                <input type="text" class="form-control" name="txtUsername" data-fv-field="name">                                                                   
                                 <i class="form-control-feedback" data-fv-icon-for="name" style="display: none;"></i>
                                 <small class="help-block" data-fv-validator="notEmpty" data-fv-for="name" data-fv-result="NOT_VALIDATED"></small>
                             </td>
@@ -49,19 +49,33 @@
                                 <label><font color="black">Password</font></label>
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="name" data-fv-field="name">                                                                   
+                                <input type="text" class="form-control" name="txtPassword" data-fv-field="name">                                                                   
                                 <i class="form-control-feedback" data-fv-icon-for="name" style="display: none;"></i>
                                 <small class="help-block" data-fv-validator="notEmpty" data-fv-for="name" data-fv-result="NOT_VALIDATED"></small>
                             </td>
                         </tr>
                         <tr>
+                        
                             <td>
                                 <label><font color="black">Confirm Password</font></label>
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="name" data-fv-field="name">                                                                   
+                                <input type="text" class="form-control" name="txtConpassword" data-fv-field="name">                                                                   
                                 <i class="form-control-feedback" data-fv-icon-for="name" style="display: none;"></i>
                                 <small class="help-block" data-fv-validator="notEmpty" data-fv-for="name" data-fv-result="NOT_VALIDATED"></small> 
+                        </tr>
+                        <tr>
+                            <td>
+                                <label><font color="black">Role</font></label>
+                            </td>
+                            <td action="CenterServlet" method="post">
+                                <select name = "Role">
+                                    <c:set var="rolename" value="${requestScope.ROLE}"/>
+                                    <c:forEach items="${rolename}" var="rows">
+                                        <option value="${rows.roleID}">${rows.roleName}</option>
+                                    </c:forEach>
+                                </select> 
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -72,11 +86,12 @@
                             </td>
                         </tr>
                     </table>
-                </form>
-                <div>
-                    <center><button type="button" class="btn btn-success" style="width: auto">Submit</button></center>
+                    <div>
+                        <center><button name="btAction" value="CreateAccount1" style="width: auto">Submit</button></center>
                 </div>
+                </form>
                 
+
             </div>
         </main>
     </div>
