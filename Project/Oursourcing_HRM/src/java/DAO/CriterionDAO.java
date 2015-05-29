@@ -43,12 +43,13 @@ public class CriterionDAO {
                     critetion.setDescription(rs.getString("description"));
                     critetion.setMaxPoint(rs.getInt("maxPoint"));
                     critetion.setType(rs.getString("type"));
+                    critetion.setIsActive(rs.getBoolean("isActive"));
                     
                     listCrit.add(critetion);
                 }
                 return listCrit;
             } catch (SQLException ex) {
-                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 try {
                     if (rs != null) {
@@ -58,7 +59,52 @@ public class CriterionDAO {
                         stm.close();
                     }
                 } catch (SQLException ex) {
-                    Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return null;
+    }
+    
+    public ArrayList<CriterionDTO> listFeedback() {
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        if (con != null) {
+            String sql = "Select * From Criterion Where type=?";
+            try {                
+                stm = con.prepareStatement(sql);
+                stm.setString(1, "feedback");                
+                rs = stm.executeQuery();
+                
+                ArrayList<CriterionDTO> listCrit = new ArrayList<CriterionDTO>();
+                
+                CriterionDTO critetion;
+                while (rs.next()) {
+                    critetion = new CriterionDTO();
+                    critetion.setCritID(rs.getInt("critID"));
+                    critetion.setTitle(rs.getString("title"));
+                    critetion.setDescription(rs.getString("description"));
+                    critetion.setMaxPoint(rs.getInt("maxPoint"));
+                    critetion.setType(rs.getString("type"));
+                    critetion.setIsActive(rs.getBoolean("isActive"));
+                    
+                    listCrit.add(critetion);
+                }
+                return listCrit;
+            } catch (SQLException ex) {
+                Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (stm != null) {
+                        stm.close();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -81,17 +127,18 @@ public class CriterionDAO {
                 stm.setString(4, type);
                 stm.setBoolean(5, true);
                 
+                stm.executeQuery();
                 result = true;
                 
             } catch (SQLException ex) {
-                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 try {
                     if (stm != null) {
                         stm.close();
                     }
                 } catch (SQLException ex) {
-                    Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -114,17 +161,18 @@ public class CriterionDAO {
                 stm.setString(4, type);
                 stm.setInt(5, critID);
                 
+                stm.executeQuery();
                 result = true;
                 
             } catch (SQLException ex) {
-                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 try {
                     if (stm != null) {
                         stm.close();
                     }
                 } catch (SQLException ex) {
-                    Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
