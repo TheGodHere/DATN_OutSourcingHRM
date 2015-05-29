@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlets;
 
 import DAO.CriterionDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,9 +34,18 @@ public class AddCriterion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            int critId = 0;
+            try {
+                critId = Integer.parseInt(request.getParameter("txtCritId"));
+            } catch (NullPointerException ne) {
+                critId = 0;
+            } catch (NumberFormatException e) {
+                critId = -1;
+            }
+
             String title = request.getParameter("txtTitle");
             String description = request.getParameter("txtDescription");
-            
+
             int maxPoint = 0;
             try {
                 maxPoint = Integer.parseInt(request.getParameter("txtMaxPoint"));
@@ -45,12 +54,26 @@ public class AddCriterion extends HttpServlet {
             } catch (NumberFormatException e) {
                 maxPoint = 0;
             }
-            
+
             String type = request.getParameter("txtType");
-            
-            CriterionDAO criterionDao = new CriterionDAO();
-            boolean result = criterionDao.addCriterion(title, description, maxPoint, type);
-            
+
+            boolean checkDone = false;
+            if (critId == 0) {
+                CriterionDAO criterionDao = new CriterionDAO();
+                criterionDao.addCriterion(title, description, maxPoint, type);
+                
+                checkDone = true;
+            } else if (critId != 0 && critId != -1) {
+                CriterionDAO criterionDao = new CriterionDAO();
+                criterionDao.editCriterion(critId, title, description, maxPoint, type);
+                
+                checkDone = true;
+            }
+
+            request.setAttribute("CHECK_DONE", checkDone);
+
+            RequestDispatcher rd = request.getRequestDispatcher("editCriterion.jsp");
+            rd.forward(request, response);
         } finally {
             out.close();
         }

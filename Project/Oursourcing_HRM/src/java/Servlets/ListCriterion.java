@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlets;
 
 import DAO.CriterionDAO;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ezio
  */
-public class ListAppraisalCriterion extends HttpServlet {
+public class ListCriterion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,12 +36,25 @@ public class ListAppraisalCriterion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            String type = request.getParameter("type");
+            
             CriterionDAO criterionDao = new CriterionDAO();
-            ArrayList<CriterionDTO> list = criterionDao.listAppraisal();
-            
-            request.setAttribute("LIST_CRIT", list);
-            request.setAttribute("CRIT_TYPE", "Appraisal");
-            
+            ArrayList<CriterionDTO> list;
+
+            if ("Feedback".equals(type)) {                
+                list = criterionDao.listFeedback();
+                request.setAttribute("LIST_FEEDBACK", list);
+                request.setAttribute("CRIT_TYPE", "Feedback");
+            } else if ("Appraisal".equals(type)) {
+                list = criterionDao.listAppraisal();
+                request.setAttribute("LIST_APPRAISAL", list);
+                request.setAttribute("CRIT_TYPE", "Appraisal");
+            } else {
+                list = criterionDao.listAppraisal();
+                request.setAttribute("LIST_APPRAISAL", list);
+                request.setAttribute("CRIT_TYPE", "Appraisal");
+            }
+
             RequestDispatcher rd = request.getRequestDispatcher("editCriterion.jsp");
             rd.forward(request, response);
         } finally {
