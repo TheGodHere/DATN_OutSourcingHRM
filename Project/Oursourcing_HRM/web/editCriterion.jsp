@@ -75,7 +75,7 @@
                                         <th style="width: 70%; text-align: center">
                                             Criterion
                                         </th>
-                                        <th style="width: 10%; text-align: center">
+                                        <th style="width: 15%; text-align: center">
                                             Max point
                                         </th>
                                         <th style="width: 15%; text-align: center">
@@ -122,7 +122,7 @@
                                         <th style="width: 70%; text-align: center">
                                             Criterion
                                         </th>
-                                        <th style="width: 10%; text-align: center">
+                                        <th style="width: 15%; text-align: center">
                                             Max point
                                         </th>
                                         <th style="width: 15%; text-align: center">
