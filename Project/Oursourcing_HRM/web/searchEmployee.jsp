@@ -44,9 +44,9 @@
                 <h1 style="text-align: center">Search Employee</h1>
                 <div >
                     <!--<div style="width: 60%">-->
-                    <form action="/search" method="get" class="form-search">
-                        <input type="text" name="q" value="Search"/>
-                        <input type="submit" value="Search"/>
+                    <form action="CenterServlet" method="get" class="form-search">
+                        <input type="text" name="txtSearch" value="${param.txtSearch}"/>
+                        <input type="submit" name="btAction" value="SearchEmployee"/>
                     </form>
                     <!--</div>-->
                     <!--                    Department <select style=" width: 15%" onchange="">
@@ -65,8 +65,7 @@
                     <thead>  
                         <tr>  
                             <th>No #</th> 
-                            <th>Name</th>
-                            <th>Department</th>  
+                            <th>Name</th>                              
                             <th>Role</th>                               
                             <th>Birthday</th>  
                             <th>Mail</th>  
@@ -74,39 +73,27 @@
                         </tr>  
                     </thead>  
                     <tbody>
-                        <c:forEach items="${result}" var="acc" varStatus="counter" >
+                        <c:forEach items="${result}" var="rows" varStatus="counter" >
                             <tr>
                                 <td>${counter.count}</td>
-                                <td><a href="#" class="openPopupProfile" name="beca">${acc.username}</a></td>
-                                <td>Department 1</td>
-                                <td>Manager</td>
-                                <td>09/12/1989</td>
-                                <td>Beca@gmail.com</td>
-                                <td>9999999999</td>                            
+                                <td>
+                                    <c:url var="deleteLink" value="CenterServlet">
+                                        <c:param name="accountID" value="${rows.accountID}"/>  
+                                        <c:param name="btAction" value="ViewEmployeeDetail"/>
+                                    </c:url>
+                                    <a href="#" class="openPopupEmployee" name="${rows.accountID}" >${rows.fullName}</a>
+                                </td>
+                                <td>${rows.role}</td>
+                                <td>${rows.birthday}</td>
+                                <td>${rows.email}</td>
+                                <td>${rows.phone}</td>                            
                             </tr>
                         </c:forEach>
-                        <!--                       <%-- <tr>
-                                                    <td>2</td>
-                                                    <td><a href="#" class="openPopupProfile" name="chloe">Chloe</a></td>
-                                                    <td>Department 2</td>
-                                                    <td>Developer</td>
-                                                    <td>08/11/1989</td>
-                                                    <td>Chloe@gmail.com</td>
-                                                    <td>7777777777</td>                            
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td><a href="#" class="openPopupProfile" name="amy">Amy</a></td>
-                                                    <td>Department 3</td>
-                                                    <td>Tester</td>
-                                                    <td>16/03/1989</td>
-                                                    <td>Amy@gmail.com</td>
-                                                    <td>3333333333</td>                            
-                                                </tr> --%>
-                                            </tbody>
-                                        </table>
-                        
-                                    </div>
-                                </main>
-                            </div>
-                        <%@include file="firstFoot.jsp" %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+
+    <%@include file="firstFoot.jsp" %>

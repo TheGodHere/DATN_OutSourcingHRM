@@ -206,6 +206,7 @@ public class AccountDAO implements Serializable {
                     System.out.println(email);
                     String phone = rs.getString("phone");
                     AccountDTO dto = new AccountDTO(_fullname, role, birthday, email, phone);
+                    dto.setAccountID(rs.getInt("accountID"));
                     listObj.add(dto);
 
                 }
@@ -250,14 +251,14 @@ public class AccountDAO implements Serializable {
                 while (rs.next()) {
                     String _fullname = rs.getString("fullName");                    
                     String role = rs.getString("roleName");   
-                    String skill = rs.getString("skill");
+                    String skill = rs.getString("skillName");
                     Date birthday = rs.getDate("birthday");                    
                     String email = rs.getString("email");                    
                     String phone = rs.getString("phone");
                     boolean sex = rs.getBoolean("sex");
                     String address = rs.getString("address");
                     dto = new AccountDTO(_fullname, role, skill, birthday, email, phone, sex, address);                    
-
+                    System.out.println("fullname" + _fullname);
                 }
                 return dto;
 
