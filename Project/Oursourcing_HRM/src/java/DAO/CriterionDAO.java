@@ -111,6 +111,39 @@ public class CriterionDAO {
         return null;
     }
     
+    public int getCriterionMaxID() {
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        if (con != null) {
+            String sql = "select max(critID) critID  from Criterion";
+            /* select max(critID) critID  from Criterion */
+            try {                
+                stm = con.prepareStatement(sql);
+                rs = stm.executeQuery();
+                
+                while (rs.next()) {
+                    return rs.getInt("critID");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (stm != null) {
+                        stm.close();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return 0;
+    }
+    
     public boolean addCriterion(String title, String description, int maxPoint, String type){
         Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;
@@ -127,7 +160,7 @@ public class CriterionDAO {
                 stm.setString(4, type);
                 stm.setBoolean(5, true);
                 
-                stm.executeQuery();
+                stm.executeUpdate();
                 result = true;
                 
             } catch (SQLException ex) {
@@ -161,7 +194,7 @@ public class CriterionDAO {
                 stm.setString(4, type);
                 stm.setInt(5, critID);
                 
-                stm.executeQuery();
+                stm.executeUpdate();
                 result = true;
                 
             } catch (SQLException ex) {
