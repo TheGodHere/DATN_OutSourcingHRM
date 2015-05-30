@@ -44,6 +44,7 @@
         <main class="container clear" style="width: 100%"> 
             <div>
                 <h1 style="text-align: center">Criterion Management</h1>
+                <input type="text" id="curType" value="${typeQ}" hidden>
                 <form style="max-width: none; padding: 0">
                     <ul class="nav nav-tabs ul-navtabs">
                         <c:if test="${typeQ eq 'Appraisal'}" >
@@ -71,9 +72,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="width: 5%; text-align: center">
-                                            #
-                                        </th>
                                         <th style="width: 70%; text-align: center">
                                             Criterion
                                         </th>
@@ -85,12 +83,9 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="workTable">
                                     <c:forEach items="${listAppraisal}" var="crit" varStatus="counter" >
                                         <tr>
-                                            <td style="text-align: center">
-                                                <label>${counter.count}</label>
-                                            </td>
                                             <td>
                                                 <div>
                                                     <label id="critId${crit.critID}" hidden>${crit.critID}</label>
@@ -123,10 +118,7 @@
                         <div style="margin: 20px 0">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th style="width: 5%; text-align: center">
-                                            #
-                                        </th>
+                                    <tr>                                        
                                         <th style="width: 70%; text-align: center">
                                             Criterion
                                         </th>
@@ -138,12 +130,9 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="workTableF">
                                     <c:forEach items="${listFeedback}" var="crit" varStatus="counter" >
-                                        <tr>
-                                            <td style="text-align: center">
-                                                <label>${counter.count}</label>
-                                            </td>
+                                        <tr>                                            
                                             <td>
                                                 <div>
                                                     <label id="critId${crit.critID}" hidden>${crit.critID}</label>
@@ -180,7 +169,7 @@
 
                 <div id="dialog-form-criterion" style="display: none; background-color: white">
                     <h1>Criterion</h1>
-                    <form action="#" method="post" style="max-width: 80%; background-color: transparent">                        
+                    <!--<form style="max-width: 80%; background-color: transparent">-->                        
                         <div style="width: 80%; float: left">
                             <label style="margin: 20px 0; padding:5px; width: 15%">Title</label>
                             <input id="formCriterionId" type="text" hidden>
@@ -199,7 +188,8 @@
                             <input id="criterionSaveBtn" type="submit" class="btn btn-primary" value="Save">
                             <input type="reset" class="btn btn-default" value="Reset">
                         </div>
-                    </form>
+                    <!--</form>-->
+                    <div id="form-test" hidden></div>
                 </div>
             </div>
         </main>
