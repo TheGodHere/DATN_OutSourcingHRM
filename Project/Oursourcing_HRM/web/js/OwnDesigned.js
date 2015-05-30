@@ -30,6 +30,8 @@ function handleServletPost() {
 //            alert("hello");
             var contentPlace = document.getElementById(locationP);
             contentPlace.innerHTML = xmlhttp.responseText;
+//            alert("hello");
+//            alert(contentPlace.innerHTML);
 //            var divProject = document.getElementById("project");
 //            var child = document.getElementById("example_wrapper");
 //            divProject.removeChild(child);
@@ -85,7 +87,7 @@ function ChangeContentTab(contentTab) {
 
 //<script>
 $(function() {
-    var dialog, form,
+    var dialog, form, dialog1,
             // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
             emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
             name = $("#name"),
@@ -164,6 +166,18 @@ $(function() {
         }
     });
 
+    /*This function is for only EditCriterion.jsp only*/
+    dialog1 = $("#dialog-form-criterion").dialog({
+        autoOpen: false,
+        height: 300,
+        width: 350,
+        modal: true,
+        close: function() {
+            form[ 0 ].reset();
+            allFields.removeClass("ui-state-error");
+        }
+    });
+
     form = dialog.find("form").on("submit", function(event) {
         event.preventDefault();
 //                addUser();
@@ -177,6 +191,7 @@ $(function() {
         if (xmlhttp) {
             locationP = "dialog-form";
             xmlhttp.open("POST", "employeePopup.jsp", true);
+
             xmlhttp.onreadystatechange = handleServletPost;
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xmlhttp.send("txtname=MHoang");
@@ -211,7 +226,7 @@ $(function() {
         }
 
     });
-    
+
 
     $(".openPopupAppraisal").on("click", function() {
         dialog.dialog("open");
@@ -227,22 +242,210 @@ $(function() {
         }
 
     });
+
+    /*This is for editCriterion.jsp only*/
+    $(".addCriterionPopup").on("click", function() {
+        var target = document.getElementById("formCriterionId");
+        target.value = "";
+
+        target = document.getElementById("formCriterionTitle");
+        target.value = "";
+
+        target = document.getElementById("formCriterionMaxPoint");
+        target.value = "";
+
+        target = document.getElementById("formCriterionDescription");
+        target.value = "";
+
+        target = document.getElementById("formCriterionType");
+        var targetContent = document.getElementById("curType");
+        target.setAttribute("value", targetContent.value);
+
+        target = document.getElementById("criterionSaveBtn");
+        target.setAttribute("name", "0");
+
+        dialog1.dialog("open");
+    });
+    $(".editCriterionPopup").on("click", function() {
+        var nameX = $(this).attr("name");
+        dialog1.dialog("open");
+
+        var target = document.getElementById("formCriterionId");
+        var targetContent = document.getElementById("critId" + nameX);
+        target.setAttribute("value", targetContent.innerHTML);
+
+        target = document.getElementById("formCriterionTitle");
+        targetContent = document.getElementById("title" + nameX);
+        target.setAttribute("value", targetContent.innerHTML);
+
+        target = document.getElementById("formCriterionMaxPoint");
+        targetContent = document.getElementById("mPoint" + nameX);
+        target.setAttribute("value", targetContent.innerHTML);
+
+        target = document.getElementById("formCriterionDescription");
+        targetContent = document.getElementById("desc" + nameX);
+        target.value = targetContent.innerHTML;
+
+        target = document.getElementById("formCriterionType");
+        targetContent = document.getElementById("type" + nameX);
+        target.setAttribute("value", targetContent.innerHTML);
+
+        target = document.getElementById("criterionSaveBtn");
+        targetContent = document.getElementById("critId" + nameX);
+        target.setAttribute("name", targetContent.innerHTML);
+
+    });
+    $("#criterionSaveBtn").on("click", function() {
+        var c = confirm("Save this criterion?");
+        if (c === true) {
+            var nameX = $(this).attr("name");
+            if (nameX === "0") { //create
+
+                var targetContent = document.getElementById("formCriterionTitle");
+                var title = targetContent.value;
+
+                targetContent = document.getElementById("formCriterionMaxPoint");
+                var maxPoint = targetContent.value;
+
+                targetContent = document.getElementById("formCriterionDescription");
+                var description = targetContent.value;
+
+                targetContent = document.getElementById("formCriterionType");
+                var type = targetContent.value;
+
+                xmlhttp = new getXmlHttpRequestObject();
+                if (xmlhttp) {
+                    locationP = "form-test";
+                    xmlhttp.open("POST", "AddCriterion", false);
+                    xmlhttp.onreadystatechange = handleServletPost;
+                    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xmlhttp.send("txtTitle=" + title + "&txtMaxPoint=" + maxPoint + "&txtDescription=" + description + "&txtType=" + type);
+                }
+
+//                function addCriterion() {
+
+                /* Create row */
+
+                var newId = document.getElementById('form-test').innerHTML;
+                var rowOver = document.createElement("tr");
+
+                //criterion & critId & type
+                var tdOver = document.createElement("td");
+
+                var div1 = document.createElement("div");
+                var lblCritId = document.createElement("label");
+                lblCritId.id = "critId" + newId;
+                lblCritId.setAttribute("hidden", true);
+                lblCritId.innerHTML = newId;
+                var lblType = document.createElement("label");
+                lblType.id = "type" + newId;
+                lblType.setAttribute("hidden", true);
+                lblType.innerHTML = type;
+                var lblTitle = document.createElement("label");
+                lblTitle.id = "title" + newId;
+                lblTitle.innerHTML = title;
+                div1.appendChild(lblCritId);
+                div1.appendChild(lblType);
+                div1.appendChild(lblTitle);
+
+                var div2 = document.createElement("div");
+                var parDesc = document.createElement("p");
+                parDesc.id = "desc" + newId;
+                parDesc.setAttribute("style", "margin: 0px 5%");
+                parDesc.innerHTML = description;
+                div2.appendChild(parDesc);
+                tdOver.appendChild(div1);
+                tdOver.appendChild(div2);
+                rowOver.appendChild(tdOver);
+
+                //max point
+                tdOver = document.createElement("td");
+                tdOver.setAttribute("style", "text-align: center");
+                var lblMaxPoint = document.createElement("label");
+                lblMaxPoint.id = "mPoint" + newId;
+                lblMaxPoint.setAttribute("style", "font-size: 17px !important");
+                lblMaxPoint.innerHTML = maxPoint;
+                tdOver.appendChild(lblMaxPoint);
+                rowOver.appendChild(tdOver);
+                
+                //action
+                tdOver = document.createElement("td");
+                var btnEdit = document.createElement("input");
+                btnEdit.name = newId;
+                btnEdit.setAttribute("type", "button");
+                btnEdit.setAttribute("class", "btn btn-sm btn-primary editCriterionPopup");
+                btnEdit.setAttribute("value", "Edit");
+                tdOver.appendChild(btnEdit);
+                tdOver.innerHTML = tdOver.innerHTML + " ";
+                var btnDelete = document.createElement("input");
+                btnDelete.setAttribute("type", "button");
+                btnDelete.setAttribute("class", "btn btn-sm btn-danger");
+                btnDelete.setAttribute("value", "Delete");
+                tdOver.appendChild(btnDelete);
+                rowOver.appendChild(tdOver);
+                /* End create row*/
+
+                dialog1.dialog("close");
+                var rowElement = document.getElementById("workTable");
+                rowElement.appendChild(rowOver);
+
+            } else { //edit
+                var target = document.getElementById("critId" + nameX);
+                var targetContent = document.getElementById("formCriterionId");
+                var critId = targetContent.value;
+                target.innerHTML = targetContent.value;
+
+                target = document.getElementById("title" + nameX);
+                targetContent = document.getElementById("formCriterionTitle");
+                var title = targetContent.value;
+                target.innerHTML = targetContent.value;
+
+                target = document.getElementById("mPoint" + nameX);
+                targetContent = document.getElementById("formCriterionMaxPoint");
+                var maxPoint = targetContent.value;
+                target.innerHTML = targetContent.value;
+
+                target = document.getElementById("desc" + nameX);
+                targetContent = document.getElementById("formCriterionDescription");
+                var description = targetContent.value;
+                target.innerHTML = targetContent.value;
+
+                target = document.getElementById("type" + nameX);
+                targetContent = document.getElementById("formCriterionType");
+                var type = targetContent.value;
+                target.innerHTML = targetContent.value;
+
+                xmlhttp = new getXmlHttpRequestObject();
+                if (xmlhttp) {
+                    xmlhttp.open("POST", "EditCriterion", false);
+                    xmlhttp.onreadystatechange = handleServletPost;
+                    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xmlhttp.send("txtCritId=" + critId + "&txtTitle=" + title + "&txtMaxPoint=" + maxPoint + "&txtDescription=" + description + "&txtType=" + type);
+                }
+
+                dialog1.dialog("close");
+            }
+        } else {
+
+        }
+    });
+
 });
 //    </script>
 
 /*This is for searchAccount.jsp only*/
 function changeAccount(row) {
-    $(".accountTextbox"+row).css("display", "block");    
-    $(".accountInfo"+row).css("display", "none");    
-    $("#btn-Editaccount"+row).css("display", "none");
-    $("#btn-Submitaccount"+row).css("display", "block");
+    $(".accountTextbox" + row).css("display", "block");
+    $(".accountInfo" + row).css("display", "none");
+    $("#btn-Editaccount" + row).css("display", "none");
+    $("#btn-Submitaccount" + row).css("display", "block");
 }
 
 function submitAccount(row) {
-    $(".accountTextbox"+row).css("display", "none");    
-    $(".accountInfo"+row).css("display", "block");    
-    $("#btn-Editaccount"+row).css("display", "block");
-    $("#btn-Submitaccount"+row).css("display", "none");
+    $(".accountTextbox" + row).css("display", "none");
+    $(".accountInfo" + row).css("display", "block");
+    $("#btn-Editaccount" + row).css("display", "block");
+    $("#btn-Submitaccount" + row).css("display", "none");
 }
 
 /*This is for employeePopup.jsp only*/
@@ -281,146 +484,3 @@ function stopEditComment() {
     };
     commentID = 0;
 }
-
-
-/*------------------------------------------------------------------------------
- Kien
- **/
-
-function ChangeToEditForm(labCri, ediCri, labDes, ediDes, labSco, ediSco, btnEdi, btnSav, btnCan, btnDel) {
-    var labCrit = document.getElementById(labCri);
-    var ediCrit = document.getElementById(ediCri);
-    var labDesc = document.getElementById(labDes);
-    var ediDesc = document.getElementById(ediDes);
-    var labScor = document.getElementById(labSco);
-    var ediScor = document.getElementById(ediSco);
-    var btnEdit = document.getElementById(btnEdi);
-    var btnSave = document.getElementById(btnSav);
-    var btnCanc = document.getElementById(btnCan);
-    var btnDele = document.getElementById(btnDel);
-
-    {
-        labCrit.setAttribute("hidden", "true");
-        labDesc.setAttribute("hidden", "true");
-        labScor.setAttribute("hidden", "true");
-        btnEdit.setAttribute("hidden", "true");
-        btnDele.setAttribute("hidden", "true");
-
-        document.getElementById(ediCri).removeAttribute("hidden");
-        document.getElementById(ediDes).removeAttribute("hidden");
-        document.getElementById(ediSco).removeAttribute("hidden");
-        document.getElementById(btnSav).removeAttribute("hidden");
-        document.getElementById(btnCan).removeAttribute("hidden");
-    }
-}
-
-function ChangeToLabelForm(labCri, ediCri, labDes, ediDes, labSco, ediSco, btnEdi, btnSav, btnCan, btnDel) {
-    var labCrit = document.getElementById(labCri);
-    var ediCrit = document.getElementById(ediCri);
-    var labDesc = document.getElementById(labDes);
-    var ediDesc = document.getElementById(ediDes);
-    var labScor = document.getElementById(labSco);
-    var ediScor = document.getElementById(ediSco);
-    var btnEdit = document.getElementById(btnEdi);
-    var btnSave = document.getElementById(btnSav);
-    var btnCanc = document.getElementById(btnCan);
-    var btnDele = document.getElementById(btnDel);
-
-    {
-        document.getElementById(labCri).removeAttribute("hidden");
-        document.getElementById(labDes).removeAttribute("hidden");
-        document.getElementById(labSco).removeAttribute("hidden");
-        document.getElementById(btnEdi).removeAttribute("hidden");
-        document.getElementById(btnDel).removeAttribute("hidden");
-
-        ediCrit.setAttribute("hidden", "true");
-        ediDesc.setAttribute("hidden", "true");
-        ediScor.setAttribute("hidden", "true");
-        btnSave.setAttribute("hidden", "true");
-        btnCanc.setAttribute("hidden", "true");
-    }
-}
-
-var curIndex = 0;
-
-function removeRow(index) {
-    var curNode = document.getElementById("ediCri" + index);
-    var wantedNode = curNode.parentNode.parentNode;
-    var workTable = wantedNode.parentNode;
-    workTable.removeChild(wantedNode);
-    curNode = workTable.firstChild.nextSibling;
-    var i = 0;
-    while (curNode) {
-        i++;
-        curNode.firstChild.innerHTML = i;
-        curNode = curNode.nextSibling;
-    }
-    curIndex--;
-}
-
-function addCriterion() {
-    var addRow = createRow();
-    var rowElement = document.getElementById("workTable");
-    rowElement.appendChild(addRow);
-}
-
-function createRow() {
-    curIndex++;
-
-    var rowOver = document.createElement("tr");
-
-    //#
-    var tdOver = document.createElement("td");
-    tdOver.innerHTML = curIndex;
-    rowOver.appendChild(tdOver);
-
-    //criterion
-    tdOver = document.createElement("td");
-    var txtCrit = document.createElement("input");
-    txtCrit.id = "ediCri" + curIndex;
-    txtCrit.setAttribute("type", "text");
-    txtCrit.setAttribute("style", "width: 100%; margin-top: 0; margin-bottom: 0");
-    tdOver.appendChild(txtCrit);
-    rowOver.appendChild(tdOver);
-
-    //description
-    tdOver = document.createElement("td");
-    var txtDesc = document.createElement("textarea");
-    txtDesc.id = "ediDes" + curIndex;
-    txtDesc.setAttribute("type", "text");
-    txtDesc.setAttribute("rows", "5");
-    txtDesc.setAttribute("style", "width: 100%; margin-top: 0; margin-bottom: 0");
-    tdOver.appendChild(txtDesc);
-    rowOver.appendChild(tdOver);
-
-    //score
-    tdOver = document.createElement("td");
-    var txtScore = document.createElement("input");
-    txtScore.id = "ediSco" + curIndex;
-    txtScore.setAttribute("type", "text");
-    txtScore.setAttribute("style", "width: 100%; margin-top: 0; margin-bottom: 0");
-    tdOver.appendChild(txtScore);
-    rowOver.appendChild(tdOver);
-
-    //action
-    tdOver = document.createElement("td");
-    var btnSave = document.createElement("input");
-    btnSave.id = "btnSav" + curIndex;
-    btnSave.setAttribute("type", "button");
-    btnSave.setAttribute("class", "btn-primary");
-    btnSave.setAttribute("value", "Save");
-    var btnCancel = document.createElement("input");
-    tdOver.appendChild(btnSave);
-    btnCancel.id = "btnCan" + curIndex;
-    btnCancel.setAttribute("type", "button");
-    btnCancel.setAttribute("class", "btn-default");
-    btnCancel.setAttribute("value", "Cancel");
-    btnCancel.setAttribute("onclick", "removeRow(" + curIndex + ")");
-    tdOver.appendChild(btnCancel);
-    rowOver.appendChild(tdOver);
-
-    return rowOver;
-}
-
-/*
- ------------------------------------------------------------------------------*/
