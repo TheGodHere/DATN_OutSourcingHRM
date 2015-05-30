@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ezio
  */
-public class AddCriterion extends HttpServlet {
+public class EditCriterion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,6 +34,15 @@ public class AddCriterion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            int critId = 0;
+            try {
+                critId = Integer.parseInt(request.getParameter("txtCritId"));
+            } catch (NullPointerException ne) {
+                critId = 0;
+            } catch (NumberFormatException e) {
+                critId = 0;
+            }
+
             String title = request.getParameter("txtTitle");
             String description = request.getParameter("txtDescription");
 
@@ -49,15 +58,10 @@ public class AddCriterion extends HttpServlet {
             String type = request.getParameter("txtType");
 
             CriterionDAO criterionDao = new CriterionDAO();
-            criterionDao.addCriterion(title, description, maxPoint, type);
-            System.out.println(criterionDao.getCriterionMaxID());
-            out.print(criterionDao.getCriterionMaxID());
-            
+            criterionDao.editCriterion(critId, title, description, maxPoint, type);
 
-//            request.setAttribute("type", type);
-//            RequestDispatcher rd = request.getRequestDispatcher("ListCriterion");
+//            RequestDispatcher rd = request.getRequestDispatcher("editCriterion.jsp");
 //            rd.forward(request, response);
-            
         } finally {
             out.close();
         }
