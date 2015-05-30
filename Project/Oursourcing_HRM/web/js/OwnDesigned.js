@@ -181,7 +181,20 @@ $(function() {
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xmlhttp.send("txtname=MHoang");
         }
+    });
+    
+    $(".openPopupEmployee").on("click", function() {
+        dialog.dialog("open");
+        var parameterIdFromLink = $(this).attr("name");
+        xmlhttp = new getXmlHttpRequestObject();
 
+        if (xmlhttp) {
+            locationP = "dialog-form";
+            xmlhttp.open("POST", "CenterServlet", true);
+            xmlhttp.onreadystatechange = handleServletPost;
+            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xmlhttp.send("accountID="+parameterIdFromLink+"&btAction=ViewEmployeeDetail");
+        }
     });
 
     $(".assignPopup").on("click", function() {
