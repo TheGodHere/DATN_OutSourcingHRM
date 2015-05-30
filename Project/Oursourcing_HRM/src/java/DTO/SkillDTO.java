@@ -14,6 +14,7 @@ public class SkillDTO {
     private int skillID;
     private String skillName;
     private boolean isProgCode;
+    private boolean isInterest;
 
     public SkillDTO() {
     }
@@ -51,6 +52,14 @@ public class SkillDTO {
 
     public void setIsProgCode(boolean isProgCode) {
         this.isProgCode = isProgCode;
+    }
+
+    public boolean isIsInterest() {
+        return isInterest;
+    }
+
+    public void setIsInterest(boolean isInterest) {
+        this.isInterest = isInterest;
     }
     
     

@@ -19,6 +19,7 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
     private String password;
     private int roleID;
     private String role;
+    private String skill;
     private boolean isActive;
     private String fullName;
     private boolean sex;
@@ -35,9 +36,60 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
     public AccountDTO() {
     }
 
+    public AccountDTO(String username, String password, String role, boolean isActive, String fullName, boolean sex, Date birthday, String phone, String email, float avgPoint, int numOfEva, String company, String address) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.isActive = isActive;
+        this.fullName = fullName;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.phone = phone;
+        this.email = email;
+        this.avgPoint = avgPoint;
+        this.numOfEva = numOfEva;
+        this.company = company;
+        this.address = address;
+    }
+    public AccountDTO(String username, String password,  boolean isActive, String fullName,int account) {
+        this.username = username;
+        this.password = password;        
+        this.isActive = isActive;
+        this.fullName = fullName;
+        this.accountID = account;
+        
+    }
+     public AccountDTO(int role, String username, String password,  boolean isActive, String fullName) {
+        this.username = username;
+        this.password = password;        
+        this.isActive = isActive;
+        this.fullName = fullName;
+        this.roleID = role;
+        
+    }
+            
     public AccountDTO(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public AccountDTO(String fullName, String role, Date birthday, String email, String phone) {
+        this.fullName = fullName;
+        this.role = role;
+        this.birthday = birthday;
+        this.email = email;
+        this.phone = phone;
+    }
+    
+    public AccountDTO(String fullName, String role, String skill, Date birthday, String email, String phone, boolean sex, String address) {
+        this.fullName = fullName;
+        this.role = role;
+        this.skill = skill;
+        this.birthday = birthday;
+        this.email = email;
+        this.phone = phone;
+        this.sex = sex ;
+        this.address = address ;
     }
 
     public int getRoleID() {
@@ -188,4 +240,19 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
                     return targetUsername1.compareTo(targetUsername2);
                 }
             };
+
+    /**
+     * @return the skill
+     */
+    public String getSkill() {
+        return skill;
+    }
+
+    /**
+     * @param skill the skill to set
+     */
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
 }
