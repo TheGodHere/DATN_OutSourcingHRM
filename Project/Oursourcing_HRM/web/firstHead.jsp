@@ -80,8 +80,8 @@
                         <li><a href="#3">Contact</a></li>
                         <li class="dropdown">
                             <a href="#4" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <c:set var="acc" value="${sessionScope.USERACCOUNT[0]}"/>
-                                Welcome, ${acc.username}<span class="caret"></span></a>
+                                 <c:set var="acc" value="${sessionScope.USERACCOUNT}"/>
+                                Welcome, ${acc.fullName}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#" class="openPopupProfile" name="userID">Profile</a></li>
                                 <li><a href="#">Change password</a></li>
