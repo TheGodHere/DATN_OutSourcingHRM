@@ -21,17 +21,18 @@ public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
     private String directorName;
     private int customerID;
     private String customerName;
-
+    private int managerID;
+    private String managerName;
     private String projectCode;
     private String projectName;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
     private ArrayList<SkillDTO> listOfSkill;
 
     public ProjectDTO() {
     }
 
-    public ProjectDTO(int projectID, String directorName, String customerName, String projectCode, String projectName, Date startDate, Date endDate, ArrayList<SkillDTO> listOfSkill) {
+    public ProjectDTO(int projectID, String directorName, String customerName, String projectCode, String projectName, String startDate, String endDate, ArrayList<SkillDTO> listOfSkill) {
         this.projectID = projectID;
         this.directorName = directorName;
         this.customerName = customerName;
@@ -40,6 +41,14 @@ public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
         this.startDate = startDate;
         this.endDate = endDate;
         this.listOfSkill = listOfSkill;
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
     }
 
     public int getDirectorID() {
@@ -98,19 +107,19 @@ public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
         this.projectName = projectName;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
@@ -122,8 +131,16 @@ public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
         this.listOfSkill = listOfSkill;
     }
 
+    public int getManagerID() {
+        return managerID;
+    }
+
+    public void setManagerID(int managerID) {
+        this.managerID = managerID;
+    }
+
     public int compareTo(ProjectDTO proj) {
-        Date targetEndDate = ((ProjectDTO) proj).getEndDate();
+        String targetEndDate = ((ProjectDTO) proj).getEndDate();
         if (this.endDate == null) {
             return 1;
         } else if (targetEndDate == null) {
@@ -135,8 +152,8 @@ public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
     public static Comparator<ProjectDTO> EndDateComparatorDESC
             = new Comparator<ProjectDTO>() {
                 public int compare(ProjectDTO proj1, ProjectDTO proj2) {
-                    Date targetEndDate1 = ((ProjectDTO) proj1).getEndDate();
-                    Date targetEndDate2 = ((ProjectDTO) proj2).getEndDate();
+                    String targetEndDate1 = ((ProjectDTO) proj1).getEndDate();
+                    String targetEndDate2 = ((ProjectDTO) proj2).getEndDate();
                     if (targetEndDate1 == null) {
                         return -1;
                     } else if (targetEndDate2 == null) {

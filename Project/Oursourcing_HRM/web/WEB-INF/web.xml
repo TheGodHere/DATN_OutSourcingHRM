@@ -16,17 +16,22 @@
         <servlet-name>NullServlet</servlet-name>
         <servlet-class>Servlets.NullServlet</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>Servlets.LogoutServlet</servlet-class>
     </servlet>
-
     <servlet>
-        <servlet-name>PrintHTMLServlet</servlet-name>
-        <servlet-class>Servlets.PrintHTMLServlet</servlet-class>
+        <servlet-name>TestChoiChovui</servlet-name>
+        <servlet-class>Servlets.TestChoiChovui</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>ListAllEmployee</servlet-name>
+        <servlet-class>Servlets.ListAllEmployee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProjectDetailServlet</servlet-name>
+        <servlet-class>Servlets.ProjectDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CenterServlet</servlet-name>
         <url-pattern>/CenterServlet</url-pattern>
@@ -48,8 +53,16 @@
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PrintHTMLServlet</servlet-name>
-        <url-pattern>/PrintHTMLServlet</url-pattern>
+        <servlet-name>TestChoiChovui</servlet-name>
+        <url-pattern>/TestChoiChovui</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListAllEmployee</servlet-name>
+        <url-pattern>/ListAllEmployee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProjectDetailServlet</servlet-name>
+        <url-pattern>/ProjectDetailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

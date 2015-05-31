@@ -694,7 +694,9 @@ table a, #comments a{background-color:inherit;}
 }
 
 
-
+.tabs-customized ul .active a {
+    background-color: yellow !important;
+}
 
 
 
