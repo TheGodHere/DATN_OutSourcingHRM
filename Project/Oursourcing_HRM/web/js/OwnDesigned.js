@@ -244,6 +244,7 @@ $(function() {
     });
 
     /*This is for editCriterion.jsp only*/
+    /*Add Criterion*/
     $(".addCriterionPopup").on("click", function() {
         var target = document.getElementById("formCriterionId");
         target.value = "";
@@ -266,21 +267,23 @@ $(function() {
 
         dialog1.dialog("open");
     });
+    /*Edit Criterion*/
+    
     $(".editCriterionPopup").on("click", function() {
         var nameX = $(this).attr("name");
         dialog1.dialog("open");
 
         var target = document.getElementById("formCriterionId");
         var targetContent = document.getElementById("critId" + nameX);
-        target.setAttribute("value", targetContent.innerHTML);
+        target.value = targetContent.innerHTML;
 
         target = document.getElementById("formCriterionTitle");
         targetContent = document.getElementById("title" + nameX);
-        target.setAttribute("value", targetContent.innerHTML);
+        target.value = targetContent.innerHTML;
 
         target = document.getElementById("formCriterionMaxPoint");
         targetContent = document.getElementById("mPoint" + nameX);
-        target.setAttribute("value", targetContent.innerHTML);
+        target.value = targetContent.innerHTML;
 
         target = document.getElementById("formCriterionDescription");
         targetContent = document.getElementById("desc" + nameX);
@@ -288,11 +291,11 @@ $(function() {
 
         target = document.getElementById("formCriterionType");
         targetContent = document.getElementById("type" + nameX);
-        target.setAttribute("value", targetContent.innerHTML);
+        target.value = targetContent.innerHTML;
 
         target = document.getElementById("criterionSaveBtn");
         targetContent = document.getElementById("critId" + nameX);
-        target.setAttribute("name", targetContent.innerHTML);
+        target.name = targetContent.innerHTML;
 
     });
 
@@ -323,72 +326,74 @@ $(function() {
                     xmlhttp.send("txtTitle=" + title + "&txtMaxPoint=" + maxPoint + "&txtDescription=" + description + "&txtType=" + type);
                 }
 
-//                function addCriterion() {
-
                 /* Create row */
-
                 var newId = document.getElementById('form-test').innerHTML;
-                var rowOver = document.createElement("tr");
+                if (newId !== 0) {
+                    var rowOver = document.createElement("tr");
 
-                //criterion & critId & type
-                var tdOver = document.createElement("td");
+                    //criterion & critId & type
+                    var tdOver = document.createElement("td");
 
-                var div1 = document.createElement("div");
-                var lblCritId = document.createElement("label");
-                lblCritId.id = "critId" + newId;
-                lblCritId.setAttribute("hidden", true);
-                lblCritId.innerHTML = newId;
-                var lblType = document.createElement("label");
-                lblType.id = "type" + newId;
-                lblType.setAttribute("hidden", true);
-                lblType.innerHTML = type;
-                var lblTitle = document.createElement("label");
-                lblTitle.id = "title" + newId;
-                lblTitle.innerHTML = title;
-                div1.appendChild(lblCritId);
-                div1.appendChild(lblType);
-                div1.appendChild(lblTitle);
+                    var div1 = document.createElement("div");
+                    var lblCritId = document.createElement("label");
+                    lblCritId.id = "critId" + newId;
+                    lblCritId.setAttribute("hidden", true);
+                    lblCritId.innerHTML = newId;
+                    var lblType = document.createElement("label");
+                    lblType.id = "type" + newId;
+                    lblType.setAttribute("hidden", true);
+                    lblType.innerHTML = type;
+                    var lblTitle = document.createElement("label");
+                    lblTitle.id = "title" + newId;
+                    lblTitle.innerHTML = title;
+                    div1.appendChild(lblCritId);
+                    div1.appendChild(lblType);
+                    div1.appendChild(lblTitle);
 
-                var div2 = document.createElement("div");
-                var parDesc = document.createElement("p");
-                parDesc.id = "desc" + newId;
-                parDesc.setAttribute("style", "margin: 0px 5%");
-                parDesc.innerHTML = description;
-                div2.appendChild(parDesc);
-                tdOver.appendChild(div1);
-                tdOver.appendChild(div2);
-                rowOver.appendChild(tdOver);
+                    var div2 = document.createElement("div");
+                    var parDesc = document.createElement("p");
+                    parDesc.id = "desc" + newId;
+                    parDesc.setAttribute("style", "margin: 0px 5%");
+                    parDesc.innerHTML = description;
+                    div2.appendChild(parDesc);
+                    tdOver.appendChild(div1);
+                    tdOver.appendChild(div2);
+                    rowOver.appendChild(tdOver);
 
-                //max point
-                tdOver = document.createElement("td");
-                tdOver.setAttribute("style", "text-align: center");
-                var lblMaxPoint = document.createElement("label");
-                lblMaxPoint.id = "mPoint" + newId;
-                lblMaxPoint.setAttribute("style", "font-size: 17px !important");
-                lblMaxPoint.innerHTML = maxPoint;
-                tdOver.appendChild(lblMaxPoint);
-                rowOver.appendChild(tdOver);
+                    //max point
+                    tdOver = document.createElement("td");
+                    tdOver.setAttribute("style", "text-align: center");
+                    var lblMaxPoint = document.createElement("label");
+                    lblMaxPoint.id = "mPoint" + newId;
+                    lblMaxPoint.setAttribute("style", "font-size: 17px !important");
+                    lblMaxPoint.innerHTML = maxPoint;
+                    tdOver.appendChild(lblMaxPoint);
+                    rowOver.appendChild(tdOver);
 
-                //action
-                tdOver = document.createElement("td");
-                var btnEdit = document.createElement("input");
-                btnEdit.name = newId;
-                btnEdit.setAttribute("type", "button");
-                btnEdit.setAttribute("class", "btn btn-sm btn-primary editCriterionPopup");
-                btnEdit.setAttribute("value", "Edit");
-                tdOver.appendChild(btnEdit);
-                tdOver.innerHTML = tdOver.innerHTML + " ";
-                var btnDelete = document.createElement("input");
-                btnDelete.setAttribute("type", "button");
-                btnDelete.setAttribute("class", "btn btn-sm btn-danger");
-                btnDelete.setAttribute("value", "Delete");
-                tdOver.appendChild(btnDelete);
-                rowOver.appendChild(tdOver);
-                /* End create row*/
+                    //action
+                    tdOver = document.createElement("td");
+                    var btnEdit = document.createElement("input");
+                    btnEdit.setAttribute("type", "button");
+                    btnEdit.setAttribute("class", "btn btn-sm btn-primary editCriterionPopup");
+                    btnEdit.name = newId;
+                    btnEdit.setAttribute("value", "Edit");
+                    tdOver.appendChild(btnEdit);
+                    tdOver.innerHTML = tdOver.innerHTML + " ";
+                    var btnDelete = document.createElement("input");
+                    btnDelete.setAttribute("type", "button");
+                    btnDelete.setAttribute("class", "btn btn-sm btn-danger removeCriterion");
+                    btnDelete.name = newId;
+                    btnDelete.setAttribute("value", "Delete");
+                    tdOver.appendChild(btnDelete);
+                    rowOver.appendChild(tdOver);
+                    /* End create row*/
 
-                dialog1.dialog("close");
-                var rowElement = document.getElementById("workTable");
-                rowElement.appendChild(rowOver);
+                    dialog1.dialog("close");
+                    var rowElement = document.getElementById("workTable");
+                    rowElement.appendChild(rowOver);
+                } else {
+                    dialog1.dialog("close");
+                }
 
             } else { //edit
                 var target = document.getElementById("critId" + nameX);
@@ -427,7 +432,36 @@ $(function() {
                 dialog1.dialog("close");
             }
         } else {
+            // DO NOTHING
+        }
+        location.reload();
+    });
+    /*Deactive  Criterion*/
+    $(".removeCriterion").on("click", function() {
+        var c = confirm("Remove this criterion?");
+        if (c === true) {
+            var critId = $(this).attr("name");
 
+            xmlhttp = new getXmlHttpRequestObject();
+            if (xmlhttp) {
+                locationP = "form-test";
+                xmlhttp.open("POST", "DeactiveCriterion", false);
+                xmlhttp.onreadystatechange = handleServletPost;
+                xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xmlhttp.send("txtCritId=" + critId);
+            }
+
+            var curId = document.getElementById('form-test').innerHTML;
+            if (curId !== 0) {
+                //removeRow
+                var curNode = document.getElementById("critId" + curId);
+                var wantedNode = curNode.parentNode.parentNode.parentNode;
+                var workTable = wantedNode.parentNode;
+                workTable.removeChild(wantedNode);
+                curNode = workTable.firstChild.nextSibling;
+            } else {
+                //DO NOTHING
+            }
         }
     });
 
