@@ -101,7 +101,6 @@
                                             </td>
                                             <td>
                                                 <input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit">
-                                                <!--<input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit">-->
                                                 <input type="button" class="btn btn-sm btn-danger removeCriterion" name="${crit.critID}" value="Delete">
                                             </td>
                                         </tr>
