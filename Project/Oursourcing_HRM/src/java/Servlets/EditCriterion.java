@@ -59,7 +59,6 @@ public class EditCriterion extends HttpServlet {
 
             CriterionDAO criterionDao = new CriterionDAO();
             criterionDao.editCriterion(critId, title, description, maxPoint, type);
-
 //            RequestDispatcher rd = request.getRequestDispatcher("editCriterion.jsp");
 //            rd.forward(request, response);
         } finally {
