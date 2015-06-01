@@ -88,6 +88,26 @@
         <servlet-class>Servlets.ProjectDetailServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DeactiveCriterion</servlet-name>
+        <servlet-class>Servlets.DeactiveCriterion</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>EditCriterion</servlet-name>
+        <servlet-class>Servlets.EditCriterion</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>AddCriterion</servlet-name>
+        <servlet-class>Servlets.AddCriterion</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ListCriterion</servlet-name>
+        <servlet-class>Servlets.ListCriterion</servlet-class>
+    </servlet>
+    
+    <servlet>
         <servlet-name>ViewRecruitmentDetailServlet</servlet-name>
         <servlet-class>Servlets.ViewRecruitmentDetailServlet</servlet-class>
     </servlet>
@@ -174,6 +194,23 @@
     <servlet-mapping>
         <servlet-name>ProjectDetailServlet</servlet-name>
         <url-pattern>/ProjectDetailServlet</url-pattern>
+    </servlet-mapping>
+<<<<<<< .mine
+    <servlet-mapping>
+        <servlet-name>ListCriterion</servlet-name>
+        <url-pattern>/ListCriterion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCriterion</servlet-name>
+        <url-pattern>/AddCriterion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditCriterion</servlet-name>
+        <url-pattern>/EditCriterion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeactiveCriterion</servlet-name>
+        <url-pattern>/DeactiveCriterion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewRecruitmentDetailServlet</servlet-name>
