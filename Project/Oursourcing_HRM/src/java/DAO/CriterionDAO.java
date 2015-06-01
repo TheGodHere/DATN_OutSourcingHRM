@@ -59,6 +59,9 @@ public class CriterionDAO {
                     if (stm != null) {
                         stm.close();
                     }
+                    if (con != null) {
+                        con.close();
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -104,6 +107,9 @@ public class CriterionDAO {
                     if (stm != null) {
                         stm.close();
                     }
+                    if (con != null) {
+                        con.close();
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -136,6 +142,9 @@ public class CriterionDAO {
                     }
                     if (stm != null) {
                         stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,6 +180,9 @@ public class CriterionDAO {
                     if (stm != null) {
                         stm.close();
                     }
+                    if (con != null) {
+                        con.close();
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -182,11 +194,9 @@ public class CriterionDAO {
     public boolean editCriterion(int critID ,String title, String description, int maxPoint, String type){
         Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;
-        boolean result = false;
-        
         if (con != null) {
-            String sql = "UPDATE Criterion SET title=?,description=?,maxPoint=?,type=? WHERE critID=?";
-            try {                
+            String sql = "update [Criterion] set title = ?, description = ?, maxPoint = ?, type = ? where critID = ?";
+            try {
                 stm = con.prepareStatement(sql);
                 
                 stm.setString(1, title);
@@ -194,23 +204,29 @@ public class CriterionDAO {
                 stm.setInt(3, maxPoint);
                 stm.setString(4, type);
                 stm.setInt(5, critID);
-                
-                stm.executeUpdate();
-                result = true;
-                
+
+                int result = stm.executeUpdate();
+                if (result > 0) {
+                    System.out.println("true");
+                    return true;
+                }
             } catch (SQLException ex) {
-                Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 try {
                     if (stm != null) {
                         stm.close();
                     }
+                    if (con != null) {
+                        con.close();
+                    }
                 } catch (SQLException ex) {
-                    Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
-        return result;
+        System.out.println("false");
+        return false;
     }
     
     public boolean deactiveCriterion(int critID){
@@ -235,6 +251,9 @@ public class CriterionDAO {
                 try {
                     if (stm != null) {
                         stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
