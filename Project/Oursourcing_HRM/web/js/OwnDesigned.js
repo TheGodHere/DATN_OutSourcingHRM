@@ -472,16 +472,11 @@ $(function() {
 
         var target = document.getElementById("timesheet");
         var targetContent = document.getElementById("timeSheetID" + nameX);
-        target.setAttribute("value", targetContent.innerHTML);
-
+        target.value = targetContent.innerHTML;
+       
         target = document.getElementById("datepicker");
         targetContent = document.getElementById("date" + nameX);
-        target.setAttribute("value", targetContent.innerHTML);
-
-        target = document.getElementById("ProCod");
-        targetContent = document.getElementById("proCode" + nameX);
-       // target.setAttribute("value", targetContent.innerHTML);
-       target.innerHTML = targetContent.innerHTML;
+        target.value = targetContent.innerHTML;
 
         target = document.getElementById("tim");
         targetContent = document.getElementById("time" + nameX);
@@ -489,11 +484,21 @@ $(function() {
 
         target = document.getElementById("descrip");
         targetContent = document.getElementById("des" + nameX);
-//        target.setAttribute("value", targetContent.innerHTML);
         target.value = targetContent.innerHTML;
-//        target = document.getElementById("criterionSaveBtn");
-//        targetContent = document.getElementById("critId" + nameX);
-//        target.setAttribute("name", targetContent.innerHTML);
+
+        var btAdd = document.getElementById("add");
+        btAdd.setAttribute("hidden", "true");
+        var btReset = document.getElementById("reset");
+        btReset.setAttribute("hidden", "true");
+        var btUpdate = document.getElementById("update");
+        btUpdate.removeAttribute("hidden");
+
+        var targetID = document.getElementById("proUpdate" + nameX).innerHTML;
+        target = document.getElementById("ProCod"+targetID);
+        target.setAttribute("selected", "");
+        
+        var title = document.getElementById("title");
+        title.innerHTML = "Update Timesheet";
 
     });
 
