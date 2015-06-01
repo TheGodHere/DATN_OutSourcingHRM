@@ -1,0 +1,13 @@
+1. Table Criterion
+-Them: createDate: date
+2. Table Project
+-Them: scale: int
+-Them: fbackContent: nvarchar(max)
+3. Table Recruitment
+-Them: title: nvarchar(100)
+-Them: reply: int
+-Them: lastEdit: date
+5. Table EvaluationResult:
+-Them: EvaContent: nvarchar(max)
+6. Table ProjectMember
+-Them: apprContent: nvarchar(max)
