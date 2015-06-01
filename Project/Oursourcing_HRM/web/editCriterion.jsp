@@ -100,8 +100,10 @@
                                                 <label style="font-size: 17px !important" id="mPoint${crit.critID}">${crit.maxPoint}</label>
                                             </td>
                                             <td>
-                                                <input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit">
-                                                <input type="button" class="btn btn-sm btn-danger" value="Delete">
+                                                <input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit"
+                                                       onclick="editCriterion(${crit.critID})">
+                                                <!--<input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit">-->
+                                                <input type="button" class="btn btn-sm btn-danger removeCriterion" name="${crit.critID}" value="Delete">
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -148,7 +150,7 @@
                                             </td>
                                             <td>
                                                 <input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit">
-                                                <input type="button" class="btn btn-sm btn-danger" value="Delete">
+                                                <input type="button" class="btn btn-sm btn-danger removeCriterion" name="${crit.critID}" value="Delete">
                                             </td>
                                         </tr>
                                     </c:forEach> 
