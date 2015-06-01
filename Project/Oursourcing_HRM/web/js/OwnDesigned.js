@@ -451,17 +451,18 @@ $(function() {
                 xmlhttp.send("txtCritId=" + critId);
             }
 
-            var curId = document.getElementById('form-test').innerHTML;
-            if (curId !== 0) {
-                //removeRow
-                var curNode = document.getElementById("critId" + curId);
-                var wantedNode = curNode.parentNode.parentNode.parentNode;
-                var workTable = wantedNode.parentNode;
-                workTable.removeChild(wantedNode);
-                curNode = workTable.firstChild.nextSibling;
-            } else {
-                //DO NOTHING
-            }
+            location.reload();
+//            var curId = document.getElementById('form-test').innerHTML;
+//            if (curId !== 0) {
+//                //removeRow
+//                var curNode = document.getElementById("critId" + curId);
+//                var wantedNode = curNode.parentNode.parentNode.parentNode;
+//                var workTable = wantedNode.parentNode;
+//                workTable.removeChild(wantedNode);
+//                curNode = workTable.firstChild.nextSibling;
+//            } else {
+//                //DO NOTHING
+//            }
         }
     });
 
