@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Servlets;
 
 import DAO.CriterionDAO;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ezio
  */
-public class AddCriterion extends HttpServlet {
+public class DeactiveCriterion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,34 +34,23 @@ public class AddCriterion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String title = request.getParameter("txtTitle");
-            String description = request.getParameter("txtDescription");
-
-            int maxPoint = 0;
+            int critId = 0;
             try {
-                maxPoint = Integer.parseInt(request.getParameter("txtMaxPoint"));
+                critId = Integer.parseInt(request.getParameter("txtCritId"));
             } catch (NullPointerException ne) {
-                maxPoint = 0;
+                critId = 0;
             } catch (NumberFormatException e) {
-                maxPoint = 0;
-            }
-
-            String type = request.getParameter("txtType");
-
-            CriterionDAO criterionDao = new CriterionDAO();
-            boolean result = criterionDao.addCriterion(title, description, maxPoint, type);
-
-            if (result == true) {
-                System.out.println(criterionDao.getCriterionMaxID());
-                out.print(criterionDao.getCriterionMaxID());
-            } else {
-                System.out.println(0);
-                out.print(0);
+                critId = 0;
             }
             
-//            request.setAttribute("type", type);
-//            RequestDispatcher rd = request.getRequestDispatcher("ListCriterion");
-//            rd.forward(request, response);
+            CriterionDAO criterionDAO = new CriterionDAO();
+            boolean result = criterionDAO.deactiveCriterion(critId);
+            
+            if (result == true) {
+                out.print(critId);
+            } else {
+                out.print(0);
+            }
         } finally {
             out.close();
         }
