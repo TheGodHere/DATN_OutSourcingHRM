@@ -25,6 +25,22 @@
         <servlet-class>Servlets.TestChoiChovui</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddTimesheetServlet</servlet-name>
+        <servlet-class>Servlets.AddTimesheetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TimesheetServlet</servlet-name>
+        <servlet-class>Servlets.TimesheetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListAllTimesheet</servlet-name>
+        <servlet-class>Servlets.ListAllTimesheet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteTimesheet</servlet-name>
+        <servlet-class>Servlets.DeleteTimesheet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ListAllEmployee</servlet-name>
         <servlet-class>Servlets.ListAllEmployee</servlet-class>
     </servlet>
@@ -57,6 +73,22 @@
         <url-pattern>/TestChoiChovui</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AddTimesheetServlet</servlet-name>
+        <url-pattern>/AddTimesheetServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TimesheetServlet</servlet-name>
+        <url-pattern>/TimesheetServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListAllTimesheet</servlet-name>
+        <url-pattern>/ListAllTimesheet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteTimesheet</servlet-name>
+        <url-pattern>/DeleteTimesheet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListAllEmployee</servlet-name>
         <url-pattern>/ListAllEmployee</url-pattern>
     </servlet-mapping>
@@ -70,6 +102,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>CenterServlet</welcome-file>
+        <welcome-file>Login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

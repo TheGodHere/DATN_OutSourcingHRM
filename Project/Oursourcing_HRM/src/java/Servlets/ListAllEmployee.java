@@ -49,6 +49,7 @@ public class ListAllEmployee extends HttpServlet {
             result.add(pineappale);
 
             CommonFunction common = new CommonFunction();
+           // common.sortCollection(result);
             common.sortCollection(result, AccountDTO.UsernameComparator);
             request.setAttribute("result", result);
             RequestDispatcher rd = request.getRequestDispatcher("searchEmployee.jsp");

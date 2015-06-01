@@ -38,27 +38,27 @@ public class SearchAccountServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-           String fullname = request.getParameter("txtSearch");
-            AccountDAO a = new AccountDAO();
-            List<AccountDTO> result = a.searchAccount(fullname);
-            
-//            List<AccountDTO> result = a.getListObj();
-            
-            
-            String url = accountPage;
-            if(result.size()>0){               
-                url = accountPage;
-                HttpSession session = request.getSession();
-                session.setAttribute("FULLNAME", result);
-            }            
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
-            
-                    
-        } finally {
-            out.close();
-        }
+//        try {
+//           String fullname = request.getParameter("txtSearch");
+//            AccountDAO a = new AccountDAO();
+//           // List<AccountDTO> result = a.searchAccount(fullname);
+//            
+////            List<AccountDTO> result = a.getListObj();
+//            
+//            
+//            String url = accountPage;
+//            if(result.size()>0){               
+//                url = accountPage;
+//                HttpSession session = request.getSession();
+//                session.setAttribute("FULLNAME", result);
+//            }            
+//            RequestDispatcher rd = request.getRequestDispatcher(url);
+//            rd.forward(request, response);
+//            
+//                    
+//        } finally {
+//            out.close();
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

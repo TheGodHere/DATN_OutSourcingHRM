@@ -197,7 +197,7 @@ $(function() {
             xmlhttp.send("txtname=MHoang");
         }
     });
-    
+
     $(".openPopupEmployee").on("click", function() {
         dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
@@ -208,7 +208,7 @@ $(function() {
             xmlhttp.open("POST", "CenterServlet", true);
             xmlhttp.onreadystatechange = handleServletPost;
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xmlhttp.send("accountID="+parameterIdFromLink+"&btAction=ViewEmployeeDetail");
+            xmlhttp.send("accountID=" + parameterIdFromLink + "&btAction=ViewEmployeeDetail");
         }
     });
 
@@ -295,6 +295,7 @@ $(function() {
         target.setAttribute("name", targetContent.innerHTML);
 
     });
+
     $("#criterionSaveBtn").on("click", function() {
         var c = confirm("Save this criterion?");
         if (c === true) {
@@ -367,7 +368,7 @@ $(function() {
                 lblMaxPoint.innerHTML = maxPoint;
                 tdOver.appendChild(lblMaxPoint);
                 rowOver.appendChild(tdOver);
-                
+
                 //action
                 tdOver = document.createElement("td");
                 var btnEdit = document.createElement("input");
@@ -428,6 +429,37 @@ $(function() {
         } else {
 
         }
+    });
+
+//for timesheet
+    $(".updateTimesheet").on("click", function() {
+        var nameX = $(this).attr("name");
+
+        var target = document.getElementById("timesheet");
+        var targetContent = document.getElementById("timeSheetID" + nameX);
+        target.setAttribute("value", targetContent.innerHTML);
+
+        target = document.getElementById("datepicker");
+        targetContent = document.getElementById("date" + nameX);
+        target.setAttribute("value", targetContent.innerHTML);
+
+        target = document.getElementById("ProCod");
+        targetContent = document.getElementById("proCode" + nameX);
+       // target.setAttribute("value", targetContent.innerHTML);
+       target.innerHTML = targetContent.innerHTML;
+
+        target = document.getElementById("tim");
+        targetContent = document.getElementById("time" + nameX);
+        target.value = targetContent.innerHTML;
+
+        target = document.getElementById("descrip");
+        targetContent = document.getElementById("des" + nameX);
+//        target.setAttribute("value", targetContent.innerHTML);
+        target.value = targetContent.innerHTML;
+//        target = document.getElementById("criterionSaveBtn");
+//        targetContent = document.getElementById("critId" + nameX);
+//        target.setAttribute("name", targetContent.innerHTML);
+
     });
 
 });

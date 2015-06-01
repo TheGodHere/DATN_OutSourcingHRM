@@ -14,6 +14,7 @@ import java.util.Date;
  * @author Mon
  */
 public class AccountDTO implements Serializable, Comparable<AccountDTO> {
+
     private int accountID;
     private String username;
     private String password;
@@ -31,9 +32,32 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
     private String company;
     private String address;
 
-    
-    
     public AccountDTO() {
+    }
+
+    public AccountDTO(int accountID, String username, String password, int roleID, String role, boolean isActive, String fullName, boolean sex, Date birthday, String phone, String email, float avgPoint, int numOfEva, String company, String address) {
+        this.accountID = accountID;
+        this.username = username;
+        this.password = password;
+        this.roleID = roleID;
+        this.role = role;
+        this.isActive = isActive;
+        this.fullName = fullName;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.phone = phone;
+        this.email = email;
+        this.avgPoint = avgPoint;
+        this.numOfEva = numOfEva;
+        this.company = company;
+        this.address = address;
+    }
+
+    public AccountDTO(String username, String password, int accountID, String fullName) {
+        this.username = username;
+        this.password = password;
+        this.accountID = accountID;
+        this.fullName = fullName;
     }
 
     public AccountDTO(String username, String password, String role, boolean isActive, String fullName, boolean sex, Date birthday, String phone, String email, float avgPoint, int numOfEva, String company, String address) {
@@ -108,7 +132,6 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
         this.accountID = accountID;
     }
 
-    
     public String getRole() {
         return role;
     }
@@ -224,7 +247,6 @@ public class AccountDTO implements Serializable, Comparable<AccountDTO> {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
     public int compareTo(AccountDTO account) {
         String targetUsername = ((AccountDTO) account).getUsername();

@@ -22,10 +22,13 @@ public class CenterServlet extends HttpServlet {
     private final String nullServlet = "NullServlet";
     private final String loginServlet = "LoginServlet";
     private final String logoutServlet = "LogoutServlet";
+    private final String addtimesheetServlet = "AddTimesheetServlet";
+    private final String timesheetServlet = "TimesheetServlet";
     private final String searchAccountServlet = "SearchAccountServlet";
     private final String updateAccountServlet = "UpdateAccountServlet";
     private final String getRoleServlet = "GetRoleServlet";
     private final String createAccountServlet = "CreateAccountServlet";
+    private final String deleteTimesheet = "DeleteTimesheet";
     private final String searchEmployeeServlet = "SearchEmployeeServlet";
     private final String viewEmployeeDetailServlet = "ViewEmployeeDetailServlet";
     private final String searchRecruitmentServlet = "SearchRecruitmentServlet";
@@ -45,14 +48,22 @@ public class CenterServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String button = request.getParameter("btAction");
-            if (button == null) {
-                RequestDispatcher rd = request.getRequestDispatcher(nullServlet);
-                rd.forward(request, response);
-            } else if (button.equals("Login")) {
+//            if (button==null){
+//                RequestDispatcher rd = request.getRequestDispatcher(nullServlet);
+//                rd.forward(request, response);
+//            }else 
+
+            if (button.equals("Login")) {
                 RequestDispatcher rd = request.getRequestDispatcher(loginServlet);
                 rd.forward(request, response);
             } else if (button.equals("Log out")) {
                 RequestDispatcher rd = request.getRequestDispatcher(logoutServlet);
+                rd.forward(request, response);
+            } else if (button.equals("AddTimesheet")) {
+                RequestDispatcher rd = request.getRequestDispatcher(addtimesheetServlet);
+                rd.forward(request, response);
+            } else if (button.equals("Timesheet")) {
+                RequestDispatcher rd = request.getRequestDispatcher(timesheetServlet);
                 rd.forward(request, response);
             } else if (button.equals("SearchAccount")) {
                 RequestDispatcher rd = request.getRequestDispatcher(searchAccountServlet);
@@ -60,14 +71,16 @@ public class CenterServlet extends HttpServlet {
             } else if (button.equals("UpdateAccount")) {
                 RequestDispatcher rd = request.getRequestDispatcher(updateAccountServlet);
                 rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount")) {
+            } else if (button.equals("CreateAccount")) {
                 RequestDispatcher rd = request.getRequestDispatcher(getRoleServlet);
                 rd.forward(request, response);
-            }
-            else if (button.equals("CreateAccount1")) {
+            } else if (button.equals("CreateAccount1")) {
                 RequestDispatcher rd = request.getRequestDispatcher(createAccountServlet);
                 rd.forward(request, response);                
+            }else if (button.equals("DeleteTimesheet")) {
+                RequestDispatcher rd = request.getRequestDispatcher(deleteTimesheet);
+                rd.forward(request, response);
+                System.out.println("fuck");
             }
             else if (button.equals("SearchEmployee")) {
                 RequestDispatcher rd = request.getRequestDispatcher(searchEmployeeServlet);
@@ -77,7 +90,6 @@ public class CenterServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher(searchRecruitmentServlet);
                 rd.forward(request, response);                
             }
-            
         } finally {
             out.close();
         }

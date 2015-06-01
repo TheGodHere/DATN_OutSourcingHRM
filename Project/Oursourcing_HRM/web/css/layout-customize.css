@@ -432,6 +432,11 @@ table a, #comments a{background-color:inherit;}
 .form-popup {
     background-color: inherit !important;
 }
+.form-timesheet{
+    background-color: inherit !important;
+    width: 100%;
+    max-width:  none !important;
+}
 
 .profileTextbox {
     margin: 0 0 0 0 !important;
@@ -512,12 +517,11 @@ table a, #comments a{background-color:inherit;}
 
 
 
-.table tbody tr .tdCenter {
+.table tbody trCenter {
     text-align: center;
 }
 .table tbody tr .tdFix{
-    display:  block;
-    width: 417px;
+    max-width: 417px;
     height: 43px;
     white-space: nowrap;
     overflow: hidden;

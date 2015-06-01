@@ -9,7 +9,7 @@ import DAO.AccountDAO;
 import DTO.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 
 /**
  *
@@ -25,7 +26,7 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
 
     private final String loginPage = "Login.jsp";
-    private final String homePage = "ManagerHome.jsp";
+    private final String homePage = "TempTimesheet.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 
             AccountDAO a = new AccountDAO();
             AccountDTO result = a.checkLogin(username, password);
+
             String url = loginPage;
             if (result != null) {
                 Cookie cookie = new Cookie(username, password);
@@ -54,6 +56,8 @@ public class LoginServlet extends HttpServlet {
                 url = homePage;
                 HttpSession session = request.getSession();
                 session.setAttribute("USERACCOUNT", result);
+                int accountID = result.getAccountID();
+                session.setAttribute("ACCOUNTID", accountID);
             }
             String checkWrong = "Wrong";
             request.setAttribute("WRONGUSERPASS", checkWrong);

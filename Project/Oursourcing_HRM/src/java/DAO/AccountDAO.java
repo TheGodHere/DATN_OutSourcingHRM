@@ -7,7 +7,6 @@ package DAO;
 
 import Common.Ultilities;
 import DTO.AccountDTO;
-import DTO.RoleDTO;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,9 +36,14 @@ public class AccountDAO implements Serializable {
                 stm.setString(2, password);
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                    String _username = rs.getString("username");
-                    String _password = rs.getString("password");
-                    AccountDTO dto = new AccountDTO(_username, _password);
+//                    String _username = rs.getString("username");
+//                    String _password = rs.getString("password");
+                    AccountDTO dto = new AccountDTO();
+                    dto.setUsername(username);
+                    dto.setPassword(password);
+                    dto.setAccountID(rs.getInt("accountID"));
+                    dto.setFullName(rs.getString("fullName"));
+                   // AccountDTO dto = new AccountDTO(_username, _password, rs.getInt("accountID"), rs.getString("fullName"));
                     return dto;
                 }
             } catch (SQLException ex) {
@@ -206,7 +209,6 @@ public class AccountDAO implements Serializable {
                     System.out.println(email);
                     String phone = rs.getString("phone");
                     AccountDTO dto = new AccountDTO(_fullname, role, birthday, email, phone);
-                    dto.setAccountID(rs.getInt("accountID"));
                     listObj.add(dto);
 
                 }
@@ -341,6 +343,4 @@ public class AccountDAO implements Serializable {
         }
         return null;
     }
-    
-    
 }

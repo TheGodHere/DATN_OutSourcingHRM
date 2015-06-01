@@ -5,28 +5,23 @@
  */
 package Servlets;
 
-import DAO.AccountDAO;
-import DTO.AccountDTO;
+import DAO.TimesheetDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Mon
  */
-public class NullServlet extends HttpServlet {
+public class DeleteTimesheet extends HttpServlet {
 
-    private final String loginPage = "Login.jsp";
-    private final String homePage = "DailyTimeSheet.jsp";
+    private final String errorPage = "P_ErrorPage.html";
+    private final String timesheetServlet = "TimesheetServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,23 +37,14 @@ public class NullServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String url = loginPage;
-            Cookie[] cookies = request.getCookies();
-            if (cookies != null) {
-                for (int i = 0; i < cookies.length; i++) {
-                    String username = cookies[i].getName();
-                    String password = cookies[i].getValue();
-                    AccountDAO a = new AccountDAO();
-                    AccountDTO result = a.checkLogin(username, password);
-                    if (result != null) {
-                        url = homePage;
-                        HttpSession session = request.getSession();
-                        session.setAttribute("USERACCOUNT", result);
-                    }
-                }
+            int timesheetID = Integer.parseInt(request.getParameter("timesheetID"));
+            TimesheetDAO t = new TimesheetDAO();
+            boolean result = t.deleteTimesheet(timesheetID);
+            String url = errorPage;
+            if(result){
+                url = timesheetServlet;
             }
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+             response.sendRedirect(url);
         } finally {
             out.close();
         }
