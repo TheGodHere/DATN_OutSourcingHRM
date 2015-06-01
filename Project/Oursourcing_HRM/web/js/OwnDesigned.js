@@ -320,7 +320,7 @@ $(function() {
                 xmlhttp = new getXmlHttpRequestObject();
                 if (xmlhttp) {
                     locationP = "form-test";
-                    xmlhttp.open("POST", "AddCriterion", false);
+                    xmlhttp.open("POST", "AddCriterion", true);
                     xmlhttp.onreadystatechange = handleServletPost;
                     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xmlhttp.send("txtTitle=" + title + "&txtMaxPoint=" + maxPoint + "&txtDescription=" + description + "&txtType=" + type);
@@ -423,7 +423,7 @@ $(function() {
 
                 xmlhttp = new getXmlHttpRequestObject();
                 if (xmlhttp) {
-                    xmlhttp.open("POST", "EditCriterion", false);
+                    xmlhttp.open("POST", "EditCriterion", true);
                     xmlhttp.onreadystatechange = handleServletPost;
                     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xmlhttp.send("txtCritId=" + critId + "&txtTitle=" + title + "&txtMaxPoint=" + maxPoint + "&txtDescription=" + description + "&txtType=" + type);
@@ -445,7 +445,7 @@ $(function() {
             xmlhttp = new getXmlHttpRequestObject();
             if (xmlhttp) {
                 locationP = "form-test";
-                xmlhttp.open("POST", "DeactiveCriterion", false);
+                xmlhttp.open("POST", "DeactiveCriterion", true);
                 xmlhttp.onreadystatechange = handleServletPost;
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xmlhttp.send("txtCritId=" + critId);
