@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlets;
 
 import DAO.TimesheetDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mon
  */
 public class AddTimesheetServlet extends HttpServlet {
+
     private final String errorPage = "P_ErrorPage.html";
     private final String timesheetServlet = "TimesheetServlet";
-    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,19 +36,27 @@ public class AddTimesheetServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            int accID = Integer.parseInt(request.getParameter("txtEmpID"));
-            int proID = Integer.parseInt(request.getParameter("dropPro"));
-            String date = request.getParameter("date");
-            float time = Float.parseFloat(request.getParameter("txtTime"));
-            String descript = request.getParameter("des");
-            
-            TimesheetDAO t = new TimesheetDAO();
-            boolean result = t.addTimesheet(accID, proID, date, time, descript);
-            String url = errorPage;
-            if(result){
-                url = timesheetServlet;
-            }
-            response.sendRedirect(url);
+
+           //int timesheetID = Integer.parseInt(request.getParameter("timesheetID"));
+
+            //if (timesheetID == 0) {
+            System.out.println("add here");
+                int accID = Integer.parseInt(request.getParameter("txtEmpID"));
+                System.out.println(accID);
+                int proID = Integer.parseInt(request.getParameter("dropPro").trim());
+                String date = request.getParameter("date");
+                float time = Float.parseFloat(request.getParameter("txtTime"));
+                String descript = request.getParameter("des");
+                
+                TimesheetDAO t = new TimesheetDAO();
+                boolean result = t.addTimesheet(accID, proID, date, time, descript);
+                String url = errorPage;
+                if (result) {
+                    url = timesheetServlet;
+                }
+                response.sendRedirect(url);
+           // }
+           // response.sendRedirect(updateTimesheet);
         } finally {
             out.close();
         }

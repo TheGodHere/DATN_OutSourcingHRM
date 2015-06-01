@@ -5,28 +5,22 @@
  */
 package Servlets;
 
-import DAO.AccountDAO;
-import DTO.AccountDTO;
+import DAO.TimesheetDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.PageContext;
 
 /**
  *
  * @author Mon
  */
-public class LoginServlet extends HttpServlet {
+public class UpdateTimesheet extends HttpServlet {
 
-    private final String loginPage = "Login.jsp";
-    private final String homePage = "TempTimsheetReview";
+    private final String errorPage = "P_ErrorPage.html";
+    private final String timesheetServlet = "TimesheetServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,27 +36,26 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
+            System.out.println("here");
+            int timesheetID = Integer.parseInt(request.getParameter("timesheetID"));
+            System.out.println(timesheetID);
+            int proID = Integer.parseInt(request.getParameter("dropPro"));
+            System.out.println(proID);
+            String date = request.getParameter("date");
+            System.out.println(date);
+            float time = Float.parseFloat(request.getParameter("txtTime"));
+            System.out.println(time);
+            String descript = request.getParameter("des");
+            System.out.println(descript);
 
-            AccountDAO a = new AccountDAO();
-            AccountDTO result = a.checkLogin(username, password);
-
-            String url = loginPage;
-            if (result != null) {
-                Cookie cookie = new Cookie(username, password);
-                cookie.setMaxAge(60 * 5);
-                response.addCookie(cookie);
-                url = homePage;
-                HttpSession session = request.getSession();
-                session.setAttribute("USERACCOUNT", result);
-                int accountID = result.getAccountID();
-                session.setAttribute("ACCOUNTID", accountID);
+            TimesheetDAO t = new TimesheetDAO();
+            boolean result = t.updateTimesheet(timesheetID, proID, date, time, descript);
+            String url = errorPage;
+            if (result) {
+                url = timesheetServlet;
             }
-            String checkWrong = "Wrong";
-            request.setAttribute("WRONGUSERPASS", checkWrong);
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+            response.sendRedirect(url);
+
         } finally {
             out.close();
         }

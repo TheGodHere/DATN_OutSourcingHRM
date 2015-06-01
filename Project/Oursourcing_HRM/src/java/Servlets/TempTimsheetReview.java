@@ -3,30 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Servlets;
 
-import DAO.AccountDAO;
-import DTO.AccountDTO;
+import DAO.ProjectDAO;
+import DTO.ProjectDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.PageContext;
 
 /**
  *
  * @author Mon
  */
-public class LoginServlet extends HttpServlet {
-
-    private final String loginPage = "Login.jsp";
-    private final String homePage = "TempTimsheetReview";
+public class TempTimsheetReview extends HttpServlet {
+    private final String timesheetReview = "TimeSheetReview.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,26 +39,14 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-
-            AccountDAO a = new AccountDAO();
-            AccountDTO result = a.checkLogin(username, password);
-
-            String url = loginPage;
-            if (result != null) {
-                Cookie cookie = new Cookie(username, password);
-                cookie.setMaxAge(60 * 5);
-                response.addCookie(cookie);
-                url = homePage;
-                HttpSession session = request.getSession();
-                session.setAttribute("USERACCOUNT", result);
-                int accountID = result.getAccountID();
-                session.setAttribute("ACCOUNTID", accountID);
-            }
-            String checkWrong = "Wrong";
-            request.setAttribute("WRONGUSERPASS", checkWrong);
-            RequestDispatcher rd = request.getRequestDispatcher(url);
+            HttpSession session = request.getSession();
+            int employeeID = (Integer) session.getAttribute("ACCOUNTID");
+            System.out.println(employeeID);
+            ProjectDAO pro = new ProjectDAO();
+            ArrayList<ProjectDTO> listPro = pro.projectByCurrentUser(employeeID, 0, null);
+            System.out.println(listPro.size());
+            request.setAttribute("LISTPRO", listPro);
+            RequestDispatcher rd = request.getRequestDispatcher(timesheetReview);
             rd.forward(request, response);
         } finally {
             out.close();

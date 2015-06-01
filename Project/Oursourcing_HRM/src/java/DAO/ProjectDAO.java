@@ -207,7 +207,6 @@ public class ProjectDAO implements Serializable {
                 sql += " and projectName like '%" + projname + "%'";
             }
 
-            System.out.println(sql);
             try {
                 stm = con.prepareStatement(sql);
                 rs = stm.executeQuery();

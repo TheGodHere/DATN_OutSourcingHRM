@@ -48,6 +48,7 @@
                     </script>
                 </head>
                 <body>
+                    <h2 id="title" style="text-align: center">Add Timesheet</h2>
                     <c:set var="listPro" value="${requestScope.LISTPRO}"/>
                     <c:set var="listTimesheet" value="${requestScope.TIMESHEETLIST}"/>
                     <c:set var="acc" value="${sessionScope.USERACCOUNT}"/>
@@ -56,20 +57,22 @@
                             <tbody>
                                 <tr style="background-color: inherit">
                                     <td>
-                                        <input id="timesheet" type="hidden" name="timesheetID" value="" />
+                                        <input id="timesheet" type="hidden" name="timesheetID" value="0"/>
+                                        <input id="proUpdateTarget" type="hidden" name="txtProUpdate" value="0"/>
+                                        <input type="hidden" name="txtEmpID" value="${acc.accountID}" />
                                         Employee Name:
                                     </td>
                                     <td style="width: 400px ;padding-left: 10px;" >
                                         ${acc.fullName}
-                                        <%--<input type="hidden" name="txtEmpID" value="${acc.accountID}" />--%>
                                     </td>
                                     <td>Project Code:</td>
-                                    <td><select id="ProCod"  name="dropPro" style="width:50%">
+                                    <td><select  name="dropPro" style="width:50%"  >
                                             <option></option>
                                             <c:forEach items="${listPro}" var="row">
-                                                <option >${row.projectCode}</option>
-                                            </c:forEach>
-                                        </select></td>
+                                                <option id="ProCod${row.projectID}" class="ProcodDDL" value="${row.projectID}">
+                                                    ${row.projectCode}</option>
+                                                </c:forEach>
+                                    </td>
                                 </tr>
                                 <tr style="background-color: inherit">
                                     <td>Date:</td>
@@ -81,8 +84,9 @@
                         </table>
 
                         Description:<textarea id="descrip"  class="form-control" rows="3" style="width: 100%" name="des"></textarea></br>
-                        <input type="submit" value="AddTimesheet" name="btAction" />
-                        <input type="reset" value="Reset" name="btAction" /><br/>
+                        <input type="submit" value="AddTimesheet" name="btAction" id="add"/>
+                        <input type="reset" value="Reset" name="btAction" id="reset"/><br/>
+                        <button value="UpdateTimesheet" name="btAction" id="update" hidden>Save</button><br/>
                     </form>
                     <div style="border-bottom: #373737 solid thick; margin: 15px 0"></div>
 
@@ -102,32 +106,33 @@
                                 <tr>
                                     <td class="tdCenter">
                                         ${counter.count}
-                                        <input type="hidden" id="timeSheetID${rows.timeSheetID}" value="${rows.timeSheetID}" />
+                                        <label id="timeSheetID${rows.timeSheetID}" hidden="">${rows.timeSheetID}</label>
                                     </td> 
-                                    <td><label id="date${rows.timeSheetID}">${rows.writeDate}</label></td>
-                                    <td><lable id="time${rows.timeSheetID}">${rows.time}</lable></td>
-                            <td class="tdFix"> <label id="des${rows.timeSheetID}">${rows.description}</label></td>
-                            <td class="tdCenter"><label id="proCode${rows.timeSheetID}">${rows.projectCode}</label></td>
-                            <td class="tdCenter">  <input type="button" class="updateTimesheet" name="${rows.timeSheetID}" value="Update"></td>
-                            <td class="tdCenter">
-                                <c:url var="deleteLink" value="CenterServlet">
-                                    <c:param name="timesheetID" value="${rows.timeSheetID}"/>
-                                    <c:param name="btAction" value="DeleteTimesheet"/>
-                                </c:url>
-                                <a href="${deleteLink}">Delete</a> 
-                            </td>
-                            <td class="tdCenter">
-                                <c:choose>
-                                    <c:when test="${rows.reviewerID == 0}">
-                                        Pending...
-                                    </c:when>
-                                    <c:otherwise>
-                                        Reject
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            </tr>
-                        </c:forEach>
+                                    <td id="date${rows.timeSheetID}">${rows.writeDate}</td>
+                                    <td id="time${rows.timeSheetID}">${rows.time}</td>
+                                    <td class="tdFix" id="des${rows.timeSheetID}">${rows.description}</td>
+                                    <td class="tdCenter" id="proCode${rows.timeSheetID}"> ${rows.projectCode}</td>
+                                    <td class="tdCenter">  <input type="button" class="updateTimesheet" name="${rows.timeSheetID}" value="Update"></td>
+                                    <td class="tdCenter">
+                                        <label id="proUpdate${rows.timeSheetID}" hidden="">${rows.projectID}</label>
+                                        <c:url var="deleteLink" value="CenterServlet">
+                                            <c:param name="timesheetID" value="${rows.timeSheetID}"/>
+                                            <c:param name="btAction" value="DeleteTimesheet"/>
+                                        </c:url>
+                                        <a href="${deleteLink}">Delete</a> 
+                                    </td>
+                                    <td class="tdCenter">
+                                        <c:choose>
+                                            <c:when test="${rows.reviewerID == 0}">
+                                                Pending...
+                                            </c:when>
+                                            <c:otherwise>
+                                                Reject
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </body>

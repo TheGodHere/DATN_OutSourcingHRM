@@ -32,7 +32,9 @@ public class CenterServlet extends HttpServlet {
     private final String searchEmployeeServlet = "SearchEmployeeServlet";
     private final String viewEmployeeDetailServlet = "ViewEmployeeDetailServlet";
     private final String searchRecruitmentServlet = "SearchRecruitmentServlet";
+    private final String updateTimesheet = "UpdateTimesheet";
     private final String viewRecruitmentDetailServlet = "ViewRecruitmentDetailServlet";
+    private final String searchTimesheetByPro = "SearchTimesheetByProject";
     private final String createRecruitmentServlet = "CreateRecruitmentServlet";
 
     /**
@@ -96,9 +98,16 @@ public class CenterServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher(searchRecruitmentServlet);
                 rd.forward(request, response);                
             }
+            else if (button.equals("UpdateTimesheet")) {
+                RequestDispatcher rd = request.getRequestDispatcher(updateTimesheet);
+                rd.forward(request, response);                
+            }
 
             else if (button.equals("ViewRecruitmentDetail")) {
                 RequestDispatcher rd = request.getRequestDispatcher(viewRecruitmentDetailServlet);
+                rd.forward(request, response);                
+            }else if (button.equals("SearchReviewTimesheet")) {
+                RequestDispatcher rd = request.getRequestDispatcher(searchTimesheetByPro);
                 rd.forward(request, response);                
             }
             else if (button.equals("Post Recruitment")) {

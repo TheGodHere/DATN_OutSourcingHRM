@@ -23,11 +23,12 @@ public class TimesheetDTO implements Serializable{
     private String reviewDate;
     private boolean isApprove;
     private String projectCode;
+    private String fullName;
 
     public TimesheetDTO() {
     }
 
-    public TimesheetDTO(int timeSheetID, int projectID, int writerID, int reviewerID, String writeDate, float time, String description, String reviewDate, boolean isApprove, String projectCode) {
+    public TimesheetDTO(int timeSheetID, int projectID, int writerID, int reviewerID, String writeDate, float time, String description, String reviewDate, boolean isApprove, String projectCode, String fullName) {
         this.timeSheetID = timeSheetID;
         this.projectID = projectID;
         this.writerID = writerID;
@@ -38,7 +39,10 @@ public class TimesheetDTO implements Serializable{
         this.reviewDate = reviewDate;
         this.isApprove = isApprove;
         this.projectCode = projectCode;
+        this.fullName = fullName;
     }
+
+   
 
   
     
@@ -201,6 +205,20 @@ public class TimesheetDTO implements Serializable{
      */
     public void setProjectCode(String projectCode) {
         this.projectCode = projectCode;
+    }
+
+    /**
+     * @return the fullName
+     */
+    public String getFullName() {
+        return fullName;
+    }
+
+    /**
+     * @param fullName the fullName to set
+     */
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
     
     

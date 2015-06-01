@@ -36,14 +36,11 @@ public class AccountDAO implements Serializable {
                 stm.setString(2, password);
                 rs = stm.executeQuery();
                 while (rs.next()) {
-//                    String _username = rs.getString("username");
-//                    String _password = rs.getString("password");
                     AccountDTO dto = new AccountDTO();
                     dto.setUsername(username);
                     dto.setPassword(password);
                     dto.setAccountID(rs.getInt("accountID"));
                     dto.setFullName(rs.getString("fullName"));
-                   // AccountDTO dto = new AccountDTO(_username, _password, rs.getInt("accountID"), rs.getString("fullName"));
                     return dto;
                 }
             } catch (SQLException ex) {
