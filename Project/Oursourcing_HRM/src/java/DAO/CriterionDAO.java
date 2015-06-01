@@ -27,10 +27,11 @@ public class CriterionDAO {
         ResultSet rs = null;
 
         if (con != null) {
-            String sql = "Select * From Criterion Where type=?";
+            String sql = "Select * From Criterion Where type=? AND isActive=?";
             try {                
                 stm = con.prepareStatement(sql);
-                stm.setString(1, "appraisal");                
+                stm.setString(1, "appraisal");
+                stm.setBoolean(2, true);
                 rs = stm.executeQuery();
                 
                 ArrayList<CriterionDTO> listCrit = new ArrayList<CriterionDTO>();
@@ -193,6 +194,37 @@ public class CriterionDAO {
                 stm.setInt(3, maxPoint);
                 stm.setString(4, type);
                 stm.setInt(5, critID);
+                
+                stm.executeUpdate();
+                result = true;
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (stm != null) {
+                        stm.close();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return result;
+    }
+    
+    public boolean deactiveCriterion(int critID){
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        boolean result = false;
+        
+        if (con != null) {
+            String sql = "UPDATE Criterion SET isActive=? WHERE critID=?";
+            try {                
+                stm = con.prepareStatement(sql);
+                
+                stm.setBoolean(1, false);
+                stm.setInt(2, critID);
                 
                 stm.executeUpdate();
                 result = true;
