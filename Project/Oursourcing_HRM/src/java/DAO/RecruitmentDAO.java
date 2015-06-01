@@ -53,10 +53,16 @@ public class RecruitmentDAO {
                     RecruitmentReplyDTO reply = replyDao.getLastRecruitReply(recruitID);
 
                     RecruitmentDTO dto = new RecruitmentDTO(topic, posterName, replies, recruitDate);
-                    dto.setLastPoster(reply.getPosterName());
-                    dto.setLastCommentDate(reply.getReplyDate());
-                    dto.setRecruitID(recruitID);
+                    if (reply != null) {
+                        dto.setLastPoster(reply.getPosterName());
+                        dto.setLastCommentDate(reply.getReplyDate());
+                    } else {
+                        dto.setLastPoster("");
+                        dto.setLastCommentDate("");
+                    
+                    }
 
+                    dto.setRecruitID(recruitID);
 
                     listObj.add(dto);
 
@@ -89,29 +95,28 @@ public class RecruitmentDAO {
         PreparedStatement stm = null;
         ResultSet rs = null;
 
-        
         if (con != null) {
             String sql = "Select r.*, ac.username, ac.fullName, ro.roleName "
                     + "From Recruitment r , Account ac, Role ro "
                     + "Where r.recruitID = ? and r.directorID = ac.accountID "
-                    + "and ac.roleID = ro.roleID"; 
+                    + "and ac.roleID = ro.roleID";
             try {
                 stm = con.prepareStatement(sql);
                 stm.setInt(1, recruitID);
                 rs = stm.executeQuery();
                 RecruitmentDTO dto = new RecruitmentDTO();
-                while (rs.next()) {    
+                while (rs.next()) {
                     String topic = rs.getString("title");
                     int directorID = rs.getInt("directorID");
 //                    AccountDAO accDao = new AccountDAO();
 //                    String director = accDao.getAccountByID(directorID).getFullName();
-                    dto.setDirector(rs.getString("username"));                    
-                    dto.setRoleName(rs.getString("roleName"));                    
-                    String recruitDate = rs.getDate("recruitDate").toString(); 
+                    dto.setDirector(rs.getString("username"));
+                    dto.setRoleName(rs.getString("roleName"));
+                    String recruitDate = rs.getDate("recruitDate").toString();
                     dto.setLastEdit(rs.getDate("lastEdit").toString());
-                    String content = rs.getString("recruitContent");                    
+                    String content = rs.getString("recruitContent");
                     dto.setTitle(topic);
-                    dto.setDirectorID(directorID);                   
+                    dto.setDirectorID(directorID);
                     dto.setRecruitContent(content);
                     dto.setRecruitDate(recruitDate);
                 }
@@ -145,20 +150,21 @@ public class RecruitmentDAO {
     public RecruitmentDTO viewRecruitmentReply(int recruitID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public boolean createRecruitment(String title, String content, int directorID ){
-    Connection con = Ultilities.makeConnection();
+
+    public boolean createRecruitment(String title, String content, int directorID) {
+        Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;
         if (con != null) {
-            String sql = "INSERT INTO Recruitment (title, recruitContent, directorID, recruitDate,isClose)VALUES (?,?,?,?,?)";            
+            String sql = "INSERT INTO Recruitment (title, recruitContent, directorID, recruitDate,isClose)VALUES (?,?,?,?,?)";
             try {
-                Date date = new Date(System.currentTimeMillis());                
+                Date date = new Date(System.currentTimeMillis());
                 stm = con.prepareStatement(sql);
                 stm.setString(1, title);
-                stm.setString(2, content);                
-                stm.setInt(3, directorID);                
+                stm.setString(2, content);
+                stm.setInt(3, directorID);
                 stm.setDate(4, date);
                 stm.setBoolean(5, false);
-                        
+
                 int result = stm.executeUpdate();
                 if (result > 0) {
                     return true;
@@ -180,6 +186,5 @@ public class RecruitmentDAO {
         }
         return false;
     }
-   
 
 }

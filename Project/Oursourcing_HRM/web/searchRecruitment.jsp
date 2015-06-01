@@ -46,7 +46,7 @@
                         <input type="text" name="txtSearch" value="${param.txtSearch}" style="width: 50%"/>
                         <input type="submit" name="btAction" value="SearchRecruitment" />
                     </div>
-                    <input type="submit" class="btn btn-success" value="Create new recruitment" 
+                    <input type="submit" class="btn btn-success" name="btAction" value="Create new recruitment" 
                            style="float: right">
                 </form>                
 

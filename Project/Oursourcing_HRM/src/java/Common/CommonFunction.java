@@ -15,6 +15,9 @@ import java.util.List;
 public class CommonFunction {
 
     public ArrayList sortCollection(ArrayList list, Comparator a) {
+        if (list.size()<= 1) {
+            return list;
+        }
         Collections.sort(list, a);
         System.out.println(list);
         return list;

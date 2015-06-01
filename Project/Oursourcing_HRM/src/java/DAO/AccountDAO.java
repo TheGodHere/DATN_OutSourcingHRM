@@ -69,7 +69,7 @@ public class AccountDAO implements Serializable {
         PreparedStatement stm = null;
         if (con != null) {
             String sql = "Update Account Set username = ?, password = ?, fullName = ?, isActive = ? Where accountID = ?";
-            System.out.println("da chay sql");
+            
             try {
                 stm = con.prepareStatement(sql);
                 stm.setString(1, username);

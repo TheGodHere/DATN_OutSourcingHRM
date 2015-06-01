@@ -40,8 +40,9 @@ public class RecruitmentReplyDAO {
                 stm = con.prepareStatement(sql);
                 stm.setInt(1, recruitID);
                 rs = stm.executeQuery();
-
+                System.out.println("1");
                 while (rs.next()) {
+                    System.out.println("2");
                     RecruitmentReplyDTO reply = new RecruitmentReplyDTO(
                             rs.getInt("recruitRepID"), rs.getInt("recruitID"), 
                             rs.getInt("posterID"), rs.getString("repContent"), 
@@ -50,8 +51,9 @@ public class RecruitmentReplyDAO {
                     AccountDAO accDao = new AccountDAO();
                     String posterName = accDao.getAccountByID(rs.getInt("posterID")).getFullName();
                     
+                    System.out.println("3");
                     reply.setPosterName(posterName);
-                    
+                    System.out.println(posterName);
                     return reply;
 
                 }

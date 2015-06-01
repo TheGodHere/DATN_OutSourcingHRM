@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CreateRecruitmentServlet extends HttpServlet {
 
-    private final String recruitmentPage = "createRecruitment.jsp";
+    private final String recruitmentPage = "searchRecruitment.jsp";
     private final String errorPage = "Maiexcelsoir.html";
 
     /**
@@ -41,7 +41,12 @@ public class CreateRecruitmentServlet extends HttpServlet {
         try {
             String title = request.getParameter("recruitmentTitle");
             String content = request.getParameter("recruitmentContent");
-            int directorID = Integer.parseInt(request.getParameter("directorID"));
+            int directorID = 0;
+            try {
+                directorID = Integer.parseInt(request.getParameter("directorID"));
+            } catch (NumberFormatException e) {
+                directorID = 0;
+            }
             
             
             RecruitmentDAO a = new RecruitmentDAO();
