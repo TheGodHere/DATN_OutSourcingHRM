@@ -10,11 +10,11 @@ import DTO.AccountDTO;
 import DTO.RecruitmentDTO;
 import DTO.RecruitmentReplyDTO;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -144,6 +144,41 @@ public class RecruitmentDAO {
 
     public RecruitmentDTO viewRecruitmentReply(int recruitID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public boolean createRecruitment(String title, String content, int directorID ){
+    Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        if (con != null) {
+            String sql = "INSERT INTO Recruitment (title, recruitContent, directorID, recruitDate,isClose)VALUES (?,?,?,?,?)";            
+            try {
+                Date date = new Date(System.currentTimeMillis());                
+                stm = con.prepareStatement(sql);
+                stm.setString(1, title);
+                stm.setString(2, content);                
+                stm.setInt(3, directorID);                
+                stm.setDate(4, date);
+                stm.setBoolean(5, false);
+                        
+                int result = stm.executeUpdate();
+                if (result > 0) {
+                    return true;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RecruitmentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (stm != null) {
+                        stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(RecruitmentDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return false;
     }
    
 

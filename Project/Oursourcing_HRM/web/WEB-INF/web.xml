@@ -25,7 +25,6 @@
         <servlet-class>Servlets.TestChoiChovui</servlet-class>
     </servlet>
     <servlet>
-
         <servlet-name>SearchAccountServlet</servlet-name>
         <servlet-class>Servlets.SearchAccountServlet</servlet-class>
     </servlet>
@@ -62,7 +61,6 @@
         <servlet-class>DTO.RecruitmentDTO</servlet-class>
     </servlet>
     <servlet>
-
         <servlet-name>AddTimesheetServlet</servlet-name>
         <servlet-class>Servlets.AddTimesheetServlet</servlet-class>
     </servlet>
@@ -79,7 +77,6 @@
         <servlet-class>Servlets.DeleteTimesheet</servlet-class>
     </servlet>
     <servlet>
-
         <servlet-name>ListAllEmployee</servlet-name>
         <servlet-class>Servlets.ListAllEmployee</servlet-class>
     </servlet>
@@ -110,6 +107,10 @@
     <servlet>
         <servlet-name>ViewRecruitmentDetailServlet</servlet-name>
         <servlet-class>Servlets.ViewRecruitmentDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateRecruitmentServlet</servlet-name>
+        <servlet-class>Servlets.CreateRecruitmentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CenterServlet</servlet-name>
@@ -215,16 +216,21 @@
         <servlet-name>ViewRecruitmentDetailServlet</servlet-name>
         <url-pattern>/ViewRecruitmentDetailServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateRecruitmentServlet</servlet-name>
+        <url-pattern>/CreateRecruitmentServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>
-
-        <welcome-file>SearchRecruitmentServlet</welcome-file>
+    <welcome-file-list>       
 
         <welcome-file>Login.jsp</welcome-file>
+        
+
+    
 
     </welcome-file-list>
 </web-app>
