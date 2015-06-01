@@ -14,6 +14,9 @@ public class RecruitmentReplyDTO {
     private int replyID;
     private int recruitID;
     private int posterID;
+    private String poster;
+    private int roleID;
+    private String roleName;
     private String posterName;
     private String replyContent;
     private String replyDate;
@@ -21,13 +24,15 @@ public class RecruitmentReplyDTO {
     public RecruitmentReplyDTO() {
     }
 
-    public RecruitmentReplyDTO(int replyID, int recruitID, int posterID, String replyContent, String replyDate) {
+    public RecruitmentReplyDTO(int replyID, int recruitID, int posterID, String replyContent, String replyDate ) {
         this.replyID = replyID;
         this.recruitID = recruitID;
         this.posterID = posterID;
         this.replyContent = replyContent;
         this.replyDate = replyDate;
+        
     }
+    
 
     public int getReplyID() {
         return replyID;
@@ -75,6 +80,48 @@ public class RecruitmentReplyDTO {
 
     public void setPosterName(String posterName) {
         this.posterName = posterName;
+    }
+
+    /**
+     * @return the roleID
+     */
+    public int getRoleID() {
+        return roleID;
+    }
+
+    /**
+     * @param roleID the roleID to set
+     */
+    public void setRoleID(int roleID) {
+        this.roleID = roleID;
+    }
+
+    /**
+     * @return the roleName
+     */
+    public String getRoleName() {
+        return roleName;
+    }
+
+    /**
+     * @param roleName the roleName to set
+     */
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    /**
+     * @return the poster
+     */
+    public String getPoster() {
+        return poster;
+    }
+
+    /**
+     * @param poster the poster to set
+     */
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
     
     

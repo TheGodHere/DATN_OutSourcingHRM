@@ -64,7 +64,12 @@
                         <tbody>
                             <c:forEach var="rows" items="${result}" >
                                 <tr>
-                                    <td><a class="title" href="recruimtentDetail.jsp">${rows.title}</a><br/>
+                                    <td>
+                                        <c:url var="deleteLink" value="CenterServlet">
+                                            <c:param name="recruitID" value="${rows.recruitID}"/>  
+                                            <c:param name="btAction" value="ViewRecruitmentDetail"/>
+                                        </c:url>
+                                        <a class="title" href="${deleteLink}">${rows.title}</a><br/>
                                         <div class="author">Started by: ${rows.director}, ${rows.recruitDate}</div>
                                     </td>
                                     <%--<td>${rows.director}</td>--%>

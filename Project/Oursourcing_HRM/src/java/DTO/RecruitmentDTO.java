@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package DTO;
 
 import java.io.Serializable;
 import java.util.Comparator;
-import java.util.Date;
 
 /**
  *
  * @author Jenny
  */
-public class RecruitmentDTO implements Serializable, Comparator<RecruitmentDTO>{
+public class RecruitmentDTO implements Serializable, Comparator<RecruitmentDTO> {
+
     private int recruitID;
     private int directorID;
     private String director;
+    private int roleID;
+    private String roleName;
     private String recruitContent;
     private String recruitDate;
     private String repDate;
@@ -26,14 +27,27 @@ public class RecruitmentDTO implements Serializable, Comparator<RecruitmentDTO>{
     private int reply;
     private String lastCommentDate;
     private String lastPoster;
-    
-    
-    public RecruitmentDTO (String title, String director , int reply, String recruitDate){
+    private String lastEditDate;
+    private String Editor;
+    private String lastEdit;
+
+    public RecruitmentDTO(String title, String director, int reply, String recruitDate) {
         this.title = title;
         this.director = director;
         this.reply = reply;
-        this.recruitDate = recruitDate;    
-}
+        this.recruitDate = recruitDate;
+    }
+
+    public RecruitmentDTO(String title, String director, String recruitContent, String recruitDate, String roleName) {
+        this.title = title;
+        this.director = director;
+        this.recruitContent = recruitContent;
+        this.recruitDate = recruitDate;
+        this.roleName = roleName;
+    }
+
+    public RecruitmentDTO() {
+    }
 
     /**
      * @return the recruitID
@@ -176,11 +190,11 @@ public class RecruitmentDTO implements Serializable, Comparator<RecruitmentDTO>{
     public void setLastPoster(String lastPoster) {
         this.lastPoster = lastPoster;
     }
-    
+
     public int compare(RecruitmentDTO target1, RecruitmentDTO target2) {
         return target1.getLastCommentDate().compareTo(target2.getLastCommentDate());
     }
-    
+
     public static Comparator<RecruitmentDTO> RecruitComparatorASC
             = new Comparator<RecruitmentDTO>() {
                 public int compare(RecruitmentDTO recruit1, RecruitmentDTO recruit2) {
@@ -189,6 +203,84 @@ public class RecruitmentDTO implements Serializable, Comparator<RecruitmentDTO>{
                     return targetCode1.compareTo(targetCode2);
                 }
             };
+
+    /**
+     * @return the lastEditDate
+     */
+    public String getLastEditDate() {
+        return lastEditDate;
+    }
+
+    /**
+     * @param lastEditDate the lastEditDate to set
+     */
+    public void setLastEditDate(String lastEditDate) {
+        this.lastEditDate = lastEditDate;
+    }
+
+    /**
+     * @return the Editor
+     */
+    public String getEditor() {
+        return Editor;
+    }
+
+    /**
+     * @param Editor the Editor to set
+     */
+    public void setEditor(String Editor) {
+        this.Editor = Editor;
+    }
+
+   
+
     
-    
+
+    /**
+     * @return the roleID
+     */
+    public int getRoleID() {
+        return roleID;
+    }
+
+    /**
+     * @param roleID the roleID to set
+     */
+    public void setRoleID(int roleID) {
+        this.roleID = roleID;
+    }
+
+    /**
+     * @return the roleName
+     */
+    public String getRoleName() {
+        return roleName;
+    }
+
+    /**
+     * @param roleName the roleName to set
+     */
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    /**
+     * @return the lastEdit
+     */
+    public String getLastEdit() {
+        return lastEdit;
+    }
+
+    /**
+     * @param lastEdit the lastEdit to set
+     */
+    public void setLastEdit(String lastEdit) {
+        this.lastEdit = lastEdit;
+    }
 }
+    
+
+    /**
+     * @return the posterID
+     */
+   

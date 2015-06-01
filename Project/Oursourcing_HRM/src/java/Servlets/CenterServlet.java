@@ -32,6 +32,7 @@ public class CenterServlet extends HttpServlet {
     private final String searchEmployeeServlet = "SearchEmployeeServlet";
     private final String viewEmployeeDetailServlet = "ViewEmployeeDetailServlet";
     private final String searchRecruitmentServlet = "SearchRecruitmentServlet";
+    private final String viewRecruitmentDetailServlet = "ViewRecruitmentDetailServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -86,10 +87,21 @@ public class CenterServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher(searchEmployeeServlet);
                 rd.forward(request, response);                
             }
+            else if (button.equals("ViewEmployeeDetail")) {
+                RequestDispatcher rd = request.getRequestDispatcher(viewEmployeeDetailServlet);
+                rd.forward(request, response);                
+            }
             else if (button.equals("SearchRecruitment")) {
                 RequestDispatcher rd = request.getRequestDispatcher(searchRecruitmentServlet);
                 rd.forward(request, response);                
             }
+
+            else if (button.equals("ViewRecruitmentDetail")) {
+                RequestDispatcher rd = request.getRequestDispatcher(viewRecruitmentDetailServlet);
+                rd.forward(request, response);                
+            }
+            
+
         } finally {
             out.close();
         }

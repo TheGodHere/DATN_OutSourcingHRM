@@ -343,4 +343,12 @@ public class AccountDAO implements Serializable {
         }
         return null;
     }
+
+
+    public AccountDTO viewRecruitmentDetail(int recruitID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+
 }

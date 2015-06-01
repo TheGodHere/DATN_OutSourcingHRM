@@ -25,6 +25,44 @@
         <servlet-class>Servlets.TestChoiChovui</servlet-class>
     </servlet>
     <servlet>
+
+        <servlet-name>SearchAccountServlet</servlet-name>
+        <servlet-class>Servlets.SearchAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <servlet-class>Servlets.UpdateAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <servlet-class>Servlets.CreateAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RoleDAO</servlet-name>
+        <servlet-class>DAO.RoleDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetRoleServlet</servlet-name>
+        <servlet-class>Servlets.GetRoleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchEmployeeServlet</servlet-name>
+        <servlet-class>Servlets.SearchEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewEmployeeDetailServlet</servlet-name>
+        <servlet-class>Servlets.ViewEmployeeDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchRecruitmentServlet</servlet-name>
+        <servlet-class>Servlets.SearchRecruitmentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RecruitmentDTO</servlet-name>
+        <servlet-class>DTO.RecruitmentDTO</servlet-class>
+    </servlet>
+    <servlet>
+
         <servlet-name>AddTimesheetServlet</servlet-name>
         <servlet-class>Servlets.AddTimesheetServlet</servlet-class>
     </servlet>
@@ -41,12 +79,17 @@
         <servlet-class>Servlets.DeleteTimesheet</servlet-class>
     </servlet>
     <servlet>
+
         <servlet-name>ListAllEmployee</servlet-name>
         <servlet-class>Servlets.ListAllEmployee</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProjectDetailServlet</servlet-name>
         <servlet-class>Servlets.ProjectDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewRecruitmentDetailServlet</servlet-name>
+        <servlet-class>Servlets.ViewRecruitmentDetailServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CenterServlet</servlet-name>
@@ -59,6 +102,42 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAccountServlet</servlet-name>
+        <url-pattern>/SearchAccountServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <url-pattern>/UpdateAccountServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <url-pattern>/CreateAccountServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoleDAO</servlet-name>
+        <url-pattern>/RoleDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetRoleServlet</servlet-name>
+        <url-pattern>/GetRoleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchEmployeeServlet</servlet-name>
+        <url-pattern>/SearchEmployeeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewEmployeeDetailServlet</servlet-name>
+        <url-pattern>/ViewEmployeeDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchRecruitmentServlet</servlet-name>
+        <url-pattern>/SearchRecruitmentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecruitmentDTO</servlet-name>
+        <url-pattern>/RecruitmentDTO</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NullServlet</servlet-name>
@@ -96,12 +175,20 @@
         <servlet-name>ProjectDetailServlet</servlet-name>
         <url-pattern>/ProjectDetailServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewRecruitmentDetailServlet</servlet-name>
+        <url-pattern>/ViewRecruitmentDetailServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
+
+        <welcome-file>SearchRecruitmentServlet</welcome-file>
+
         <welcome-file>Login.jsp</welcome-file>
+
     </welcome-file-list>
 </web-app>

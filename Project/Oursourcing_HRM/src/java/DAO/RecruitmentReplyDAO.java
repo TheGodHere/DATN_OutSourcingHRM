@@ -8,11 +8,13 @@ package DAO;
 
 import Common.Ultilities;
 import DTO.AccountDTO;
+import DTO.RecruitmentDTO;
 import DTO.RecruitmentReplyDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -76,4 +78,65 @@ public class RecruitmentReplyDAO {
         }
         return null;
     }
+    public ArrayList<RecruitmentReplyDTO> viewRecruitmentReply(int recruitRepID){
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        
+        if (con != null) {
+            
+            String sql = "Select rr.*, ac.username, ac.fullName, ro.roleName From RecruitmentReply rr, Account ac, Role ro "
+                    + "Where rr.recruitID = ? and "                    
+                    + "rr.posterID = ac.accountID and "
+                    + "ac.roleID = ro.roleID";
+            try {
+                stm = con.prepareStatement(sql);
+                stm.setInt(1, recruitRepID);
+                rs = stm.executeQuery();
+                ArrayList<RecruitmentReplyDTO> listObj = new ArrayList<RecruitmentReplyDTO>();
+                while (rs.next()) {  
+                    
+                    int posterID = rs.getInt("posterID");   
+                    RecruitmentReplyDTO dto = new RecruitmentReplyDTO();  
+                    dto.setPoster(rs.getString("username"));                    
+                    dto.setRoleName(rs.getString("roleName"));                    
+                    String content = rs.getString("repContent");                    
+                    dto.setPosterID(posterID);
+                    dto.setReplyDate(rs.getDate("repDate").toString());
+                    dto.setReplyContent(content);
+                    
+                    listObj.add(dto);
+                }
+                return listObj;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(RecruitmentDTO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (stm != null) {
+                        stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
+
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(AccountDAO.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return null;
+
+    }
+
+    public RecruitmentReplyDTO RecruitmentReplyDTO(int recruitID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+
