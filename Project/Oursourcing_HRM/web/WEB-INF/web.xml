@@ -195,7 +195,6 @@
         <servlet-name>ProjectDetailServlet</servlet-name>
         <url-pattern>/ProjectDetailServlet</url-pattern>
     </servlet-mapping>
-<<<<<<< .mine
     <servlet-mapping>
         <servlet-name>ListCriterion</servlet-name>
         <url-pattern>/ListCriterion</url-pattern>
