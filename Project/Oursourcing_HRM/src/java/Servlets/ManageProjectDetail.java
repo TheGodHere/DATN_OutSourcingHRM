@@ -6,14 +6,7 @@
 
 package Servlets;
 
-import Common.CommonFunction;
-import DAO.AccountDAO;
 import DAO.ProjectDAO;
-import DAO.ProjectMemberDAO;
-import DAO.SkillDAO;
-import DTO.ProjectDTO;
-import DTO.ProjectMemberDTO;
-import DTO.SkillDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -27,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Le Minh Hoang
  */
-public class ProjectDetailServlet extends HttpServlet {
+public class ManageProjectDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,28 +36,36 @@ public class ProjectDetailServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String projCode = request.getParameter("projCode");
+            int projectID;
+            try {
+                projectID = Integer.parseInt(request.getParameter("projectID"));
+            } catch (NumberFormatException e) {
+                projectID = 0;
+            }
+            
+            String projectCode = request.getParameter("projectCode").trim();
+            String projectName = request.getParameter("projectName");
+            String startDate = request.getParameter("startDate").trim();
+            String endDate = request.getParameter("endDate").trim();
+            String[] skillStr = request.getParameterValues("skill");
+            ArrayList<Integer> skillID = new ArrayList<Integer>();
+            for (String string : skillStr) {
+                try {
+                    int temp = Integer.parseInt(string);
+                    skillID.add(temp);
+                } catch (NumberFormatException e) {
+                    System.out.println(string);
+                }
+            }
+            
             ProjectDAO pDao = new ProjectDAO();
-            ProjectDTO project = pDao.ProjectByCode(projCode);
-            request.setAttribute("pInfo", project);
-            //End project info
+            boolean result = pDao.updateCommonInfoProject(projectID, 
+                    projectCode, projectName, startDate, endDate, skillID);
             
-            ProjectMemberDAO pmemDao = new ProjectMemberDAO();
-            ArrayList<ProjectMemberDTO> member = 
-                    pmemDao.getActiveMemberByProjectID(project.getProjectID());
+            String projectDetail = "CenterServlet?btAction=pdetail&";
+            projectDetail += "projCode=" + projectCode;
             
-            Common.CommonFunction common = new CommonFunction();
-            member = common.sortCollection(member, ProjectMemberDTO.ProjMemberPositionAndID_ASC);
-            request.setAttribute("pMember", member);
-            //End member info
-            
-            SkillDAO sDao = new SkillDAO();
-            ArrayList<SkillDTO> skillList = sDao.getAllSkill();
-            request.setAttribute("skillList", skillList);
-            //End skill info
-            
-            RequestDispatcher rd = request.getRequestDispatcher("projectDetail.jsp");
-            rd.forward(request, response);
+            response.sendRedirect(projectDetail);
         } finally {
             out.close();
         }

@@ -2,6 +2,7 @@
 
 <c:set var="proj" value="${requestScope.pInfo}" />
 <c:set var="listMember" value="${requestScope.pMember}" />
+<c:set var="skillList" value="${requestScope.skillList}" />
 
 
 <div class="wrapper row2">
@@ -33,69 +34,111 @@
                 </ul>
                 <div id="Content_Area" style="height: auto; background-color: buttonface;">
                     <div id="info">
-                        <form style="max-width: none">
+                        <form action="CenterServlet" style="max-width: none">
+                            <input type="hidden" name="projectCode" value="${proj.projectCode}"/>
+                            <input type="hidden" name="projectID" value="${proj.projectID}"/>
                             <table style="width: 80%;margin: 0 auto">
                                 <tr style="background-color: inherit">
                                     <td style="width: 25%;">
                                         <label><font color="black">Project Name:</font></label>
                                     </td>
                                     <td style="width: 25%">
-                                        <input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px"  >
+                                        <input type="text" class="projectTextbox" name="projectName" 
+                                               style="display: none;margin:5px 0;width: 200px"
+                                               value="${proj.projectName}">
                                         <label class="projectInfo">${proj.projectName}</label>
                                     </td>                                
                                     <td style="width: 25%;">
                                         <label><font color="black">Manager:</font></label>
                                     </td>
                                     <td style="width: 25%">
-                                        <input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px" >
-                                        <label class="projectInfo">${proj.managerName}</label>
+                                        <%--<input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px" >--%>
+                                        <label>${proj.managerName}</label>
                                     </td>                             
                                 </tr>
                                 <tr style="background-color: inherit">
                                     <td style="width: 25%;">
-                                        <label><font color="black">Start Date:</font></label>
+                                        <label><font color="black">Project Code:</font></label>
                                     </td>
                                     <td style="width: 25%">
-                                        <input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px" >
-                                        <label class="projectInfo">${proj.startDate} </label>
+                                        <%--
+                                       <input type="text" class="projectTextbox" name="projectCode" 
+                                              style="display: none;margin:5px 0;width: 200px" 
+                                              value="${proj.projectCode}">
+                                        --%>
+                                        <label>${proj.projectCode} </label>
                                     </td> 
                                     <td style="width: 25%;">
                                         <label><font color="black">Customer:</font></label>
                                     </td>
                                     <td style="width: 25%">
-                                        <input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px">
-                                        <label class="projectInfo">${proj.customerName}</label>
+                                        <%--<input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px">--%>
+                                        <label>${proj.customerName}</label>
                                     </td>
                                 </tr>
-                                <tr style="background-color: inherit; vertical-align: top">
+                                <tr style="background-color: inherit; vertical-align: top; height: 24px">
                                     <td style="width: 25%;">
-                                        <label><font color="black">End Date:</font></label>
+                                        <label><font color="black">Start Date:</font></label>
                                     </td>
                                     <td style="width: 25%">
-                                        <input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px">
-                                        <label class="projectInfo">${proj.endDate}</label>
-                                    </td> 
-                                    <td style="width: 25%;">
+                                        <input type="text" class="projectTextbox" name="startDate" 
+                                               style="display: none;margin:5px 0;width: 200px" 
+                                               value="${proj.startDate} ">
+                                        <label class="projectInfo">${proj.startDate} </label>
+                                    </td>
+
+                                    <td rowspan="2" style="width: 25%;">
                                         <label><font color="black">Skill:</font></label>
                                     </td>
-                                    <td style="width: 25%">
-                                        <input type="text" id="name" class="projectTextbox" name="name" style="display: none;margin:5px 0;width: 200px">
+                                    <td rowspan="2" style="width: 25%">
+                                        <c:forEach var="skill" items="${skillList}">
+                                            <c:set var="flag" value="0" />
+                                            <c:forEach var="curSkill" items="${proj.listOfSkill}">
+                                                <c:if test="${skill.skillName eq curSkill.skillName}">
+                                                    <div class="projectTextbox" style="display: none" >
+                                                        <input type="checkbox" name="skill" value="${skill.skillID}" checked="" />
+                                                        ${skill.skillName}
+                                                    </div>
+                                                    <c:set var="flag" value="1" />
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${flag == 0}" >
+                                                <div class="projectTextbox" style="display: none">
+                                                    <input type="checkbox" name="skill" value="${skill.skillID}" />
+                                                    ${skill.skillName}
+                                                </div>
+                                            </c:if>
+                                        </c:forEach>
                                         <label class="projectInfo">
                                             <c:forEach var="skill" items="${proj.listOfSkill}" >
                                                 ${skill.skillName} <br/>
                                             </c:forEach>
                                         </label>
                                     </td> 
-                                </tr>                           
+                                </tr> 
+                                <tr style="vertical-align: top; background-color: inherit">
+                                    <td style="width: 25%;">
+                                        <label><font color="black">End Date:</font></label>
+                                    </td>
+                                    <td style="width: 25%">
+                                        <input type="text" class="projectTextbox" name="endDate" 
+                                               style="display: none;margin:5px 0;width: 200px"
+                                               value="${proj.endDate}">
+                                        <label class="projectInfo">${proj.endDate}</label>
+                                    </td> 
+
+
+                                </tr>
 
                             </table>
-
-
                             <div id="btn-Editproject" class="btn-in-popup" style="margin-top: 25px" >
                                 <input type="button" class="btn btn-warning editProfile" onclick="changeProject()" value="Edit Info"/>
                             </div>
-                            <div id="btn-Submitproject" class="btn-in-popup" style="margin-top: 25px; display: none" >
-                                <input class="btn btn-success" onclick="submitProject()" type="Submit" value="Submit" />
+                            <div id="btn-Submitproject" class="btn-in-popup" 
+                                 style="margin-top: 25px; display: none" >
+                                <button class="btn btn-success" type="submit" name="btAction" 
+                                        value="SaveProjectDetail"
+                                        style="width: auto">Save</button>
                             </div>
                         </form>
 
@@ -122,24 +165,24 @@
                                         <c:set var="listWork" value="${member.workTracking}" />
                                         <c:forEach var="work" items="${listWork}" varStatus="counter">
                                             <tr>
-                                            <td>${counter.count}</td>
-                                            <td>
-                                                <a href="#" class="openPopupProfile" name="${member.employeeUsername}">
-                                                    ${member.employeeUsername}
-                                                </a>
-                                            </td>
-                                            <td>${member.employeeName}</td>
-                                            <td>${work.position}</td>
-                                            <td>${work.startDate}</td>  
-                                            <c:if test="${not work.isPartTime}" >
-                                                <td>Full-time</td>
-                                            </c:if>
-                                            <c:if test="${work.isPartTime == true}" >
-                                                <td>Part-time</td>
-                                            </c:if>
-                                            <td><button type="button" class="btn btn-info openPopupAppraisal" style="width: auto">Evaluate</button></td> 
-                                            <td><button type="button" class="btn btn-warning" style="width: auto">Edit</button></td>                                        
-                                        </tr>
+                                                <td>${counter.count}</td>
+                                                <td>
+                                                    <a href="#" class="openPopupProfile" name="${member.employeeUsername}">
+                                                        ${member.employeeUsername}
+                                                    </a>
+                                                </td>
+                                                <td>${member.employeeName}</td>
+                                                <td>${work.position}</td>
+                                                <td>${work.startDate}</td>  
+                                                <c:if test="${not member.isPartTime}" >
+                                                    <td>Full-time</td>
+                                                </c:if>
+                                                <c:if test="${member.isPartTime == true}" >
+                                                    <td>Part-time</td>
+                                                </c:if>
+                                                <td><button type="button" class="btn btn-info openPopupAppraisal" style="width: auto">Evaluate</button></td> 
+                                                <td><button type="button" class="btn btn-warning" style="width: auto">Edit</button></td>                                        
+                                            </tr>
                                         </c:forEach>
                                     </c:forEach>
                                 </tbody>

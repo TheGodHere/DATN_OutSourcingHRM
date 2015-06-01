@@ -85,6 +85,10 @@
         <servlet-class>Servlets.ProjectDetailServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ManageProjectDetail</servlet-name>
+        <servlet-class>Servlets.ManageProjectDetail</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DeactiveCriterion</servlet-name>
         <servlet-class>Servlets.DeactiveCriterion</servlet-class>
     </servlet>
@@ -197,6 +201,10 @@
         <url-pattern>/ProjectDetailServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ManageProjectDetail</servlet-name>
+        <url-pattern>/ManageProjectDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListCriterion</servlet-name>
         <url-pattern>/ListCriterion</url-pattern>
     </servlet-mapping>
@@ -226,11 +234,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>       
-
         <welcome-file>Login.jsp</welcome-file>
-        
-
-    
-
     </welcome-file-list>
 </web-app>

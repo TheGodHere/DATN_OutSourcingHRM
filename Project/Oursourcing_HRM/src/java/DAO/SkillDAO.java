@@ -63,4 +63,44 @@ public class SkillDAO {
         }
         return null;
     }
+    
+    public ArrayList<SkillDTO> getAllSkill() {
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        if (con != null) {
+            String sql = "select * from Skill";
+            /*select * from Skill*/
+            try {
+                stm = con.prepareStatement(sql);
+                rs = stm.executeQuery();
+                ArrayList<SkillDTO> result = new ArrayList<SkillDTO>();
+                while (rs.next()) {
+                    SkillDTO skill = new SkillDTO();
+                    skill.setSkillID(rs.getInt("skillID"));
+                    skill.setSkillName(rs.getString("skillName"));
+                    result.add(skill);
+                }
+                return result;
+            } catch (SQLException ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (stm != null) {
+                        stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return null;
+    }
 }

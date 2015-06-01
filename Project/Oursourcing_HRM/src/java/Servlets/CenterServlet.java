@@ -32,12 +32,13 @@ public class CenterServlet extends HttpServlet {
     private final String searchEmployeeServlet = "SearchEmployeeServlet";
     private final String viewEmployeeDetailServlet = "ViewEmployeeDetailServlet";
     private final String searchRecruitmentServlet = "SearchRecruitmentServlet";
+    private final String manageProjectDetail = "ManageProjectDetail";
+    private final String projectDetail = "ProjectDetailServlet";
     private final String updateTimesheet = "UpdateTimesheet";
     private final String viewRecruitmentDetailServlet = "ViewRecruitmentDetailServlet";
     private final String searchTimesheetByPro = "SearchTimesheetByProject";
     private final String createRecruitmentServlet = "CreateRecruitmentServlet";
     
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -82,40 +83,37 @@ public class CenterServlet extends HttpServlet {
             } else if (button.equals("CreateAccount1")) {
                 RequestDispatcher rd = request.getRequestDispatcher(createAccountServlet);
                 rd.forward(request, response);                
-            }else if (button.equals("DeleteTimesheet")) {
+            } else if (button.equals("DeleteTimesheet")) {
                 RequestDispatcher rd = request.getRequestDispatcher(deleteTimesheet);
                 rd.forward(request, response);
-                System.out.println("fuck");
-            }
-            else if (button.equals("SearchEmployee")) {
+            }  else if (button.equals("SearchEmployee")) {
                 RequestDispatcher rd = request.getRequestDispatcher(searchEmployeeServlet);
                 rd.forward(request, response);                
-            }
-            else if (button.equals("ViewEmployeeDetail")) {
+            }  else if (button.equals("ViewEmployeeDetail")) {
                 RequestDispatcher rd = request.getRequestDispatcher(viewEmployeeDetailServlet);
                 rd.forward(request, response);                
-            }
-            else if (button.equals("SearchRecruitment")) {
+            }  else if (button.equals("SearchRecruitment")) {
                 RequestDispatcher rd = request.getRequestDispatcher(searchRecruitmentServlet);
                 rd.forward(request, response);                
-            }
-            else if (button.equals("UpdateTimesheet")) {
+            } else if (button.equals("SaveProjectDetail")) {
+                RequestDispatcher rd = request.getRequestDispatcher(manageProjectDetail);
+                rd.forward(request, response);                
+            } else if (button.equals("pdetail")) {
+                RequestDispatcher rd = request.getRequestDispatcher(projectDetail);
+                rd.forward(request, response);                
+            } else if (button.equals("UpdateTimesheet")) {
                 RequestDispatcher rd = request.getRequestDispatcher(updateTimesheet);
                 rd.forward(request, response);                
-            }
-
-            else if (button.equals("ViewRecruitmentDetail")) {
+            } else if (button.equals("ViewRecruitmentDetail")) {
                 RequestDispatcher rd = request.getRequestDispatcher(viewRecruitmentDetailServlet);
                 rd.forward(request, response);                
-            }else if (button.equals("SearchReviewTimesheet")) {
+            } else if (button.equals("SearchReviewTimesheet")) {
                 RequestDispatcher rd = request.getRequestDispatcher(searchTimesheetByPro);
                 rd.forward(request, response);                
-            }
-            else if (button.equals("Create new recruitment")) {
+            } else if (button.equals("Create new recruitment")) {
                 RequestDispatcher rd = request.getRequestDispatcher("createRecruitment.jsp");
                 rd.forward(request, response);                
-            }
-            else if (button.equals("Post Recruitment")) {
+            } else if (button.equals("Post Recruitment")) {
                 RequestDispatcher rd = request.getRequestDispatcher(createRecruitmentServlet);
                 rd.forward(request, response);                
             }

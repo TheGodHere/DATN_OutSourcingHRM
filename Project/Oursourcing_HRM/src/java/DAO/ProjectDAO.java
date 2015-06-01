@@ -105,7 +105,6 @@ public class ProjectDAO implements Serializable {
                 stm.setString(1, projCode);
                 rs = stm.executeQuery();
                 ProjectDTO project;
-                System.out.println(sql);
                 while (rs.next()) {
                     project = new ProjectDTO();
                     project.setProjectID(rs.getInt("projectID"));
@@ -267,5 +266,47 @@ public class ProjectDAO implements Serializable {
             }
         }
         return null;
+    }
+    
+    public boolean updateCommonInfoProject(int projectID, String projectCode, String projectName, 
+            String startDate, String endDate, ArrayList<Integer> listSkillID) {
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        if (con != null) {
+            String sql = "Update project set projectName = ?, startDate = ?, endDate = ?"
+                    + " where projectID = ?";
+            try {
+                stm = con.prepareStatement(sql);
+                stm.setString(1, projectName);
+                stm.setString(2, startDate);
+                stm.setString(3, endDate);
+                stm.setInt(4, projectID);
+                int effectLine = stm.executeUpdate();
+                if (effectLine > 0) {
+                    ProjectSkillDAO psDao = new ProjectSkillDAO();
+                    boolean result = psDao.updateProjectSkill(projectID, listSkillID);
+                    return result;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (stm != null) {
+                        stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return false;
     }
 }

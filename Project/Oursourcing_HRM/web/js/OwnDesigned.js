@@ -536,6 +536,13 @@ function submitProfile() {
     $("#btn-Submitprofile").css("display", "none");
 }
 
+/*This is for projectDetail.jsp only*/
+function changeProject() {
+    $(".projectTextbox").css("display", "block");
+    $(".projectInfo").css("display", "none");
+    $("#btn-Editproject").css("display", "none");
+    $("#btn-Submitproject").css("display", "block");
+}
 
 /*This is for knowledgeDetail.jsp only*/
 var commentID = 0;

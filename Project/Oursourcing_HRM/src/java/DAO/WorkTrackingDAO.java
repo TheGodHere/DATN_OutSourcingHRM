@@ -46,7 +46,7 @@ public class WorkTrackingDAO {
                     work.setPositionID(rs.getInt("positionID"));
                     SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
                     work.setStartDate(format.format(rs.getDate("startDate")));
-                    work.setIsPartTime(rs.getBoolean("isPartTime"));
+//                    work.setIsPartTime(rs.getBoolean("isPartTime"));
                     
                     PositionDAO positionDao = new PositionDAO();
                     work.setPosition(positionDao.getPositionName(work.getPositionID()));

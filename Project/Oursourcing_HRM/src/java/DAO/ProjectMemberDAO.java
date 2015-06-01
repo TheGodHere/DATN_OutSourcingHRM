@@ -91,6 +91,7 @@ public class ProjectMemberDAO {
                     member.setProjID(rs.getInt("projectID"));
                     member.setEmployeeID(rs.getInt("employeeID"));
                     member.setIsManager(rs.getBoolean("isManager"));
+                    member.setIsPartTime(rs.getBoolean("isPartTime"));
                     
                     AccountDAO accDao = new AccountDAO();
                     AccountDTO memberDetail = accDao.getAccountByID(member.getEmployeeID());
