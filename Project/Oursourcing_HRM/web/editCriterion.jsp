@@ -100,8 +100,7 @@
                                                 <label style="font-size: 17px !important" id="mPoint${crit.critID}">${crit.maxPoint}</label>
                                             </td>
                                             <td>
-                                                <input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit"
-                                                       onclick="editCriterion(${crit.critID})">
+                                                <input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit">
                                                 <!--<input type="button" class="btn btn-sm btn-primary editCriterionPopup" name="${crit.critID}" value="Edit">-->
                                                 <input type="button" class="btn btn-sm btn-danger removeCriterion" name="${crit.critID}" value="Delete">
                                             </td>
@@ -190,7 +189,7 @@
                             <input id="criterionSaveBtn" type="submit" class="btn btn-primary" value="Save">
                             <input type="reset" class="btn btn-default" value="Reset">
                         </div>
-                    <!--</form>-->
+<!--                    </form>-->
                     <div id="form-test" hidden></div>
                 </div>
             </div>
