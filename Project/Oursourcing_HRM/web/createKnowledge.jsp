@@ -33,9 +33,9 @@
 
                     <form id="formComment" style="max-width: none; margin: 0 0">
                         Title: <br/>
-                        <input type="text" name="knowledgeTitle" class="knowledge-title-textbox" />
+                        <input type="text" name="knowledgeTitle" class="knowledge-title-textbox" style="border: 1px solid;" />
                         <br/>Content: <br/>
-                        <textarea id="newComment" class="commentContent-textarea"></textarea>
+                        <textarea id="newComment" class="commentContent-textarea" style="border: 1px solid;"></textarea>
                         <div style="height: 30px">
                             <input type="submit" class="btn btn-success" value="Post knowledge" style="float: right"/>
                         </div>

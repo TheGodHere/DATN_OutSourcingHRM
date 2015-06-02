@@ -39,10 +39,10 @@
 
                     <form id="formComment" style="max-width: none; margin: 0 0">
                         Title: <br/>
-                        <input type="text" name="recruitmentTitle" class="knowledge-title-textbox" />                       
+                        <input type="text" name="recruitmentTitle" class="knowledge-title-textbox" style="border: 1px solid;" />                       
                         <input type="text" name="directorID" hidden value="${sessionScope.ACCOUNTID}">
                         <br/>Content: <br/>
-                        <textarea id="newComment" name="recruitmentContent" class="commentContent-textarea"></textarea>
+                        <textarea id="newComment" name="recruitmentContent" class="commentContent-textarea" style="border: 1px solid;"></textarea>
                         <div style="height: 30px">
                             <input type="submit" name="btAction" class="btn btn-success" value="Post Recruitment" style="float: right"/>
                         </div>

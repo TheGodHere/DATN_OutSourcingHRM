@@ -376,7 +376,7 @@ table a, #comments a{background-color:inherit;}
 }
 
 .ul-navtabs .active {
-    background-color: #EFFF00;
+    background-color: #CAF4F6;
 }
 
 /* 4rum css */
@@ -688,6 +688,7 @@ table a, #comments a{background-color:inherit;}
     background-color: white !important; 
     width: 50% !important;
     margin: 5px 0 10px 0 !important;
+    border: 1px solid;
 }
 
 .commentContent-textarea {
