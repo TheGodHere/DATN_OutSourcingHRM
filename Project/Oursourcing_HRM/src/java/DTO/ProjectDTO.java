@@ -28,6 +28,7 @@ public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
     private String startDate;
     private String endDate;
     private ArrayList<SkillDTO> listOfSkill;
+    private String status;
 
     public ProjectDTO() {
     }
@@ -137,6 +138,14 @@ public class ProjectDTO implements Serializable, Comparable<ProjectDTO> {
 
     public void setManagerID(int managerID) {
         this.managerID = managerID;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int compareTo(ProjectDTO proj) {

@@ -112,6 +112,7 @@ public class ProjectDAO implements Serializable {
                     project.setCustomerID(rs.getInt("customerID"));
                     project.setProjectCode(rs.getString("projectCode"));
                     project.setProjectName(rs.getString("projectName"));
+                    project.setStatus(rs.getString("status"));
                     
                     SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
                     try {

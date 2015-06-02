@@ -11,11 +11,11 @@
             <!-- ################################################################################################ -->
             <div class="mainav" style="margin-left: 10%; margin-right: 10%">
                 <ul  class="clear">
-                    <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Home</a></li>
-                    <li onclick="ChangeContentTab('work')"><a href="#work">Work place</a></li>
-                    <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Recruitment</a></li>
-                    <li onclick="ChangeContentTab('employee')"><a href="#employee">Employee</a></li>
-                    <li onclick="ChangeContentTab('knowledge')"><a href="#knowledge">Knowledge</a></li>       
+                    <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Project</a></li>
+                    <li onclick="ChangeContentTab('work')"><a href="#work">Employee</a></li>
+                    <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Knowledge</a></li>
+                    <li onclick="ChangeContentTab('employee')"><a href="#employee">Time sheet</a></li>
+                    <li onclick="ChangeContentTab('knowledge')"><a href="#knowledge">Evaluation</a></li>       
                 </ul>
             </div>
             <!-- ################################################################################################ --> 
@@ -26,14 +26,36 @@
     <div class="rounded">
         <main class="container clear" style="width: 100%">
             <h1 style="text-align: center">Project Details</h1>
+            <c:if test="${proj.status eq 'working'}" >
+                <div style="float: right; font-weight: 700">Status: <label class="status-success">Working</label></div>
+            </c:if>
+            <c:if test="${proj.status eq 'closed'}" >
+                <div style="float: right; font-weight: 700">Status: <label class="status-close">Closed</label></div>
+            </c:if>
+            <c:if test="${proj.status eq 'new'}" >
+                <div style="float: right; font-weight: 700">Status: <label class="status-new">New</label></div>
+            </c:if>
+            <c:if test="${proj.status eq 'done'}" >
+                <div style="float: right; font-weight: 700">Status: <label class="status-done">Done</label></div>
+            </c:if>
+
+
             <div id="tabs" class="tabs-customized">
                 <ul>
-                    <li id="li_info" onclick="tab('info')" class="active" ><a>Info</a></li>
-                    <li id="li_member" onclick="tab('member')"><a>Employee</a></li>
-                    <li id="li_knowledge" onclick="tab('knowledge')"><a>Knowledge</a></li>
+                    <li id="li_info" class="active tab-pdetail" onclick="tab('info')" ><a>Info</a></li>
+                        <c:if test="${proj.status eq 'new' || proj.status eq 'working'}" >
+                        <li id="li_member" class="tab-pdetail" onclick="tab('member')"><a>Member</a></li>
+                        </c:if>
+                    <li id="li_knowledge" class="tab-pdetail" onclick="tab('knowledge')"><a>Knowledge</a></li>
+                        <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
+                        <li id="li_feedback" class="tab-pdetail" onclick="tab('feedback')"><a>Feedback</a></li>
+                        </c:if>
+                        <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
+                        <li id="li_appraisal" class="tab-pdetail" onclick="tab('appraisal')"><a>Appraisal</a></li>
+                        </c:if>
                 </ul>
                 <div id="Content_Area" style="height: auto; background-color: buttonface;">
-                    <div id="info">
+                    <div id="info" class="tab-content-pdetail">
                         <form action="CenterServlet" style="max-width: none">
                             <input type="hidden" name="projectCode" value="${proj.projectCode}"/>
                             <input type="hidden" name="projectID" value="${proj.projectID}"/>
@@ -144,7 +166,7 @@
 
                     </div>
 
-                    <div id="member" style="display: none;">
+                    <div id="member" class="tab-content-pdetail" style="display: none;">
                         <div>
                             <table class="table">  
                                 <thead>  
@@ -153,140 +175,327 @@
                                         <th>ID</th> 
                                         <th>Full Name</th>
                                         <th>Position</th>  
-                                        <th>Start Date</th> 
                                         <th>Work Type</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th style="max-width: 50px; width: 50px"></th>
+                                        <!--<th style="max-width: 70px; width: 70px"></th>-->
                                     </tr>  
                                 </thead>  
                                 <tbody>
-                                    <c:set var="counter" value="${0}" />
-                                    <c:forEach var="member" items="${listMember}">
-                                        <c:set var="listWork" value="${member.workTracking}" />
-                                        <c:forEach var="work" items="${listWork}" varStatus="counter">
-                                            <tr>
-                                                <td>${counter.count}</td>
-                                                <td>
-                                                    <a href="#" class="openPopupProfile" name="${member.employeeUsername}">
-                                                        ${member.employeeUsername}
-                                                    </a>
-                                                </td>
-                                                <td>${member.employeeName}</td>
-                                                <td>${work.position}</td>
-                                                <td>${work.startDate}</td>  
-                                                <c:if test="${not member.isPartTime}" >
-                                                    <td>Full-time</td>
-                                                </c:if>
-                                                <c:if test="${member.isPartTime == true}" >
-                                                    <td>Part-time</td>
-                                                </c:if>
-                                                <td><button type="button" class="btn btn-info openPopupAppraisal" style="width: auto">Evaluate</button></td> 
-                                                <td><button type="button" class="btn btn-warning" style="width: auto">Edit</button></td>                                        
-                                            </tr>
-                                        </c:forEach>
+                                    <%--<c:set var="counter" value="0" />--%>
+                                    <c:forEach var="member" items="${listMember}" varStatus="counter">
+                                        <c:set var="listWork" value="${member.workTracking}"  />
+                                        <%--<c:forEach var="work" items="${listWork}">--%>
+                                        <%--<c:set var="counter" value="${counter+1}" />--%>
+                                        <tr>
+                                            <td>${counter.count}</td>
+                                            <td>
+                                                <a href="#" class="openPopupProfile" name="${member.employeeUsername}">
+                                                    ${member.employeeUsername}
+                                                </a>
+                                            </td>
+                                            <td>${member.employeeName}</td>
+                                            <td>
+                                                <c:forEach var="work" items="${listWork}">
+                                                    ${work.position} <br/>
+                                                </c:forEach>
+                                            </td>
+                                            <c:if test="${not member.isPartTime}" >
+                                                <td>Full-time</td>
+                                            </c:if>
+                                            <c:if test="${member.isPartTime == true}" >
+                                                <td>Part-time</td>
+                                            </c:if>
+
+                                            <td>
+                                                <button type="button" 
+                                                        class="btn btn-sm btn-warning editPosPopup" 
+                                                        style="width: auto">Edit
+                                                </button>
+                                            </td>  
+                                            <!--<td><button type="button" class="btn btn-sm btn-danger" style="width: auto">Remove</button></td>--> 
+                                            <!--<td><button type="button" class="btn btn-sm btn-danger openPopupAppraisal" style="width: auto">Remove</button></td>--> 
+                                        </tr>
+                                        <%--</c:forEach>--%>
                                     </c:forEach>
                                 </tbody>
                             </table>
+                            <form style="margin: 0 0; padding: 0 0; background-color: inherit"
+                                  action="suggestEngineer.jsp">
+                                <button type="submit" class="btn btn-success" 
+                                        style="width: auto"
+                                        name="btAction" value="Suggest">
+                                    Add more engineers
+                                </button>    
+                                <%--                                
+                                <button type="submit" class="btn btn-success assignPopup" 
+                                     style="width: auto"
+                                    name="btAction" value="Suggest">                                                      
+                                    Add more engineers
+                                 </button>  
+                                --%>
+                            </form>
 
-                            <button type="button" class="btn btn-success assignPopup" style="width: auto">Add more engineers</button>
                         </div>
                     </div>
 
-                    <div id="knowledge" style="display: none">
-                        <div class="tab-content" style="margin-top: 20px">
-                            <table class="table">
-                                <thead>
+                    <div id="knowledge" class="tab-content-pdetail" style="display: none">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Topics</th>
+                                    <th>Project</th>
+                                    <th>Replies</th>
+                                    <th>Last comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
+                                        <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                    </td>
+                                    <td>Outsourcing HR Management</td>
+                                    <td>50</td>
+                                    <td>HoangLM2 <br/>
+                                        05/22/2015, 10:34:22 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
+                                        <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                    </td>
+                                    <td>Outsourcing HR Management</td>
+                                    <td>50</td>
+                                    <td>HoangLM2 <br/>
+                                        05/22/2015, 10:34:22 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
+                                        <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                    </td>
+                                    <td>Outsourcing HR Management</td>
+                                    <td>50</td>
+                                    <td>HoangLM2 <br/>
+                                        05/22/2015, 10:34:22 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="number-paging" style="float: right">
+                            <c:if test="${curpage == 1}">
+                                <a href="#" class="current-page">1</a>
+                            </c:if>
+                            <c:if test="${curpage == 2}">
+                                <a href="${urlQ}&page=1">1</a>
+                                <a href="#" class="current-page">2</a>
+                            </c:if>
+                            <c:if test="${curpage == 3}">
+                                <a href="${urlQ}&page=1">1</a>
+                                <a href="${urlQ}&page=2">2</a>
+                                <a href="#" class="current-page">3</a>
+                            </c:if>
+                            <c:if test="${curpage == 4}">
+                                <a href="${urlQ}&page=1">1</a>
+                                <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
+                                <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
+                                <a href="#" class="current-page">${curpage}</a>
+                            </c:if>
+                            <c:if test="${curpage > 4}">
+                                <a href="${urlQ}&page=1">1</a>
+                                ...
+                                <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
+                                <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
+                                <a href="#" class="current-page">${curpage}</a>
+                            </c:if>
+
+                            <%--After page--%>    
+
+                            <c:if test="${maxpage - curpage == 1}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                            </c:if>
+                            <c:if test="${maxpage - curpage == 2}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                                <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                            </c:if>
+                            <c:if test="${maxpage - curpage == 3}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                                <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                                <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
+                            </c:if>
+                            <c:if test="${maxpage - curpage > 3}">
+                                <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
+                                <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
+                                ...
+                                <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
+                            </c:if>
+                        </div>
+                    </div>
+
+                    <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
+                        <div id="feedback" class="tab-content-pdetail" style="display: none">
+                            <%@include file="feedbackResult.jsp" %>
+                        </div>   
+                    </c:if>
+
+                    <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
+                        <div id="appraisal" class="tab-content-pdetail" style="display: none">
+                            <table class="table">  
+                                <thead>  
+                                    <tr>  
+                                        <th>#</th> 
+                                        <th>ID</th> 
+                                        <th>Full Name</th>
+                                        <th>Position</th>  
+                                        <th>Start date</th>
+                                        <th>End date</th>
+                                        <th style="max-width: 70px; width: 70px"></th>
+                                    </tr>  
+                                </thead>  
+                                <tbody style="vertical-align: top">
                                     <tr>
-                                        <th>Topics</th>
-                                        <th>Project</th>
-                                        <th>Replies</th>
-                                        <th>Last comment</th>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="#" class="openPopupProfile" name="HoangLM2">
+                                                HoangLM2
+                                            </a>
+                                        </td>
+                                        <td>Le Minh Hoang</td>
+                                        <td>
+                                            SA <br/>
+                                            Developer <br/>
+                                            Tester 
+                                        </td>
+                                        <td>
+                                            02/02/2015 <br/>
+                                            02/03/2015 <br/>
+                                            02/04/2015
+                                        </td>
+                                        <td>
+                                            02/03/2015 <br/>
+                                            02/04/2015 <br/>
+                                            02/05/2015
+                                        </td>
+
+                                        <td>
+                                            <form style="max-width: none; width: auto;
+                                                  background-color: inherit;
+                                                  margin-top: 0; padding-top: 0"
+                                                  action="#">
+                                                <button type="button" 
+                                                        class="btn btn-sm btn-success openPopupAppraisal" 
+                                                        style="width: auto">
+                                                    Appraisal
+                                                </button>
+                                            </form>
+                                        </td> 
+
                                     </tr>
-                                </thead>
-                                <tbody>
                                     <tr>
-                                        <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
-                                            <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="#" class="openPopupProfile" name="HoangLM2">
+                                                PhuocNH
+                                            </a>
                                         </td>
-                                        <td>Outsourcing HR Management</td>
-                                        <td>50</td>
-                                        <td>HoangLM2 <br/>
-                                            05/22/2015, 10:34:22 
+                                        <td>Nguyen Huu Phuoc</td>
+                                        <td>
+                                            Developer <br/>
+                                            Tester 
                                         </td>
+                                        <td>
+                                            02/02/2015 <br/>
+                                            02/04/2015
+                                        </td>
+                                        <td>
+                                            02/03/2015 <br/>
+                                            02/05/2015
+                                        </td>
+
+                                        <td>
+                                            <form style="max-width: none; width: auto;
+                                                  background-color: inherit;
+                                                  margin-top: 0; padding-top: 0"
+                                                  action="#">
+                                                <button type="button" 
+                                                        class="btn btn-sm btn-success openPopupAppraisal" 
+                                                        style="width: auto">
+                                                    Appraisal
+                                                </button>
+                                            </form>
+                                        </td> 
+
                                     </tr>
                                     <tr>
-                                        <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
-                                            <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="#" class="openPopupProfile" name="HoangLM2">
+                                                KienNT
+                                            </a>
                                         </td>
-                                        <td>Outsourcing HR Management</td>
-                                        <td>50</td>
-                                        <td>HoangLM2 <br/>
-                                            05/22/2015, 10:34:22 
+                                        <td>Ngo Trac Kien</td>
+                                        <td>
+                                            Developer <br/>
+                                            Tester 
                                         </td>
+                                        <td>
+                                            02/02/2015 <br/>
+                                            02/04/2015
+                                        </td>
+                                        <td>
+                                            02/03/2015 <br/>
+                                            02/05/2015
+                                        </td>
+
+                                        <td>
+                                            <form style="max-width: none; width: auto;
+                                                  background-color: inherit;
+                                                  margin-top: 0; padding-top: 0"
+                                                  action="#">
+                                                <button type="button" 
+                                                        class="btn btn-sm btn-info openPopupAppraisalResult" 
+                                                        style="width: auto">
+                                                    Appraisal result
+                                                </button>
+                                            </form>
+                                        </td> 
+
                                     </tr>
-                                    <tr>
-                                        <td><a class="title" href="knowledgeDetail.jsp">Question: Where should we put SRS files?</a><br/>
-                                            <div class="author">Started by: KienNT, 05/22/2015, 10:02:25</div>
-                                        </td>
-                                        <td>Outsourcing HR Management</td>
-                                        <td>50</td>
-                                        <td>HoangLM2 <br/>
-                                            05/22/2015, 10:34:22 
-                                        </td>
-                                    </tr>
+                                    <%--
+                                    <c:set var="counter" value="${0}" />
+                                    <c:forEach var="member" items="${listMember}" varStatus="counter">
+                                        <c:set var="listWork" value="${member.workTracking}" />
+                                        <tr>
+                                            <td>${counter.count}</td>
+                                            <td>
+                                                <a href="#" class="openPopupProfile" name="${member.employeeUsername}">
+                                                    ${member.employeeUsername}
+                                                </a>
+                                            </td>
+                                            <td>${member.employeeName}</td>
+                                            <td>
+                                                <c:forEach var="work" items="${listWork}">
+                                                    ${work.position} <br/>
+                                                </c:forEach>
+                                            </td>
+                                            <td>
+                                                <c:forEach var="work" items="${listWork}">
+                                                    ${work.startDate} <br/>
+                                                </c:forEach>
+                                            </td>
+                                            <td>
+                                                <c:forEach var="work" items="${listWork}">
+                                                    ${work.endDate} <br/>
+                                                </c:forEach>
+                                            </td>
+                                            <td><button type="button" class="btn btn-sm btn-info openPopupAppraisal" style="width: auto">Evaluate</button></td> 
+                                        </tr>
+                                    </c:forEach>
+                                    --%>
                                 </tbody>
                             </table>
-
-                            <div class="number-paging" style="float: right">
-                                <c:if test="${curpage == 1}">
-                                    <a href="#" class="current-page">1</a>
-                                </c:if>
-                                <c:if test="${curpage == 2}">
-                                    <a href="${urlQ}&page=1">1</a>
-                                    <a href="#" class="current-page">2</a>
-                                </c:if>
-                                <c:if test="${curpage == 3}">
-                                    <a href="${urlQ}&page=1">1</a>
-                                    <a href="${urlQ}&page=2">2</a>
-                                    <a href="#" class="current-page">3</a>
-                                </c:if>
-                                <c:if test="${curpage == 4}">
-                                    <a href="${urlQ}&page=1">1</a>
-                                    <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
-                                    <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
-                                    <a href="#" class="current-page">${curpage}</a>
-                                </c:if>
-                                <c:if test="${curpage > 4}">
-                                    <a href="${urlQ}&page=1">1</a>
-                                    ...
-                                    <a href="${urlQ}&page=${curpage - 2}">${curpage - 2}</a>
-                                    <a href="${urlQ}&page=${curpage - 1}">${curpage - 1}</a>
-                                    <a href="#" class="current-page">${curpage}</a>
-                                </c:if>
-
-                                <%--After page--%>    
-
-                                <c:if test="${maxpage - curpage == 1}">
-                                    <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
-                                </c:if>
-                                <c:if test="${maxpage - curpage == 2}">
-                                    <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
-                                    <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
-                                </c:if>
-                                <c:if test="${maxpage - curpage == 3}">
-                                    <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
-                                    <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
-                                    <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
-                                </c:if>
-                                <c:if test="${maxpage - curpage > 3}">
-                                    <a href="${urlQ}&page=${curpage + 1}">${curpage + 1}</a>
-                                    <a href="${urlQ}&page=${curpage + 2}">${curpage + 2}</a>
-                                    ...
-                                    <a href="${urlQ}&page=${maxpage}">${maxpage}</a>
-                                </c:if>
-                            </div>
                         </div>
-                    </div>
+                    </c:if>           
 
                 </div>
             </div>
@@ -294,14 +503,10 @@
     </div>
     <script type="text/javascript">
         function tab(tab) {
-            document.getElementById('info').style.display = 'none';
-            document.getElementById('member').style.display = 'none';
-            document.getElementById('knowledge').style.display = 'none';
-            document.getElementById('li_info').setAttribute("class", "");
-            document.getElementById('li_member').setAttribute("class", "");
-            document.getElementById('li_knowledge').setAttribute("class", "");
+            $('.tab-content-pdetail').css("display", "none");
+            $('.tab-pdetail').removeClass('active');
             document.getElementById(tab).style.display = 'block';
-            document.getElementById('li_' + tab).setAttribute("class", "active");
+            document.getElementById('li_' + tab).setAttribute("class", "tab-pdetail active");
         }
     </script>
     <%@include file="firstFoot.jsp" %>

@@ -28,11 +28,11 @@
             <!-- ################################################################################################ -->
             <div class="mainav" style="margin-left: 10%; margin-right: 10%">
                 <ul  class="clear">
-                    <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Home</a></li>
-                    <li onclick="ChangeContentTab('work')"><a href="#work">Work place</a></li>
-                    <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Recruitment</a></li>
-                    <li onclick="ChangeContentTab('employee')"><a href="#employee">Employee</a></li>
-                    <li onclick="ChangeContentTab('knowledge')"><a href="#knowledge">Knowledge</a></li>       
+                    <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Project</a></li>
+                    <li onclick="ChangeContentTab('work')"><a href="#work">Employee</a></li>
+                    <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Knowledge</a></li>
+                    <li onclick="ChangeContentTab('employee')"><a href="#employee">Time sheet</a></li>
+                    <li onclick="ChangeContentTab('knowledge')"><a href="#knowledge">Evaluation</a></li>       
                 </ul>
             </div>
             <!-- ################################################################################################ --> 
@@ -78,7 +78,7 @@
 
 
                         </select>
-                        
+
                         <button type="submit" class="btn btn-success" name="btAction" 
                                 value="search project" style="width: auto">
                             Search
@@ -90,6 +90,7 @@
                     <thead>
                         <tr>  
                             <th>#</th>  
+                            <th>Project Code</th>  
                             <th>Project Name</th>  
                             <th>Skill</th>  
                             <th>Start date</th>  
@@ -97,7 +98,7 @@
                             <th>Customer</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="font-weight: normal">
 
                         <c:set var="result" value="${requestScope.LISTPRO}" />
                         <c:set var="maxpage" value="${result.size()}" />
@@ -105,6 +106,9 @@
                             <tr>
                                 <td>
                                     ${counter.count}
+                                </td>
+                                <td>
+                                    ${proj.projectCode}
                                 </td>
                                 <td>
                                     <a href="ProjectDetailServlet?btAction=pdetail&projCode=${proj.projectCode}" >
@@ -121,7 +125,44 @@
                                 <td>${proj.customerName}</td>
                             </tr>
                         </c:forEach>
-
+                        <tr>
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                    KPMG 
+                            </td>
+                            <td>
+                                <a href="ProjectDetailServlet?btAction=pdetail&projCode=KPMG" >
+                                    KPMG 
+                                </a>
+                            </td>
+                            <td>
+                                Java
+                            </td>
+                            <td>02/02/2015</td>
+                            <td>03/07/2015</td>
+                            <td>ThienLGT</td>
+                        </tr>
+                        <tr style="background-color: rgb(199, 199, 199)">
+                            <td>
+                                3
+                            </td>
+                            <td>
+                                    KPMG 
+                            </td>
+                            <td>
+                                <a href="ProjectDetailServlet?btAction=pdetail&projCode=KPMG" >
+                                    KPMG 
+                                </a>
+                            </td>
+                            <td>
+                                Java
+                            </td>
+                            <td>02/02/2015</td>
+                            <td>03/03/2015</td>
+                            <td>ThienLGT</td>
+                        </tr>
                     </tbody>
                 </table>
 

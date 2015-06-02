@@ -700,10 +700,57 @@ table a, #comments a{background-color:inherit;}
 
 
 .tabs-customized ul .active a {
-    background-color: yellow !important;
+    border: 1px solid #ccc !important;
+    border-bottom: 2px solid buttonface !important;
+    background-color: buttonface !important;
 }
 
+.tabs-customized #Content_Area {
+    height: auto; 
+    background-color: buttonface;
+    border: 1px solid #ccc;
+    top: 18px !important;
+}
 
+.status-success {
+    background-color: #57b5e3;
+    margin: 0 0;
+    /*font-weight: 700;*/
+    width: auto;
+    color: white;
+    text-align: center;
+    padding: 2px 5px;
+}
+
+.status-close {
+    background-color: #999;
+    margin: 0 0;
+    /*font-weight: 700;*/
+    width: auto;
+    color: white;
+    text-align: center;
+    padding: 2px 5px;
+}
+
+.status-new {
+    background-color: #3cc051;
+    margin: 0 0;
+    /*font-weight: 700;*/
+    width: auto;
+    color: white;
+    text-align: center;
+    padding: 2px 5px;
+}
+
+.status-done {
+    background-color: #fcb322;
+    margin: 0 0;
+    /*font-weight: 700;*/
+    width: auto;
+    color: white;
+    text-align: center;
+    padding: 2px 5px;
+}
 
 
 /* ------------------------------------------------------------------------------------------------------------ */

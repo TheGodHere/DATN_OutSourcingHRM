@@ -77,6 +77,7 @@ public class ListAllProject extends HttpServlet {
 //            p.projectByCurrentUser(curAcc.getAccountID(), year);
             //Day la code dung de test voi accountID = 3
             ArrayList<ProjectDTO> result = p.projectByCurrentUser(3, year, projname);
+//            ArrayList<ProjectDTO> result = p.listAllPro();
             CommonFunction common = new CommonFunction();
             result = common.sortCollection(result, ProjectDTO.EndDateComparatorDESC);
             
@@ -86,7 +87,7 @@ public class ListAllProject extends HttpServlet {
             }
             
             List<ProjectDTO> resultPage = result.subList((page-1)*10, maxpage);
-//            ArrayList<ProjectDTO> result = p.listAllPro();
+
             
             request.setAttribute("LISTPRO", resultPage);
 //            }

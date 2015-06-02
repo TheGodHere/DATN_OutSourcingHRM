@@ -212,6 +212,25 @@ $(function() {
         }
     });
 
+    /*This code is use for projectDetail function edit position of engineer only*/
+    $(".editPosPopup").on("click", function() {
+        dialog.dialog("open");
+        var parameterIdFromLink = $(this).attr("name");
+        xmlhttp = new getXmlHttpRequestObject();
+
+        if (xmlhttp) {
+            locationP = "dialog-form";
+            xmlhttp.open("POST", "editPositionPopup.jsp", true);
+            xmlhttp.onreadystatechange = handleServletPost;
+            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xmlhttp.send("txtname=MHoang");
+        }
+
+    });
+    /*End code*/
+
+    /*This is for project detail only*/
+
     $(".assignPopup").on("click", function() {
         dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
@@ -227,6 +246,20 @@ $(function() {
 
     });
 
+    $(".openPopupAppraisalResult").on("click", function() {
+        dialog.dialog("open");
+        var parameterIdFromLink = $(this).attr("name");
+        xmlhttp = new getXmlHttpRequestObject();
+
+        if (xmlhttp) {
+            locationP = "dialog-form";
+            xmlhttp.open("POST", "AppraisalResult.jsp", true);
+            xmlhttp.onreadystatechange = handleServletPost;
+            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xmlhttp.send("txtname=MHoang");
+        }
+
+    });
 
     $(".openPopupAppraisal").on("click", function() {
         dialog.dialog("open");
@@ -268,7 +301,7 @@ $(function() {
         dialog1.dialog("open");
     });
     /*Edit Criterion*/
-    
+
     $(".editCriterionPopup").on("click", function() {
         var nameX = $(this).attr("name");
         dialog1.dialog("open");
@@ -473,7 +506,7 @@ $(function() {
         var target = document.getElementById("timesheet");
         var targetContent = document.getElementById("timeSheetID" + nameX);
         target.value = targetContent.innerHTML;
-       
+
         target = document.getElementById("datepicker");
         targetContent = document.getElementById("date" + nameX);
         target.value = targetContent.innerHTML;
@@ -494,9 +527,9 @@ $(function() {
         btUpdate.removeAttribute("hidden");
 
         var targetID = document.getElementById("proUpdate" + nameX).innerHTML;
-        target = document.getElementById("ProCod"+targetID);
+        target = document.getElementById("ProCod" + targetID);
         target.setAttribute("selected", "");
-        
+
         var title = document.getElementById("title");
         title.innerHTML = "Update Timesheet";
 
