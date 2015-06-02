@@ -645,7 +645,7 @@ table a, #comments a{background-color:inherit;}
 
 .number-paging .current-page {
     font-weight: 900;
-    background-color: orange;
+    background-color: rgb(203, 229, 247);
 }
 
 #stopEdit {

@@ -206,7 +206,7 @@
                         <div class="commenthead">Add new comment</div>
 
                         <form id="formComment" style="max-width: inherit; margin: 0 0">
-                            <textarea id="newComment" style="height: 100px; width: 100%; background-color: white"></textarea>
+                            <textarea id="newComment" style="height: 100px; width: 100%; background-color: white; border: 1px solid;"></textarea>
                             <div style="height: 30px">
 
                                 <input type="submit" class="btn btn-success" value="Send" style="float: right"/>
