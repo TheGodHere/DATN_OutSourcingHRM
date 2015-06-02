@@ -25,7 +25,7 @@
             <h1>OHRM</h1>            
             <input type="text" name="username" class="login-input" placeholder="Username" autofocus>
             <input type="password" name="password" class="login-input" placeholder="Password">
-            <input type="submit" value="Login" class="login-submit" name="btAction">
+            <center><input type="submit" value="Login" class="login-submit" name="btAction" style="width: 40%;"></center>
             <table style="width: 100%">
                 <tr>
                     <c:if test="${requestScope.WRONGUSERPASS eq 'Wrong'}">
