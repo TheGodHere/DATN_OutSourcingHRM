@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlets;
 
 import DAO.AccountDAO;
@@ -23,6 +22,7 @@ import javax.servlet.http.HttpSession;
  * @author Jenny
  */
 public class SearchEmployeeServlet extends HttpServlet {
+
     private final String accountPage = "searchEmployee.jsp";
 
     /**
@@ -40,18 +40,40 @@ public class SearchEmployeeServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String fullname = request.getParameter("txtSearch");
-            AccountDAO a = new AccountDAO();            
+            if (fullname == null || fullname.isEmpty()) {
+                fullname = "";
+            }
+            AccountDAO a = new AccountDAO();
             List<AccountDTO> result = a.searchEmployee(fullname);
-            
+
 //            List<AccountDTO> result = a.getListObj();
-            
+            int page = 1;
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+            } catch (NullPointerException ne) {
+                page = 1;
+            } catch (NumberFormatException e) {
+                page = 1;
+            }
+            int maxpage = page * 10 - 1;
+            if (maxpage > result.size()) {
+                maxpage = result.size();
+            }
+            result = result.subList((page - 1) * 10, maxpage);
+            int c = result.size() % 10;
+            if (c > 0) {
+                maxpage = result.size()/10 + 1;
+            } else {
+                maxpage = result.size()/10;
+            }
             
             String url = accountPage;
-            if(result.size()>0){               
+            if (result.size() > 0) {
                 url = accountPage;
                 // HttpSession session = request.getSession();
                 request.setAttribute("result", result);
-            }            
+                request.setAttribute("maxpage", maxpage);
+            }
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         } finally {

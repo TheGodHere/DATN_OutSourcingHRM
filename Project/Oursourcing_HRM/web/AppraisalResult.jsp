@@ -103,13 +103,16 @@
                                     <td colspan="3">
                                         <div style="text-align: center">
                                             <div>Manager's opinion</div>
-                                            <textarea name="apprContent"style="height: 100px; border: 1px solid"
-                                                      >O day la nhung y kien rieng cua toi</textarea>
+                                            <textarea name="apprContent" style="height: 100px; border: 1px solid"
+                                                      disabled="true">O day la nhung y kien rieng cua toi</textarea>
                                         </div>
                                     </td> 
                                 </tr>
                             </tbody>
                         </table>
+                        <div style="text-align: center; margin: 20px 0">
+                            <button type="button" class="btn btn-warning" style="width: 80px" >Edit</button>
+                        </div>
                     </form>
                 </div>
             </div>

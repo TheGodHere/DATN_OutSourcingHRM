@@ -101,7 +101,7 @@
                     <tbody style="font-weight: normal">
 
                         <c:set var="result" value="${requestScope.LISTPRO}" />
-                        <c:set var="maxpage" value="${result.size()}" />
+                        <c:set var="maxpage" value="${param.maxpage}" />
                         <c:forEach var="proj" items="${result}" varStatus="counter" >
                             <tr>
                                 <td>
