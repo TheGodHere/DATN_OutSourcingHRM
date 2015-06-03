@@ -43,17 +43,22 @@
             <div>
                 <h2 style="text-align: center">Period Evaluation</h2>
                 <div class="row" style="margin: 20px 0">
-                    <div style="width: 50%; float: left">
-                        List employee for the past: <label>6 months</label>
-                    </div>
                     <!--                    <select style=" width: 15%" name="year">
                                             <option value="3" selected="true">3 months</option>
                                             <option value="6">6 months</option>
                                             <option value="9">9 months</option>
                                             <option value="12">12 months</option>
                                         </select>-->
-                    <div style="width: 50%; float: right; text-align: right">
+                    <div style="width: 100%; float: right; text-align: right">
                         Period evaluation: <label>Summer 2015</label>
+                    </div>
+                    
+                    <div style="width: 50%; float: left">
+                        Showing employees for the last: <label>6 months</label>
+                    </div>
+                    <div style="width: 50%; float: right; text-align: right">
+                        Phase: <label>Evaluating</label>
+                        <!--Phase: <label>Reviewing evaluation</label>-->
                     </div>
                 </div>
                 <div class="row" style="margin: 20px 0">
@@ -61,14 +66,14 @@
                         <thead>  
                             <tr>  
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Full name</th>
                                 <th>Projects</th>
                                 <th>Start date</th>
                                 <th>End date</th>
                                 <th>Role</th>
-                                <th>Status</th>
-                                <th style="width: 55px"></th>  
+                                <th style="width: 10%">Status</th>
+                                <th style="width: 10%"></th>  
                             </tr>
                         </thead>  
                         <tbody>
@@ -90,10 +95,11 @@
                                 </tr>
                             </c:forEach>
                             --%>
+                            <%-- Evaluating Phase --%>
                             <tr>
                                 <td>1</td>
+                                <td><a href="#">hoanglm01</a></td>
                                 <td><label>Le Minh Hoang</label></td>
-                                <td>hoanglm@mail.com</td>
                                 <td>OHRM</br>PCMS</td>
                                 <td>01/01/2015</br>04/01/2015</td>
                                 <td>05/30/2015</br>08/30/2015</td>
@@ -105,43 +111,97 @@
                             </tr>
                             <tr>
                                 <td>2</td>
+                                <td><a href="#">phuocnh01</a></td>
                                 <td><label>Nguyen Huu Phuoc</label></td>
-                                <td>phuocnh@mail.com</td>
+                                <td>OHRM</td>
+                                <td>01/01/2015</td>
+                                <td>05/30/2015</td>
+                                <td>Engineer</td>
+                                <td><label class="status-new">Evaluated</label></td>
+                                <td>
+                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="View result">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a href="#">maintx01</a></td>
+                                <td><label>Nguyen Thi Xuan Mai</label></td>
+                                <td>PCMS</td>
+                                <td>01/01/2015</td>
+                                <td>05/30/2015</td>
+                                <td>Engineer</td>
+                                <td><label class="status-new">Evaluated</label></td>
+                                <td>
+                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="View result">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a href="#">kiennt01</a></td>
+                                <td><label>Ngo Trac Kien</label></td>
+                                <td>PCMS</td>
+                                <td>01/01/2015</td>
+                                <td>05/30/2015</td>
+                                <td>Engineer</td>
+                                <td><label class="status-close">On going</label></td>
+                                <td>
+                                    <input type="button" class="btn btn-sm btn-success" style="width: 100%" value="Evaluate">
+                                </td>
+                            </tr>
+                            
+                            <%-- Reviewing Phase --%>
+<!--                            <tr>
+                                <td>1</td>
+                                <td><a href="#">hoanglm01</a></td>
+                                <td><label>Le Minh Hoang</label></td>
+                                <td>OHRM</br>PCMS</td>
+                                <td>01/01/2015</br>04/01/2015</td>
+                                <td>05/30/2015</br>08/30/2015</td>
+                                <td>Engineer</td>
+                                <td><label class="status-close">Reviewing</label></td>
+                                <td>
+                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="View result">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="#">phuocnh01</a></td>
+                                <td><label>Nguyen Huu Phuoc</label></td>
                                 <td>OHRM</td>
                                 <td>01/01/2015</td>
                                 <td>05/30/2015</td>
                                 <td>Engineer</td>
                                 <td><label class="status-done">Rejected</label></td>
                                 <td>
-                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="Re-evaluate">
+                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="View result">
                                 </td>
                             </tr>
                             <tr>
                                 <td>3</td>
+                                <td><a href="#">maintx01</a></td>
                                 <td><label>Nguyen Thi Xuan Mai</label></td>
-                                <td>maintx@mail.com</td>
                                 <td>PCMS</td>
                                 <td>01/01/2015</td>
                                 <td>05/30/2015</td>
                                 <td>Engineer</td>
-                                <td><label class="status-success">Reviewing</label></td>
+                                <td><label class="status-close">Reviewing</label></td>
                                 <td>
-                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="Re-evaluate">
+                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="View result">
                                 </td>
                             </tr>
                             <tr>
-                                <td>3</td>
+                                <td>4</td>
+                                <td><a href="#">kiennt01</a></td>
                                 <td><label>Ngo Trac Kien</label></td>
-                                <td>kiennt@mail.com</td>
                                 <td>PCMS</td>
                                 <td>01/01/2015</td>
                                 <td>05/30/2015</td>
                                 <td>Engineer</td>
                                 <td><label class="status-new">Approved</label></td>
                                 <td>
-                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="Re-evaluate" disabled>
+                                    <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="View result">
                                 </td>
-                            </tr>
+                            </tr>-->
                         </tbody>
                     </table>
                 </div>

@@ -250,13 +250,10 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <label>Project's performance</label>
+                                                    <label>Appraisal Criterion 1</label>
                                                 </div>                                
                                                 <div>
-                                                    <p style="margin: 0px 5%">
-                                                        Shit things are coming to everyone but nobody care
-                                                        and this description is the most useless one in the world
-                                                    </p>
+                                                    <p style="margin: 0px 5%">This is description part for Appraisal Criterion 1</p>
                                                 </div>
                                             </td>
                                             <td style="text-align: center">
@@ -268,11 +265,12 @@
                                                 <label>2</label>
                                             </td>
                                             <td>
-                                                <label>Project's budget</label>
-                                                <p style="margin: 0px 5%">
-                                                    Shit things are coming to everyone but nobody care
-                                                    and this description is the most useless one in the world
-                                                </p>
+                                                <div>
+                                                    <label>Appraisal Criterion 2</label>
+                                                </div>                                
+                                                <div>
+                                                    <p style="margin: 0px 5%">This is description part for Appraisal Criterion 2</p>
+                                                </div>
                                             </td>
                                             <td style="text-align: center">
                                                 <label style="font-size: 17px !important">10</label>
@@ -283,11 +281,12 @@
                                                 <label>3</label>
                                             </td>
                                             <td>
-                                                <label>Project's something</label>
-                                                <p style="margin: 0px 5%">
-                                                    Shit things are coming to everyone but nobody care
-                                                    and this description is the most useless one in the world
-                                                </p>
+                                                <div>
+                                                    <label>Appraisal Criterion 3</label>
+                                                </div>                                
+                                                <div>
+                                                    <p style="margin: 0px 5%">This is description part for Appraisal Criterion 3</p>
+                                                </div>
                                             </td>
                                             <td style="text-align: center">
                                                 <label style="font-size: 17px !important">10</label>
@@ -307,7 +306,7 @@
                                             <td></td>
                                             <td colspan="2">
                                                 <label>Manager's opinion:</label>
-                                                <textarea style="border: 1px solid; width: 90%; margin: 0 10px; resize: none" rows="5" readonly>Shit things are coming to everyone but nobody care and this description is the most useless one in the world</textarea>
+                                                <textarea style="border: 1px solid; width: 90%; margin: 0 10px; resize: none" rows="5" readonly>This is other opinion of manager about engineer.</textarea>
                                             </td>
                                         </tr>
                                     </tbody>
