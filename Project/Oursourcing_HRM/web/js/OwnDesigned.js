@@ -519,12 +519,15 @@ $(function() {
         targetContent = document.getElementById("des" + nameX);
         target.value = targetContent.innerHTML;
 
-        var btAdd = document.getElementById("add");
-        btAdd.setAttribute("hidden", "true");
-        var btReset = document.getElementById("reset");
-        btReset.setAttribute("hidden", "true");
-        var btUpdate = document.getElementById("update");
-        btUpdate.removeAttribute("hidden");
+//        var btAdd = document.getElementById("add");
+//        btAdd.setAttribute("hidden", "true");
+//        var btReset = document.getElementById("reset");
+//        btReset.setAttribute("hidden", "true");
+        $('#add').css("display", "none");
+        $('#reset').css("display", "none");
+        $('#update').css("display", "block");
+//        var btUpdate = document.getElementById("update");
+//        btUpdate.  ("display");
 
         var targetID = document.getElementById("proUpdate" + nameX).innerHTML;
         target = document.getElementById("ProCod" + targetID);

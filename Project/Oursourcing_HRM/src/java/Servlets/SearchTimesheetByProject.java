@@ -47,7 +47,6 @@ public class SearchTimesheetByProject extends HttpServlet {
                url = timesheetreviewServlet;
                request.setAttribute("LISTTIMESHEETBYPRO", list);
            }
-            System.out.println(list.size());
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         } finally {

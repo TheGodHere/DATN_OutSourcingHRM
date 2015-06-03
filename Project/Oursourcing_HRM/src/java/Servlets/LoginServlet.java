@@ -9,7 +9,6 @@ import DAO.AccountDAO;
 import DTO.AccountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.PageContext;
 
 /**
  *
@@ -26,7 +24,7 @@ import javax.servlet.jsp.PageContext;
 public class LoginServlet extends HttpServlet {
 
     private final String loginPage = "Login.jsp";
-    private final String homePage = "TempTimsheetReview";
+    private final String homePage = "TempTimesheet.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

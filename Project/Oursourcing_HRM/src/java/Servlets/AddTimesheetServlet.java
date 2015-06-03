@@ -36,13 +36,7 @@ public class AddTimesheetServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-
-           //int timesheetID = Integer.parseInt(request.getParameter("timesheetID"));
-
-            //if (timesheetID == 0) {
-            System.out.println("add here");
                 int accID = Integer.parseInt(request.getParameter("txtEmpID"));
-                System.out.println(accID);
                 int proID = Integer.parseInt(request.getParameter("dropPro").trim());
                 String date = request.getParameter("date");
                 float time = Float.parseFloat(request.getParameter("txtTime"));
@@ -55,8 +49,6 @@ public class AddTimesheetServlet extends HttpServlet {
                     url = timesheetServlet;
                 }
                 response.sendRedirect(url);
-           // }
-           // response.sendRedirect(updateTimesheet);
         } finally {
             out.close();
         }

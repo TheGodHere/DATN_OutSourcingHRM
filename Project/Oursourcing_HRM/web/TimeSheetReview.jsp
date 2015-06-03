@@ -43,7 +43,7 @@
                     <h2 style="text-align: center">Review Timesheet</h2><br/>
                     <form action="CenterServlet"  class="form-timesheet">
                         <c:set var="listpro" value="${requestScope.LISTPRO}"/>
-                        Project:<select  name="dropPro" style="width:50%"  >
+                        Project:<select  name="dropPro" style="width:50%" >
                             <option></option>
                             <c:forEach items="${listpro}" var="row">
                                 <option value="${row.projectID}">
@@ -80,8 +80,11 @@
                                 <td>${row.time}</td>
                                 <td>${row.projectCode}</td>
 
-                                <td> <input type="submit" value="Approve" name="btAction" style="color: green" /> 
-                                    <input type="submit" value="Reject" name="btAction" style="color: red"/></td>
+                                <td> 
+                                    <button name="btAction" value="ReviewTime_A" style="color: greenyellow;size: auto" >Approve</button>
+                                    <input type="hidden" name="lastSearch" value="${row.projectID}" />
+                                    <button name="btAction" value="ReviewTime_R" style="color: red;size: auto">Reject</button>
+                                    </td>
                             </form>
                             </tr>
                         </c:forEach>

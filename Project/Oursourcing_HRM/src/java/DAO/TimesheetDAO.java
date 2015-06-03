@@ -128,6 +128,40 @@ public class TimesheetDAO implements Serializable {
         return false;
     }
 
+    public boolean approveTime(int timesheetID, int reviewID) {
+        Connection con = Ultilities.makeConnection();
+        PreparedStatement stm = null;
+
+        if (con != null) {
+            String sql = "Update Timesheet Set reviewerID = ? isApprove = 'true' Where timeSheetID = ?";
+            try {
+                stm = con.prepareStatement(sql);
+                stm.setInt(1, timesheetID);
+                stm.setInt(2, reviewID);
+                int row = stm.executeUpdate();
+                if (row > 0) {
+                    return true;
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                try {
+
+                    if (stm != null) {
+                        stm.close();
+                    }
+                    if (con != null) {
+                        con.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
     public ArrayList<TimesheetDTO> listAllTimesheet() {
         Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;

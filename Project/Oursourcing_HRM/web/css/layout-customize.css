@@ -752,6 +752,10 @@ table a, #comments a{background-color:inherit;}
     padding: 2px 5px;
 }
 
+.table-sort-customize thead tr th a:focus, .table-sort-customize thead tr th a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
 
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */

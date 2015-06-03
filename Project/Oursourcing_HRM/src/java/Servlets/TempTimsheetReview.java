@@ -41,10 +41,8 @@ public class TempTimsheetReview extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             int employeeID = (Integer) session.getAttribute("ACCOUNTID");
-            System.out.println(employeeID);
             ProjectDAO pro = new ProjectDAO();
             ArrayList<ProjectDTO> listPro = pro.projectByCurrentUser(employeeID, 0, null);
-            System.out.println(listPro.size());
             request.setAttribute("LISTPRO", listPro);
             RequestDispatcher rd = request.getRequestDispatcher(timesheetReview);
             rd.forward(request, response);

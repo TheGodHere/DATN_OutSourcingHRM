@@ -15,6 +15,11 @@
         <link href="css/Test.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">      
         <link rel="stylesheet" href="css/jquery.dataTables.css">
+        <link rel="stylesheet" href="css/style_dtpicker.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/bootstrap-dialog.min.css">
+
+
         <!--<link href="css/justified-nav.css" rel="stylesheet">-->
 
 
@@ -27,6 +32,11 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap-table.js"></script>
         <script src="js/OwnDesigned.js"></script>
+        <script type="text/javascript" src="js/sortable.js"></script>
+        <script type="text/javascript" src="js/bootstrap-dialog.min.js"></script>
+        <!--<script src="js/jquery-1.10.2.js"></script>-->
+
+
 
 
         <script>
@@ -80,7 +90,7 @@
                         <li><a href="#3">Contact</a></li>
                         <li class="dropdown">
                             <a href="#4" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                 <c:set var="acc" value="${sessionScope.USERACCOUNT}"/>
+                                <c:set var="acc" value="${sessionScope.USERACCOUNT}"/>
                                 Welcome, ${acc.fullName}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#" class="openPopupProfile" name="userID">Profile</a></li>

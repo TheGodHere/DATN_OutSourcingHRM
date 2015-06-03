@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
  */
 public class TimesheetServlet extends HttpServlet {
 
-    private final String dailyTimesheet = "DailyTimeSheet.jsp";
+    private final String dailyTimesheet = "timesheet.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,6 +43,7 @@ public class TimesheetServlet extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             int employeeID = (Integer) session.getAttribute("ACCOUNTID");
+            
             ProjectDAO pro = new ProjectDAO();
             ArrayList<ProjectDTO> listPro = pro.projectByCurrentUser(employeeID, 0, null);
             request.setAttribute("LISTPRO", listPro);
@@ -50,6 +51,7 @@ public class TimesheetServlet extends HttpServlet {
             TimesheetDAO t = new TimesheetDAO();
             ArrayList<TimesheetDTO> listTimesheet = t.listAllTimesheet();
             request.setAttribute("TIMESHEETLIST", listTimesheet);
+            
             RequestDispatcher rd = request.getRequestDispatcher(dailyTimesheet);
             rd.forward(request, response);
         } finally {

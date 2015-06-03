@@ -8,19 +8,20 @@ package Servlets;
 import DAO.TimesheetDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Mon
  */
-public class UpdateTimesheet extends HttpServlet {
+public class ApproveTimesheet extends HttpServlet {
 
     private final String errorPage = "P_ErrorPage.html";
-    private final String timesheetServlet = "TimesheetServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,19 +37,18 @@ public class UpdateTimesheet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            int timesheetID = Integer.parseInt(request.getParameter("timesheetID"));
-            int proID = Integer.parseInt(request.getParameter("dropPro"));
-            String date = request.getParameter("date");
-            float time = Float.parseFloat(request.getParameter("txtTime"));
-            String descript = request.getParameter("des");
+            int timesheetID = Integer.parseInt(request.getParameter("txtTimesheetID"));
+            String lastSearch = request.getParameter("lastSearch");
+            HttpSession session = request.getSession();
+            int reviewID = (Integer) session.getAttribute("ACCOUNTID");
 
             TimesheetDAO t = new TimesheetDAO();
-            boolean result = t.updateTimesheet(timesheetID, proID, date, time, descript);
+            boolean result = t.approveTime(timesheetID, reviewID);
             String url = errorPage;
             if (result) {
-                url = timesheetServlet;
+                url = "CenterServlet?btAction=SearchReviewTimesheet&dropPro="+lastSearch;
             }
-            response.sendRedirect(url);
+           response.sendRedirect(url);
 
         } finally {
             out.close();
