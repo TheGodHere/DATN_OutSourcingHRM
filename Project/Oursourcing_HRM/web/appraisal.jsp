@@ -2,12 +2,12 @@
     <div class="rounded" style="background-color: inherit">
         <main class="container clear" style="width: 100%">
             <div>
-                <h1>Engineer Appraisal</h1>
+                <h2>Project Member Appraisal</h2>
                 <div style="margin: 20px 0">
                     <table style="width: 40%;margin-left: 50px;font-weight: 700">
                         <tr style="background-color: inherit">
                             <td>Project Name:</td>
-                            <td>Outsourcing HRM </td>
+                            <td>Outsourcing HRM</td>
                         </tr>
                         <tr style="background-color: inherit">
                             <td>Engineer ID: </td>
@@ -42,13 +42,10 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <label>Project's performance</label>
+                                            <label>Appraisal Criterion 1</label>
                                         </div>                                
                                         <div>
-                                            <fieldset style="margin: 0px 5%">
-                                                Shit things are coming to everyone but nobody care
-                                                and this description is the most useless one in the world
-                                            </fieldset>
+                                            <p style="margin: 0px 5%">This is description for Appraisal Criterion 1</p>
                                         </div>
                                     </td>
                                     <td style="text-align: center">
@@ -61,11 +58,8 @@
                                         <label>2</label>
                                     </td>
                                     <td>
-                                        <label>Project's budget</label>
-                                        <fieldset style="margin: 0px 5%">
-                                            Shit things are coming to everyone but nobody care
-                                            and this description is the most useless one in the world
-                                        </fieldset>
+                                        <label>Appraisal Criterion 2</label>
+                                        <p style="margin: 0px 5%">This is description for Appraisal Criterion 2</p>
                                     </td>
                                     <td style="text-align: center">
                                         <input type="text" style="margin: 0; width: 35%" >
@@ -77,11 +71,8 @@
                                         <label>3</label>
                                     </td>
                                     <td>
-                                        <label>Project's something</label>
-                                        <fieldset style="margin: 0px 5%">
-                                            Shit things are coming to everyone but nobody care
-                                            and this description is the most useless one in the world
-                                        </fieldset>
+                                        <label>Appraisal Criterion 3</label>
+                                        <p style="margin: 0px 5%">This is description for Appraisal Criterion 3</p>
                                     </td>
                                     <td style="text-align: center">
                                         <input type="text" style="margin: 0; width: 35%">
@@ -103,10 +94,7 @@
                                     <td colspan="3">
                                         <div style="text-align: center">
                                             <div>Manager's opinion</div>
-                                            <textarea name="apprContent" 
-                                                      style="height: 100px; border: 1px solid">
-
-                                            </textarea>
+                                            <textarea name="apprContent" style="height: 100px; border: 1px solid"></textarea>
                                         </div>
                                     </td> 
                                 </tr>
