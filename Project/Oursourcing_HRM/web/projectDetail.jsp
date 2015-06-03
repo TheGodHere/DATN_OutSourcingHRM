@@ -25,7 +25,7 @@
 <div class="wrapper row3">
     <div class="rounded">
         <main class="container clear" style="width: 100%">
-            <h1 style="text-align: center">Project Details</h1>
+            <h1 style="text-align: center">Project name here</h1>
             <c:if test="${proj.status eq 'working'}" >
                 <div style="float: right; font-weight: 700">Status: <label class="status-success">Working</label></div>
             </c:if>
@@ -46,13 +46,14 @@
                         <c:if test="${proj.status eq 'new' || proj.status eq 'working'}" >
                         <li id="li_member" class="tab-pdetail" onclick="tab('member')"><a>Member</a></li>
                         </c:if>
-                    <li id="li_knowledge" class="tab-pdetail" onclick="tab('knowledge')"><a>Knowledge</a></li>
+                    
                         <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
                         <li id="li_feedback" class="tab-pdetail" onclick="tab('feedback')"><a>Feedback</a></li>
                         </c:if>
                         <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
                         <li id="li_appraisal" class="tab-pdetail" onclick="tab('appraisal')"><a>Appraisal</a></li>
                         </c:if>
+                        <li id="li_knowledge" class="tab-pdetail" onclick="tab('knowledge')"><a>Knowledge</a></li>
                 </ul>
                 <div id="Content_Area" style="height: auto; background-color: buttonface;">
                     <div id="info" class="tab-content-pdetail">
