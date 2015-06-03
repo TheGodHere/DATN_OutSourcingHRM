@@ -34,22 +34,16 @@ public class UpdateAccountServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             int accountID = Integer.parseInt(request.getParameter("accountId"));
-            System.out.println("accountId" + accountID );
             String fullname = request.getParameter("txtFullname");
-            System.out.println("fullname=" + fullname);
             String username = request.getParameter("txtUsername");
-            System.out.println("username=" + username);
             String password = request.getParameter("txtPassword");
-            System.out.println("pass" + password);
             String isActive = request.getParameter("chkActive");
-            
-            boolean active = false;
-            System.out.println("isactive" + active);
-            if (isActive != null) {
-                active = true;
+            System.out.println(fullname);
+            boolean active = true;
+            if (isActive == null || isActive.isEmpty()) {
+                active = false;
             }
             String lastSearch = request.getParameter("lastSearch");
-            System.out.println("lastSearch" + lastSearch);
             AccountDAO a = new AccountDAO();
             boolean result = a.editAccount(fullname, username, password, accountID, active);
             if (result = true) {

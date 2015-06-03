@@ -415,7 +415,7 @@ table a, #comments a{background-color:inherit;}
     display: block;
     z-index: 101;
     border: 1px solid #aaaaaa;
-    background: #D4F4C1 50% 50% repeat-x;
+    background: #F2F2F2 50% 50% repeat-x;
     color: #222222;
     overflow: auto;
     padding: .2em;

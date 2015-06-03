@@ -40,15 +40,15 @@
         <main class="container clear" style="width: 100%">
             <div>
                 <h1 style="text-align: center">Search Account</h1>
-                
+
                 <div >
                     <!--<div style="width: 60%">-->
 
                     <form action="CenterServlet" method="get" class="form-search" style="max-width: none;text-align: right;">
-                       
-                       <input type="submit" name="btAction" value="CreateAccount" />
+
+                        <input type="submit" name="btAction" value="CreateAccount" />
                         <div>
-                            
+
                             <input type="text" name="txtSearch" value="${param.txtSearch}" style="width: 50%"/>
                             <input type="submit" name="btAction" value="SearchAccount" />
                         </div>
@@ -58,6 +58,7 @@
 
                 </div>
                 <div>
+                    <!--<form action="CenterServlet">-->
                     <table class="editableTable">  
                         <thead>  
                             <tr>  
@@ -71,8 +72,10 @@
                         </thead>  
                         <tbody>
                             <c:forEach items="${fullname}" var="rows" varStatus="counter">
+
+
                                 <tr>
-                            <form action="CenterServlet" method="post">
+                            <form>
                                 <td>${counter.count}</td>                            
                                 <td><label class="accountInfo${counter.count}">${rows.fullName}</label>
                                     <input class="accountTextbox${counter.count}" type="text" name="txtFullname" value="${rows.fullName}" style="display: none"/>
@@ -87,9 +90,9 @@
                                     <input class="accountTextbox${counter.count}" type="text" name="txtPassword" value="${rows.password}" style="display: none"/>
                                 </td>                            
                                 <td><label class="accountInfo${counter.count}">${rows.isActive}</label>
-                                    <input class="accountTextbox${counter.count}" type="checkbox" name="chkActive" value=""<c:if test="${rows.isActive}"> checked="checked"</c:if> style="display: none"/>
+                                    <input class="accountTextbox${counter.count}" type="checkbox" name="chkActive" value="1" <c:if test="${rows.isActive}"> checked="checked"</c:if> style="display: none"/>
                                     </td> 
-                                    <td>
+                                    <td> 
                                         <div>
                                             <div id="btn-Editaccount${counter.count}">
                                             <input type="button" class="btn btn-sm btn-warning" onclick="changeAccount(${counter.count})" value="Edit" />
@@ -102,11 +105,14 @@
                                 </td>
                             </form>
                             </tr>
+                            <!--</form>-->
+
                         </c:forEach>
 
 
                         </tbody>
                     </table>
+                    <!--</form>-->
                 </div>
 
             </div>

@@ -75,8 +75,9 @@ public class AccountDAO implements Serializable {
                 stm.setString(1, username);
                 stm.setString(2, password);
                 stm.setString(3, fullname);
-                stm.setInt(4, accountId);
-                stm.setBoolean(5, active);
+                stm.setBoolean(4, active);
+                stm.setInt(5, accountId);
+                
 
                 int result = stm.executeUpdate();
                 if (result > 0) {
