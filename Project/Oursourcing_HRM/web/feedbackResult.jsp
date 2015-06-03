@@ -9,12 +9,12 @@
                     <td>Outsourcing HRM </td>
                 </tr>
                 <tr style="background-color: inherit">
-                    <td>Customer ID: </td>
-                    <td>ThienLGT</td>
-                </tr>
-                <tr style="background-color: inherit">
                     <td>Customer Name:</td>
                     <td>Le Giang Truong Thien</td>
+                </tr>
+                <tr style="background-color: inherit">
+                    <td>Company:</td>
+                    <td>Toshiba</td>
                 </tr>
             </table>
             <label style="float: right;margin-right: 150px;

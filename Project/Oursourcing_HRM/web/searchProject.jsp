@@ -28,11 +28,11 @@
             <!-- ################################################################################################ -->
             <div class="mainav" style="margin-left: 10%; margin-right: 10%">
                 <ul  class="clear">
-                    <li class="active" onclick="ChangeContentTab('home')"><a href="#home">Project</a></li>
-                    <li onclick="ChangeContentTab('work')"><a href="#work">Employee</a></li>
-                    <li onclick="ChangeContentTab('recruitment')"><a href="#recruitment">Knowledge</a></li>
-                    <li onclick="ChangeContentTab('employee')"><a href="#employee">Time sheet</a></li>
-                    <li onclick="ChangeContentTab('knowledge')"><a href="#knowledge">Evaluation</a></li>       
+                    <li><a href="CenterServlet?btAction=listAllProject">Project</a></li>
+                    <li><a href="CenterServlet?btAction=SearchEmployee">Employee</a></li>
+                    <li><a href="searchKnowledge.jsp">Knowledge</a></li>
+                    <li><a href="CenterServlet?btAction=Timesheet">Time sheet</a></li>
+                    <li><a href="listEmpForEva.jsp">Evaluation</a></li>       
                 </ul>
             </div>
             <!-- ################################################################################################ --> 
@@ -125,7 +125,7 @@
                                 <td>${proj.customerName}</td>
                             </tr>
                         </c:forEach>
-                        <tr>
+                            <tr style="background-color: #fcb322">
                             <td>
                                 2
                             </td>

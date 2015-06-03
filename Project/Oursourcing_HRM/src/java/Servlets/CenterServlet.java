@@ -39,6 +39,8 @@ public class CenterServlet extends HttpServlet {
     private final String searchTimesheetByPro = "SearchTimesheetByProject";
     private final String createRecruitmentServlet = "CreateRecruitmentServlet";
     private final String approveTimesheet = "ApproveTimesheet";
+    private final String listAllProject = "ListAllProject";
+    private final String searchKnowledge = "ListAllProject";
 
     
     /**
@@ -124,6 +126,9 @@ public class CenterServlet extends HttpServlet {
             }else if (button.equals("ReviewTime_R")) {
                 RequestDispatcher rd = request.getRequestDispatcher(approveTimesheet);
                 rd.forward(request, response);                
+            } else if (button.equals("listAllProject")) {
+                RequestDispatcher rd = request.getRequestDispatcher(listAllProject);
+                rd.forward(request, response);  
             }
             
 

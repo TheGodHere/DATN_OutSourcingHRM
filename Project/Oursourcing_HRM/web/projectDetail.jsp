@@ -11,11 +11,11 @@
             <!-- ################################################################################################ -->
             <div class="mainav" style="margin-left: 10%; margin-right: 10%">
                 <ul  class="clear">
-                    <li><a href="#home">Project</a></li>
+                    <li><a href="CenterServlet?btAction=listAllProject">Project</a></li>
                     <li><a href="CenterServlet?btAction=SearchEmployee">Employee</a></li>
-                    <li><a href="#recruitment">Knowledge</a></li>
-                    <li><a href="#employee">Time sheet</a></li>
-                    <li><a href="#knowledge">Evaluation</a></li>       
+                    <li><a href="searchKnowledge.jsp">Knowledge</a></li>
+                    <li><a href="CenterServlet?btAction=Timesheet">Time sheet</a></li>
+                    <li><a href="listEmpForEva.jsp">Evaluation</a></li>       
                 </ul>
             </div>
             <!-- ################################################################################################ --> 
@@ -387,6 +387,11 @@
                                                         style="width: auto">
                                                     Appraisal
                                                 </button>
+                                                <button type="button" 
+                                                        class="btn btn-sm btn-danger" 
+                                                        style="width: auto">
+                                                    Decline
+                                                </button>
                                             </form>
                                         </td> 
 
@@ -421,6 +426,11 @@
                                                         class="btn btn-sm btn-success openPopupAppraisal" 
                                                         style="width: auto">
                                                     Appraisal
+                                                </button>
+                                                <button type="button" 
+                                                        class="btn btn-sm btn-danger" 
+                                                        style="width: auto">
+                                                    Decline
                                                 </button>
                                             </form>
                                         </td> 

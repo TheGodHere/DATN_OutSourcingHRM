@@ -48,6 +48,7 @@ public class ListAllProject extends HttpServlet {
             HttpSession session = request.getSession(true);
             //Day la code dung de lay role cua user dang tren session
 //            AccountDTO curAcc = (AccountDTO) session.getAttribute("USERACCOUNT");
+            int accID = (Integer) session.getAttribute("ACCOUNTID");
 //            if (curAcc.getRole().equals("engineer")) {
             ProjectDAO p = new ProjectDAO();
                 
@@ -76,7 +77,8 @@ public class ListAllProject extends HttpServlet {
 //                ArrayList<ProjectDTO> result = 
 //            p.projectByCurrentUser(curAcc.getAccountID(), year);
             //Day la code dung de test voi accountID = 3
-            ArrayList<ProjectDTO> result = p.projectByCurrentUser(3, year, projname);
+//            ArrayList<ProjectDTO> result = p.projectByCurrentUser(3, year, projname);
+            ArrayList<ProjectDTO> result = p.projectByCurrentUser(accID, year, projname);
 //            ArrayList<ProjectDTO> result = p.listAllPro();
             CommonFunction common = new CommonFunction();
             result = common.sortCollection(result, ProjectDTO.EndDateComparatorDESC);

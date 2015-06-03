@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet {
 
     private final String loginPage = "Login.jsp";
     private final String homePage = "TempTimesheet.jsp";
+    private final String managerHomepage = "CenterServlet?btAction=listAllProject";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -57,10 +58,13 @@ public class LoginServlet extends HttpServlet {
                 int accountID = result.getAccountID();
                 session.setAttribute("ACCOUNTID", accountID);
             }
-            String checkWrong = "Wrong";
-            request.setAttribute("WRONGUSERPASS", checkWrong);
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+            
+            response.sendRedirect(managerHomepage);
+            
+//            String checkWrong = "Wrong";
+//            request.setAttribute("WRONGUSERPASS", checkWrong);
+//            RequestDispatcher rd = request.getRequestDispatcher(url);
+//            rd.forward(request, response);
         } finally {
             out.close();
         }

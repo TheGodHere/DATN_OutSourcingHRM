@@ -6,7 +6,7 @@ Template: jquery
 a,
 .title {
 	//color: #B24926;
-        color: white;
+        /*color: white;*/
 }
 
 #content a:hover {
