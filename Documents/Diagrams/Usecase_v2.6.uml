@@ -2994,7 +2994,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="WypySqT/8UWPL9k2Uh17RQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Maqz1pMgnUuAor7FOyI74gAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">View knowledge details</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">View knowledge detail</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="vemTNDXBGUe0w68J4AqBagAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -3490,7 +3490,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="OSh6vGtGI0qDS4ng6+Gq7QAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="tKPPrd95WUm1Ob0hmH9WYwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">View recruitment details</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">View recruitment detail</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="LLpx7THuUkeTF9VnWHbPdgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -3757,7 +3757,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="x7g3qSbuv0qIYOjwmcBVxAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="5ZEEFzwnmUCc8WZF0JxSWgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Manage appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Manage criterion</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="yUYCXz64PkSmhxh2bT0hoQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5775,7 +5775,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[8]" type="UMLUseCase" guid="GsbnmAH79UKvnZ+oZSsTkwAA">
-<XPD:ATTR name="Name" type="string">View knowledge details</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">View knowledge detail</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">iZffbCZiCESFeeE8iPQKqwAA</XPD:REF>
@@ -7412,7 +7412,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[133]" type="UMLUseCase" guid="OeXf+9RpQEmj4+3dcaF91QAA">
-<XPD:ATTR name="Name" type="string">View recruitment details</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">View recruitment detail</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">8fQ6jRPnEUSgY3yi8MoPWgAA</XPD:REF>
@@ -7524,7 +7524,7 @@
 <XPD:REF name="Generalizations[1]">H9nPjHZulkq+Zm7t6smpwgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[141]" type="UMLUseCase" guid="UBSd8WSI90yzXvCu1cEkbAAA">
-<XPD:ATTR name="Name" type="string">Manage appraisal criterion</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Manage criterion</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">Nodvuru0hUyEClHr3UPYeAAA</XPD:REF>
