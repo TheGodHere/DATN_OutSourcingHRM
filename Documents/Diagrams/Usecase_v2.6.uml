@@ -489,7 +489,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="nWpNzCmgKUuaww2K5VTkegAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Zs0AR7Lpu0WkwpllP0tiPwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Evaluate employee in period time</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Evaluate employees</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="hLOhgL66P0Kj6y/qQgQbUgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -4648,7 +4648,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="27TGK0reWEex1J000YN+RQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="VZRx6pB2p02lBngP8ukbVwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Appraise project engineers</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Appraise engineers</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="Nrr4qE2iVESyAbZdZ5lhDgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -4882,7 +4882,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="2TmYzVFM/UabCwfvVCAJ8gAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="rxdWvGdPpkWlNZ/2twMblAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Edit employee period evaluation</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Edit evaluation</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="sfYSfxmtKkKTf6x+craBsAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5527,7 +5527,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="q4CbvqSNAUC8Qpz6iUy7XwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="4JmWCtlIJEaNejmMhHQcdgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Edit project engineer appraisal</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Edit appraisal</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="zkZUMCL3mUKsGMNnEWEofwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -5910,7 +5910,7 @@
 <XPD:REF name="Views[3]">gIiWQOPF702eh/NhIew54QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[18]" type="UMLUseCase" guid="O9pbIioAyU6hEoboEO9+UAAA">
-<XPD:ATTR name="Name" type="string">Evaluate employee in period time</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Evaluate employees</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">GxBuRVem8U6Q9sDMVoeDlgAA</XPD:REF>
@@ -7862,7 +7862,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[165]" type="UMLUseCase" guid="fy9IF12pc0e7JdogSQCgrwAA">
-<XPD:ATTR name="Name" type="string">Appraise project engineers</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Appraise engineers</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">+wmDjQDweEe15d8Gg5C7GgAA</XPD:REF>
@@ -7938,7 +7938,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[169]" type="UMLUseCase" guid="6NKp7EazDE+8Jgn9hH251gAA">
-<XPD:ATTR name="Name" type="string">Edit employee period evaluation</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Edit evaluation</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">uPFVT0TNp0WeBKWAad9MmQAA</XPD:REF>
@@ -8241,7 +8241,7 @@
 <XPD:REF name="Parent">UBSd8WSI90yzXvCu1cEkbAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[196]" type="UMLUseCase" guid="3RjL3eHJ10u31TdTHGkW4QAA">
-<XPD:ATTR name="Name" type="string">Edit project engineer appraisal</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Edit appraisal</XPD:ATTR>
 <XPD:REF name="Namespace">AEu28aoZV0KNkezcWEUYpAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">abTK/AkRkkaeqM0HjeLEJwAA</XPD:REF>
@@ -8264,8 +8264,8 @@
 <XPD:REF name="Participant">3RjL3eHJ10u31TdTHGkW4QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">yGumcV2jRU6g3hK6KWkxDgAA</XPD:REF>
-<XPD:REF name="Views[1]">ktwtJ4hM1U+0jCFXwM1IdgAA</XPD:REF>
-<XPD:REF name="Views[2]">o5oUDIey0EqB/oTjYcEdOwAA</XPD:REF>
+<XPD:REF name="Views[1]">o5oUDIey0EqB/oTjYcEdOwAA</XPD:REF>
+<XPD:REF name="Views[2]">ktwtJ4hM1U+0jCFXwM1IdgAA</XPD:REF>
 <XPD:REF name="Views[3]">aHgIjjVH8Uq22gjWbXD/LQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="WIjwCkXBDk6/4zc+5WekbQAA">
@@ -8273,8 +8273,8 @@
 <XPD:REF name="Participant">sgDYGgfhNEa5BYiUVyvSUAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">ULGpsGaJM0OBV92gUl+KeAAA</XPD:REF>
-<XPD:REF name="Views[1]">xM3Sv3EDsUGo4Ca2spI+zgAA</XPD:REF>
-<XPD:REF name="Views[2]">rUKmA+c4SkqF52nQzVRzLAAA</XPD:REF>
+<XPD:REF name="Views[1]">rUKmA+c4SkqF52nQzVRzLAAA</XPD:REF>
+<XPD:REF name="Views[2]">xM3Sv3EDsUGo4Ca2spI+zgAA</XPD:REF>
 <XPD:REF name="Views[3]">FVzQZZAVWUGnHe+bLdw60QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
