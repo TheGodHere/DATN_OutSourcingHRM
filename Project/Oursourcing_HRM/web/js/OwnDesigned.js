@@ -252,12 +252,12 @@ $(function() {
     });
 
     $(".openPopupAppraisalResult").on("click", function() {
-        dialog.dialog("open");
+//        dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
         xmlhttp = new getXmlHttpRequestObject();
 
         if (xmlhttp) {
-            locationP = "dialog-form";
+            locationP = "appraisal-result-modal";
             xmlhttp.open("POST", "AppraisalResult.jsp", true);
             xmlhttp.onreadystatechange = handleServletPost;
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -267,12 +267,12 @@ $(function() {
     });
 
     $(".openPopupAppraisal").on("click", function() {
-        dialog.dialog("open");
+//        dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
         xmlhttp = new getXmlHttpRequestObject();
 
         if (xmlhttp) {
-            locationP = "dialog-form";
+            locationP = "appraisal-modal";
             xmlhttp.open("POST", "appraisal.jsp", true);
             xmlhttp.onreadystatechange = handleServletPost;
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
