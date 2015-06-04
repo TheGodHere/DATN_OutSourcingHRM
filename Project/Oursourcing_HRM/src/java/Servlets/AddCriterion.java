@@ -45,7 +45,14 @@ public class AddCriterion extends HttpServlet {
                 maxPoint = 0;
             }
 
-            String type = request.getParameter("txtType");
+            int type = 0;
+            try {
+                type = Integer.parseInt(request.getParameter("txtType"));
+            } catch (NullPointerException ne) {
+                type = 0;
+            } catch (NumberFormatException e) {
+                type = 0;
+            }
 
             CriterionDAO criterionDao = new CriterionDAO();
             boolean result = criterionDao.addCriterion(title, description, maxPoint, type);
