@@ -81,7 +81,8 @@
                                         <c:param name="accountID" value="${rows.accountID}"/>  
                                         <c:param name="btAction" value="ViewEmployeeDetail"/>
                                     </c:url>
-                                    <a href="#" class="openPopupEmployee" name="${rows.accountID}" >${rows.fullName}</a>
+                                    <a href="#" class="openPopupEmployee" data-toggle="modal" 
+                                       data-target="#employee-detail-modal" name="${rows.accountID}" >${rows.fullName}</a>
                                 </td>
                                 <td>${rows.role}</td>
                                 <td>${rows.birthday}</td>
@@ -93,6 +94,9 @@
                 </table>
             </div>
         </main>
+        <div class="modal fade bs-criterion-modal-lg" tabindex="-1" 
+             role="dialog" aria-labelledby="myLargeModalLabel" 
+             aria-hidden="true" id="employee-detail-modal"></div>
     </div>
 
 

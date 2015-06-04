@@ -225,7 +225,7 @@
                 </div>
 
                 <%-- Begin popup --%>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-body">
@@ -306,14 +306,14 @@
                                             <td></td>
                                             <td colspan="2">
                                                 <label>Manager's opinion:</label>
-                                                <textarea style="border: 1px solid; width: 90%; margin: 0 10px; resize: none" rows="5" readonly>This is other opinion of manager about engineer.</textarea>
+                                                <textarea style="border: 1px solid; width: 90%; resize: none" rows="5" readonly>This is other opinion of manager about engineer.</textarea>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" style="width:auto">Close</button>
+                            <div class="modal-footer" style="text-align: center">
+                                <button type="button" class="btn btn-success" data-dismiss="modal" style="width:60px">OK</button>
                             </div>
                         </div>
                     </div>

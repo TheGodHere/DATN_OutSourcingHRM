@@ -96,7 +96,7 @@
                             </c:forEach>
                             --%>
                             <%-- Evaluating Phase --%>
-                            <tr>
+<!--                            <tr>
                                 <td>1</td>
                                 <td><a href="#">hoanglm01</a></td>
                                 <td><label>Le Minh Hoang</label></td>
@@ -148,9 +148,9 @@
                                     <input type="button" class="btn btn-sm btn-success" style="width: 100%" value="Evaluate">
                                 </td>
                             </tr>
-                            
+                            -->
                             <%-- Reviewing Phase --%>
-<!--                            <tr>
+                            <tr>
                                 <td>1</td>
                                 <td><a href="#">hoanglm01</a></td>
                                 <td><label>Le Minh Hoang</label></td>
@@ -201,7 +201,7 @@
                                 <td>
                                     <input type="button" class="btn btn-sm btn-primary" style="width: 100%" value="View result">
                                 </td>
-                            </tr>-->
+                            </tr>
                         </tbody>
                     </table>
                 </div>
