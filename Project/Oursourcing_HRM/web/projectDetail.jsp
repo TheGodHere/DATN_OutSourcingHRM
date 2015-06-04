@@ -46,14 +46,14 @@
                         <c:if test="${proj.status eq 'new' || proj.status eq 'working'}" >
                         <li id="li_member" class="tab-pdetail" onclick="tab('member')"><a>Member</a></li>
                         </c:if>
-                    
-                        <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
+
+                    <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
                         <li id="li_feedback" class="tab-pdetail" onclick="tab('feedback')"><a>Feedback</a></li>
                         </c:if>
                         <c:if test="${proj.status eq 'done' || proj.status eq 'closed'}" >
                         <li id="li_appraisal" class="tab-pdetail" onclick="tab('appraisal')"><a>Appraisal</a></li>
                         </c:if>
-                        <li id="li_knowledge" class="tab-pdetail" onclick="tab('knowledge')"><a>Knowledge</a></li>
+                    <li id="li_knowledge" class="tab-pdetail" onclick="tab('knowledge')"><a>Knowledge</a></li>
                 </ul>
                 <div id="Content_Area" style="height: auto; background-color: buttonface;">
                     <div id="info" class="tab-content-pdetail">
@@ -383,11 +383,13 @@
                                                   background-color: inherit;
                                                   margin-top: 0; padding-top: 0"
                                                   action="#">
-                                                <button type="button" 
-                                                        class="btn btn-sm btn-success openPopupAppraisal" 
-                                                        style="width: auto">
-                                                    Appraisal
-                                                </button>
+                                                <input type="button" class="btn btn-sm btn-primary openPopupAppraisal" data-toggle="modal" 
+                                                       data-target="#appraisal-modal" name="" value="Edit">
+                                                <!--                                                <button type="button" 
+                                                                                                        class="btn btn-sm btn-success openPopupAppraisal" 
+                                                                                                        style="width: auto">
+                                                                                                    Appraisal
+                                                                                                </button>-->
                                                 <button type="button" 
                                                         class="btn btn-sm btn-danger" 
                                                         style="width: auto">
@@ -423,11 +425,13 @@
                                                   background-color: inherit;
                                                   margin-top: 0; padding-top: 0"
                                                   action="#">
-                                                <button type="button" 
-                                                        class="btn btn-sm btn-success openPopupAppraisal" 
-                                                        style="width: auto">
-                                                    Appraisal
-                                                </button>
+                                                <input type="button" class="btn btn-sm btn-primary openPopupAppraisal" data-toggle="modal" 
+                                                       data-target="#appraisal-modal" name="" value="Edit">
+                                                <!--                                                <button type="button" 
+                                                                                                        class="btn btn-sm btn-success openPopupAppraisal" 
+                                                                                                        style="width: auto">
+                                                                                                    Appraisal
+                                                                                                </button>-->
                                                 <button type="button" 
                                                         class="btn btn-sm btn-danger" 
                                                         style="width: auto">
@@ -463,11 +467,13 @@
                                                   background-color: inherit;
                                                   margin-top: 0; padding-top: 0"
                                                   action="#">
-                                                <button type="button" 
-                                                        class="btn btn-sm btn-info openPopupAppraisalResult" 
-                                                        style="width: auto">
-                                                    Appraisal result
-                                                </button>
+                                                <input type="button" class="btn btn-sm btn-info openPopupAppraisalResult" data-toggle="modal" 
+                                                       data-target="#appraisal-result-modal" name="" value="Appraisal result">
+                                                <!--                                                <button type="button" 
+                                                                                                        class="btn btn-sm btn-info openPopupAppraisalResult" 
+                                                                                                        style="width: auto">
+                                                                                                    Appraisal result
+                                                                                                </button>-->
                                             </form>
                                         </td> 
 
@@ -510,6 +516,12 @@
 
                 </div>
             </div>
+            <div class="modal fade bs-criterion-modal-lg" tabindex="-1" 
+                 role="dialog" aria-labelledby="myLargeModalLabel" 
+                 aria-hidden="true" id="appraisal-modal"></div>
+            <div class="modal fade bs-criterion-modal-lg" tabindex="-1" 
+                 role="dialog" aria-labelledby="myLargeModalLabel" 
+                 aria-hidden="true" id="appraisal-result-modal"></div>
         </main>
     </div>
     <script type="text/javascript">
