@@ -9,6 +9,7 @@ package DAO;
 import Common.Ultilities;
 import DTO.CriterionDTO;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -76,10 +77,11 @@ public class CriterionDAO {
         ResultSet rs = null;
 
         if (con != null) {
-            String sql = "Select * From Criterion Where type=?";
+            String sql = "Select * From Criterion Where type=? AND isActive=?";
             try {                
                 stm = con.prepareStatement(sql);
-                stm.setString(1, "feedback");                
+                stm.setString(1, "feedback");
+                stm.setBoolean(2, true);
                 rs = stm.executeQuery();
                 
                 ArrayList<CriterionDTO> listCrit = new ArrayList<CriterionDTO>();
@@ -154,25 +156,27 @@ public class CriterionDAO {
         return 0;
     }
     
-    public boolean addCriterion(String title, String description, int maxPoint, String type){
+    public boolean addCriterion(String title, String description, int maxPoint, int type){
         Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;
-        boolean result = false;
         
         if (con != null) {
-            String sql = "INSERT INTO Criterion (title,description,maxPoint,type,isActive) VALUES (?,?,?,?,?)";
-            try {                
+            String sql = "INSERT INTO Criterion (title,description,maxPoint,type,createDate,isActive) VALUES (?,?,?,?,?,?)";
+            try {
+                Date createDate = new Date(System.currentTimeMillis());
                 stm = con.prepareStatement(sql);
                 
                 stm.setString(1, title);
                 stm.setString(2, description);
                 stm.setInt(3, maxPoint);
-                stm.setString(4, type);
-                stm.setBoolean(5, true);
+                stm.setInt(4, type);
+                stm.setDate(5, createDate);
+                stm.setBoolean(6, true);
                 
-                stm.executeUpdate();
-                result = true;
-                
+                int result = stm.executeUpdate();
+                if (result > 0) {
+                    return true;
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
@@ -188,14 +192,14 @@ public class CriterionDAO {
                 }
             }
         }
-        return result;
+        return false;
     }
     
     public boolean editCriterion(int critID ,String title, String description, int maxPoint, String type){
         Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;
         if (con != null) {
-            String sql = "update [Criterion] set title = ?, description = ?, maxPoint = ?, type = ? where critID = ?";
+            String sql = "UPDATE Criterion SET title=?,description=?,maxPoint=?,type=? WHERE critID=?";
             try {
                 stm = con.prepareStatement(sql);
                 
@@ -207,7 +211,6 @@ public class CriterionDAO {
 
                 int result = stm.executeUpdate();
                 if (result > 0) {
-                    System.out.println("true");
                     return true;
                 }
             } catch (SQLException ex) {
@@ -225,14 +228,12 @@ public class CriterionDAO {
                 }
             }
         }
-        System.out.println("false");
         return false;
     }
     
     public boolean deactiveCriterion(int critID){
         Connection con = Ultilities.makeConnection();
         PreparedStatement stm = null;
-        boolean result = false;
         
         if (con != null) {
             String sql = "UPDATE Criterion SET isActive=? WHERE critID=?";
@@ -242,8 +243,10 @@ public class CriterionDAO {
                 stm.setBoolean(1, false);
                 stm.setInt(2, critID);
                 
-                stm.executeUpdate();
-                result = true;
+                int result = stm.executeUpdate();
+                if (result > 0) {
+                    return true;
+                }
                 
             } catch (SQLException ex) {
                 Logger.getLogger(CriterionDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -260,6 +263,6 @@ public class CriterionDAO {
                 }
             }
         }
-        return result;
+        return false;
     }
 }
