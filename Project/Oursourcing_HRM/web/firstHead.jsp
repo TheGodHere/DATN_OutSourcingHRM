@@ -93,7 +93,8 @@
                                 <c:set var="acc" value="${sessionScope.USERACCOUNT}"/>
                                 Welcome, ${acc.fullName}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#" class="openPopupProfile" name="userID">Profile</a></li>
+                                <li><a href="#" class="openPopupProfile" data-toggle="modal" 
+                                       data-target="#employee-profile-modal" name="userID">Profile</a></li>
                                 <li><a href="#">Change password</a></li>
                                 <li><a href="CenterServlet?btAction=Log out">Log out</a></li>
                             </ul>
@@ -114,6 +115,10 @@
                 <div id="dialog-form" style="display: none; background-color: white">
                     <form></form>
                 </div>
+
+                <div class="modal fade bs-criterion-modal-lg" tabindex="-1" 
+                     role="dialog" aria-labelledby="myLargeModalLabel" 
+                     aria-hidden="true" id="employee-profile-modal"></div>
 
 
 
