@@ -79,6 +79,10 @@ function ChangeContentTab(contentTab) {
     }
 
 }
+
+
+
+
 /*
  *Create Popup
  * 
@@ -184,12 +188,12 @@ $(function() {
     });
 
     $(".openPopupProfile").on("click", function() {
-        dialog.dialog("open");
+//        dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
         xmlhttp = new getXmlHttpRequestObject();
 
         if (xmlhttp) {
-            locationP = "dialog-form";
+            locationP = "employee-profile-modal";
             xmlhttp.open("POST", "employeePopup.jsp", true);
 
             xmlhttp.onreadystatechange = handleServletPost;
@@ -199,12 +203,13 @@ $(function() {
     });
 
     $(".openPopupEmployee").on("click", function() {
-        dialog.dialog("open");
+//        dialog.dialog("open");
         var parameterIdFromLink = $(this).attr("name");
         xmlhttp = new getXmlHttpRequestObject();
 
         if (xmlhttp) {
-            locationP = "dialog-form";
+//            locationP = "dialog-form";
+            locationP = "employee-detail-modal";
             xmlhttp.open("POST", "CenterServlet", true);
             xmlhttp.onreadystatechange = handleServletPost;
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -279,7 +284,11 @@ $(function() {
     /*This is for editCriterion.jsp only*/
     /*Add Criterion*/
     $(".addCriterionPopup").on("click", function() {
-        var target = document.getElementById("formCriterionId");
+
+        var target = document.getElementById("modal-title");
+        target.innerHTML = "Add new criterion";
+
+        target = document.getElementById("formCriterionId");
         target.value = "";
 
         target = document.getElementById("formCriterionTitle");
@@ -292,21 +301,23 @@ $(function() {
         target.value = "";
 
         target = document.getElementById("formCriterionType");
-        var targetContent = document.getElementById("curType");
-        target.setAttribute("value", targetContent.value);
+//        var targetContent = document.getElementById("curType");
+//        target.value = targetContent.value;
+        target.value = 3;
 
         target = document.getElementById("criterionSaveBtn");
         target.setAttribute("name", "0");
 
-        dialog1.dialog("open");
     });
     /*Edit Criterion*/
-
     $(".editCriterionPopup").on("click", function() {
         var nameX = $(this).attr("name");
-        dialog1.dialog("open");
+//        dialog1.dialog("open");
 
-        var target = document.getElementById("formCriterionId");
+        var target = document.getElementById("modal-title");
+        target.innerHTML = "Edit criterion";
+
+        target = document.getElementById("formCriterionId");
         var targetContent = document.getElementById("critId" + nameX);
         target.value = targetContent.innerHTML;
 
@@ -331,9 +342,10 @@ $(function() {
         target.name = targetContent.innerHTML;
 
     });
-
+    /*Save button clicked*/
     $("#criterionSaveBtn").on("click", function() {
         var c = confirm("Save this criterion?");
+//        alert('dialog');
         if (c === true) {
             var nameX = $(this).attr("name");
             if (nameX === "0") { //create
@@ -353,7 +365,8 @@ $(function() {
                 xmlhttp = new getXmlHttpRequestObject();
                 if (xmlhttp) {
                     locationP = "form-test";
-                    xmlhttp.open("POST", "AddCriterion", true);
+//                    xmlhttp.open("POST", "AddCriterion", true);
+                    xmlhttp.open("POST", "AddCriterion", false);
                     xmlhttp.onreadystatechange = handleServletPost;
                     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xmlhttp.send("txtTitle=" + title + "&txtMaxPoint=" + maxPoint + "&txtDescription=" + description + "&txtType=" + type);
@@ -421,11 +434,10 @@ $(function() {
                     rowOver.appendChild(tdOver);
                     /* End create row*/
 
-                    dialog1.dialog("close");
-                    var rowElement = document.getElementById("workTable");
-                    rowElement.appendChild(rowOver);
+                    $('#criterion-modal').modal('hide');
+
                 } else {
-                    dialog1.dialog("close");
+                    $('#criterion-modal').modal('hide');
                 }
 
             } else { //edit
@@ -456,18 +468,20 @@ $(function() {
 
                 xmlhttp = new getXmlHttpRequestObject();
                 if (xmlhttp) {
-                    xmlhttp.open("POST", "EditCriterion", true);
+//                    xmlhttp.open("POST", "EditCriterion", true);
+                    xmlhttp.open("POST", "EditCriterion", false);
                     xmlhttp.onreadystatechange = handleServletPost;
                     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xmlhttp.send("txtCritId=" + critId + "&txtTitle=" + title + "&txtMaxPoint=" + maxPoint + "&txtDescription=" + description + "&txtType=" + type);
                 }
+                
+                $('#criterion-modal').modal('hide');
 
-                dialog1.dialog("close");
             }
         } else {
             // DO NOTHING
         }
-        location.reload();
+//        location.reload();
     });
     /*Deactive  Criterion*/
     $(".removeCriterion").on("click", function() {
@@ -478,13 +492,15 @@ $(function() {
             xmlhttp = new getXmlHttpRequestObject();
             if (xmlhttp) {
                 locationP = "form-test";
-                xmlhttp.open("POST", "DeactiveCriterion", true);
+                xmlhttp.open("POST", "DeactiveCriterion", false);
+//                xmlhttp.open("POST", "DeactiveCriterion", true);
                 xmlhttp.onreadystatechange = handleServletPost;
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xmlhttp.send("txtCritId=" + critId);
             }
+            
+            $('#criterion-modal').modal('hide');
 
-            location.reload();
 //            var curId = document.getElementById('form-test').innerHTML;
 //            if (curId !== 0) {
 //                //removeRow
@@ -510,6 +526,11 @@ $(function() {
         target = document.getElementById("datepicker");
         targetContent = document.getElementById("date" + nameX);
         target.value = targetContent.innerHTML;
+
+        target = document.getElementById("ProCod");
+        targetContent = document.getElementById("proCode" + nameX);
+        // target.setAttribute("value", targetContent.innerHTML);
+        target.innerHTML = targetContent.innerHTML;
 
         target = document.getElementById("tim");
         targetContent = document.getElementById("time" + nameX);
@@ -579,6 +600,11 @@ function changeProject() {
     $("#btn-Editproject").css("display", "none");
     $("#btn-Submitproject").css("display", "block");
 }
+/*This is for editCriterion.jsp only*/
+//$('#criterionSaveBtn').on("click", function() {
+//    alert('hehe');
+//});
+
 
 /*This is for knowledgeDetail.jsp only*/
 var commentID = 0;
