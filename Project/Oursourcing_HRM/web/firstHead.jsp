@@ -75,11 +75,12 @@
     <body>
 
         <nav class="navbar navbar-inverse navbar-fixed-top " 
-             style="background-color: #00004B">
+             style="background-color: white">
             <div>
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#" style="padding: 0; padding-left: 15px; width: 65px">
                         <img src="img/Logo.png" alt="">
+                        
                     </a>
                 </div>
                 <div id="navbar" class="navbar-collapse">
@@ -106,7 +107,7 @@
         </nav>
 
 
-        <div style="background-color: #06213F">
+        <div style="background-color: #00AFF0">
             <div id="blanket" style="background-color: transparent">
                 <div style="margin-bottom: 30px; height: 45px">
 
