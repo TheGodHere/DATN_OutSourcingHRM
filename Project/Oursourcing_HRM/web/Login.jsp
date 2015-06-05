@@ -17,12 +17,14 @@
     </head>
     <style>
         body {
-            background-image: url("img/Login (2).jpg");
+            background-color: #00AFF0;
         }
     </style>
     <body>
         <form action="CenterServlet" class="login" method="POST">
-            <h1>OHRM</h1>            
+            <center>
+                <img src="img/Logo_5.png" alt="" style="margin-bottom: 15px;">
+            </center>           
             <input type="text" name="username" class="login-input" placeholder="Username" autofocus>
             <input type="password" name="password" class="login-input" placeholder="Password">
             <center><input type="submit" value="Login" class="login-submit" name="btAction" style="width: 40%;"></center>
