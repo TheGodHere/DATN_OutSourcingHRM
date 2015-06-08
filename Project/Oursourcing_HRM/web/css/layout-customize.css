@@ -757,6 +757,7 @@ table a, #comments a{background-color:inherit;}
     vertical-align: top;
     background-color: #19F21B;
     padding: 1px 3px;
+    color: black;
 }
 .table-sort-customize thead tr th a:focus, .table-sort-customize thead tr th a:hover {
     color: yellow;

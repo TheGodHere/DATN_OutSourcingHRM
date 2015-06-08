@@ -175,6 +175,7 @@
                                         <th>#</th> 
                                         <th>ID</th> 
                                         <th>Full Name</th>
+                                        <th>Skill</th>
                                         <th>Position</th>  
                                         <th>Work Type</th>
                                         <th style="max-width: 50px; width: 50px"></th>
@@ -195,6 +196,7 @@
                                                 </a>
                                             </td>
                                             <td>${member.employeeName}</td>
+                                            <td>Java</td>
                                             <td>
                                                 <c:forEach var="work" items="${listWork}">
                                                     ${work.position} <br/>
@@ -218,6 +220,32 @@
                                         </tr>
                                         <%--</c:forEach>--%>
                                     </c:forEach>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="#" class="openPopupEmployee" name="5">
+                                                Engineer01
+                                            </a>
+                                        </td>
+                                        <td>Engineer01</td>
+                                        <td><label>Java</label>
+                                            <label class="interest">Interest</label> <br/>
+                                            <label>SQL server</label>
+                                        </td>
+                                        <td>
+                                            Developer <br/>
+                                            Tester <br/>
+                                        </td>
+                                        <td>Full-time</td>
+                                        <td>
+                                            <button type="button" 
+                                                    class="btn btn-sm btn-warning editPosPopup" 
+                                                    style="width: auto">Edit
+                                            </button>
+                                        </td>  
+                                        <!--<td><button type="button" class="btn btn-sm btn-danger" style="width: auto">Remove</button></td>--> 
+                                        <!--<td><button type="button" class="btn btn-sm btn-danger openPopupAppraisal" style="width: auto">Remove</button></td>--> 
+                                    </tr>
                                 </tbody>
                             </table>
                             <form style="margin: 0 0; padding: 0 0; background-color: inherit"
