@@ -229,22 +229,9 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-body">
+                                <h3 style="text-align: center">Appraisal result</h3>
                                 <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 5%; text-align: center">
-                                                #
-                                            </th>
-                                            <th style="width: 80%; text-align: center">
-                                                Criterion
-                                            </th>
-                                            <th style="width: 15%; text-align: center">
-                                                Point
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
+                                    <tr style="background: #FFFFFF">
                                             <td style="text-align: center">
                                                 <label>1</label>
                                             </td>
@@ -260,7 +247,7 @@
                                                 <label style="font-size: 17px !important">10</label>
                                             </td>
                                         </tr>                        
-                                        <tr>
+                                        <tr style="background: #FFFFFF">
                                             <td style="text-align: center">
                                                 <label>2</label>
                                             </td>
@@ -276,7 +263,7 @@
                                                 <label style="font-size: 17px !important">10</label>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr style="background: #FFFFFF">
                                             <td style="text-align: center">
                                                 <label>3</label>
                                             </td>
@@ -292,7 +279,7 @@
                                                 <label style="font-size: 17px !important">10</label>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr style="background: #FFFFFF">
                                             <td style="text-align: center">
                                             </td>
                                             <td style="text-align: right">
@@ -302,14 +289,13 @@
                                                 <label style="font-size: 17px !important">10</label>
                                             </td>
                                         </tr>                            
-                                        <tr>
+                                        <tr style="background: #FFFFFF">
                                             <td></td>
                                             <td colspan="2">
                                                 <label>Manager's opinion:</label>
                                                 <textarea style="border: 1px solid; width: 90%; resize: none" rows="5" readonly>This is other opinion of manager about engineer.</textarea>
                                             </td>
                                         </tr>
-                                    </tbody>
                                 </table>
                             </div>
                             <div class="modal-footer" style="text-align: center">

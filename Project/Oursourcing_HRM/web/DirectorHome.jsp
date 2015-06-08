@@ -33,42 +33,45 @@
                 <div id="chartContainer" style="height: 300px; width: 70%; float: left">
                 </div>
                 <table style="width: 25%; float: right; border: 1px solid;">
-                    <tr>
+                    <tr style="background: #FFFFFF">
                         <td colspan="2" style="text-align: center"><h4>Resources by skill</h4></td>
                     </tr>
-                    <tr>
+                    <tr  style="background: #FBFBFB">
                         <td style="width: 50%; text-align: center">Time: <label>W1/05</label></td>
                         <td style="text-align: center">Unit: <label>people</label></td>
                     </tr>
-                    <tr>
-                        <td colspan="2" style="width: 50%; padding: 5px 30px">Java: <label>241</label></td>
+                    <tr style="background: #FFFFFF">
+                        <td colspan="2" style="width: 50%; padding: 5px 30px">Java: <label>120</label></td>
                     </tr>
-                    <tr>
-                        <td colspan="2" style="width: 50%; padding: 5px 30px">.NET: <label>230</label></td>
+                    <tr style="background: #FFFFFF">
+                        <td colspan="2" style="width: 50%; padding: 5px 30px">.NET: <label>106</label></td>
                     </tr>
-                    <tr>
-                        <td colspan="2" style="width: 50%; padding: 5px 30px">PHP: <label>110</label></td>
+                    <tr style="background: #FFFFFF">
+                        <td colspan="2" style="width: 50%; padding: 5px 30px">PHP: <label>64</label></td>
                     </tr>
-                    <tr>
-                        <td colspan="2" style="width: 50%; padding: 5px 30px">Visual Basic: <label>110</label></td>
+                    <tr style="background: #FFFFFF">
+                        <td colspan="2" style="width: 50%; padding: 5px 30px">Visual Basic: <label>71</label></td>
                     </tr>
-                    <tr>
-                        <td colspan="2" style="width: 50%; padding: 5px 30px">C: <label>110</label></td>
+                    <tr style="background: #FFFFFF">
+                        <td colspan="2" style="width: 50%; padding: 5px 30px">C: <label>81</label></td>
                     </tr>
-                    <tr>
-                        <td colspan="2" style="width: 50%; padding: 5px 30px">C++ <label>110</label></td>
+                    <tr style="background: #FFFFFF">
+                        <td colspan="2" style="width: 50%; padding: 5px 30px">C++: <label>75</label></td>
+                    </tr>
+                    <tr style="background: #FBFBFB">
+                        <td colspan="2" style="width: 50%; padding: 5px 30px">Engineer in total: <label>300</label></td>
                     </tr>
                 </table>
             </div>
             <div class="row" style="margin: 20px 0">
-                <h3 style="text-align: center">Projects</h3>
+                <h3 style="text-align: center">Projects planning</h3>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Project name</th>
-                            <th>Programming language</th> 
+                            <th>Language</th> 
                             <th>Resource needed</th>                            
-                            <th>Start date</th>
+                            <th>Duration</th>
                             <th>Customer</th>
                             <th>Status</th>
                             <th></th>
@@ -79,10 +82,10 @@
                             <td>Outsourcing HRM</td>
                             <td>Java</td>
                             <td>50</td>
-                            <td>01/08/2015</td>
+                            <td>6 months</td>
                             <td>Steve Job</td>
                             <td><span class="status-close">Planning</span></td>
-                            <td>
+                            <td style="width: 60px">
                                 <input type="button" class="btn btn-sm btn-success" value="Assign manager">
                             </td>
                         </tr>
