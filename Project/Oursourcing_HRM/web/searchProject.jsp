@@ -96,6 +96,7 @@
                             <th>Start date</th>  
                             <th>End date</th>  
                             <th>Customer</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody style="font-weight: normal">
@@ -123,9 +124,10 @@
                                 <td>${proj.startDate}</td>
                                 <td>${proj.endDate}</td>
                                 <td>${proj.customerName}</td>
+                                <td>Working</td>
                             </tr>
                         </c:forEach>
-                            <tr style="background-color: #fcb322">
+                            <tr>
                             <td>
                                 2
                             </td>
@@ -143,8 +145,9 @@
                             <td>02/02/2015</td>
                             <td>03/07/2015</td>
                             <td>ThienLGT</td>
+                            <td><label  class="status-done">Done</label></td>
                         </tr>
-                        <tr style="background-color: rgb(199, 199, 199)">
+                        <tr>
                             <td>
                                 3
                             </td>
@@ -162,6 +165,7 @@
                             <td>02/02/2015</td>
                             <td>03/03/2015</td>
                             <td>ThienLGT</td>
+                            <td><label class="status-close">Closed</label></td>
                         </tr>
                     </tbody>
                 </table>
