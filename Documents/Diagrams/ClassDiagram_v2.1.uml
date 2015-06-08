@@ -88,8 +88,8 @@
 <XPD:OBJ name="OwnedViews[1]" type="UMLClassView" guid="avCspPrEok+Jn4J480+SDgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1040</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">184</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1044</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">180</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">105</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:REF name="Model">kp4rbUzPe0OKGlVDuehojAAA</XPD:REF>
@@ -2742,7 +2742,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1100,536;1100,356</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1100,536;1100,352</XPD:ATTR>
 <XPD:REF name="Model">+Ud4/KYV5EyYZmwnEJoIgQAA</XPD:REF>
 <XPD:REF name="Head">avCspPrEok+Jn4J480+SDgAA</XPD:REF>
 <XPD:REF name="Tail">hlZejxm9pku75o8fokbdRQAA</XPD:REF>
@@ -3198,7 +3198,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1284,392;1284,264;1144,264</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1284,392;1284,264;1148,264</XPD:ATTR>
 <XPD:REF name="Model">FK687Ykqkkqoech/yq/QnwAA</XPD:REF>
 <XPD:REF name="Head">avCspPrEok+Jn4J480+SDgAA</XPD:REF>
 <XPD:REF name="Tail">GDWwDb1V0ESHbOtKq9EGiQAA</XPD:REF>
@@ -3543,7 +3543,7 @@
 <XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="HvL5b6AvyE62iuIyrC8V+QAA">
 <XPD:ATTR name="Name" type="string">type</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="Owner">kp4rbUzPe0OKGlVDuehojAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="60v4d1o+g0WFPCgsJFNJhQAA">
