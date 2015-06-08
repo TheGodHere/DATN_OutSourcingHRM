@@ -7,8 +7,8 @@
     <div class="rounded" style="background-color: transparent">
         <footer id="footer" class="clear"> 
             <div >
-                <div id="copyright" class="clear" style="text-align: center"> 
-                    Copyright &copy; 2015 - All Rights Reserved - <a href="#">OHRM</a>
+                <div id="copyright" class="clear" style="text-align: center; color: white;"> 
+                    Copyright &copy; 2015 - All Rights Reserved - <a href="#" style="color: white">OHRM</a>
                 </div>
             </div>
 

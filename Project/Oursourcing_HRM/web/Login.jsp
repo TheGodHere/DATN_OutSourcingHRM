@@ -36,11 +36,11 @@
                 </tr>
                 <tr>
                     <td><div class="checkbox">
-                            <div style="text-align: left"><label><input type="checkbox" value=""><font color = "white" size = "2" >Stay logged in</font></label></div>
+                            <div style="text-align: left"><label><input type="checkbox" value=""><font color = "#00AFF0" size = "2" >Stay logged in</font></label></div>
                         </div>
                     </td>
                     <td style="">
-                        <div style="text-align: right"><a href="index.html"><font color = "white" size = "2" >Forgot password?</font></a></div>
+                        <div style="text-align: right"><a href="index.html"><font color = "#00AFF0" size = "2" >Forgot password?</font></a></div>
                     </td>
                 </tr>
             </table>

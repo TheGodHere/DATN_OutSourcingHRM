@@ -78,8 +78,9 @@
              style="background-color: white">
             <div>
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" style="padding: 0; padding-left: 15px; width: 65px">
-                        <img src="img/Logo.png" alt="">
+                    
+                    <a class="navbar-brand" href="#" style="padding: 0; padding-left: 15px; width: 200px; height: 50px">
+                        <img src="img/Logo_1.png" alt="">                       
                         
                     </a>
                 </div>
