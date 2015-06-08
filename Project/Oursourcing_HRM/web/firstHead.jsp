@@ -34,6 +34,7 @@
         <script src="js/OwnDesigned.js"></script>
         <script type="text/javascript" src="js/sortable.js"></script>
         <script type="text/javascript" src="js/bootstrap-dialog.min.js"></script>
+        <script type="text/javascript" src="js/canvasjs.js"></script>
         <!--<script src="js/jquery-1.10.2.js"></script>-->
 
 

@@ -26,24 +26,36 @@
         <main class="container clear" style="width: 100%"> 
             <div>
                 <div>
-                    <h1 style="text-align: center; font-size: 40px;">Assign Engineer</h1>    
+                    <h1 style="text-align: center; font-size: 40px;">Project name here</h1>    
                 </div>    
-                <form style="float: none; margin: 0 0; padding: 0 0" action="suggestEngineer.jsp">
-                    <c:if test="${type eq 'ShowAll'}" >
-                        <button type="submit" class="btn btn-info" 
-                                style="width: 150px; margin-bottom: 20px"
-                                name="btAction" value="Suggest">
-                            Suggest engineer
-                        </button>
-                    </c:if>
-                    <c:if test="${empty type || type eq 'Suggest'}">
-                        <button type="submit" class="btn btn-info" 
-                                style="width: 150px; margin-bottom: 20px"
-                                name="btAction" value="ShowAll">
-                            Show all engineer
-                        </button>    
-                    </c:if>
-                </form>
+                <div id="chartContainer_suggest" style="height: 300px; width: 100%;">
+                </div>
+                <div>
+                    <form style="float: left; margin: 10px 0 0 0; padding: 0 0;
+                          width: 100px; display: inline" action="suggestEngineer.jsp">
+                        <c:if test="${type eq 'ShowAll'}" >
+                            <button type="submit" class="btn btn-info" 
+                                    style="width: 150px; margin-bottom: 20px"
+                                    name="btAction" value="Suggest">
+                                Suggest engineer
+                            </button>
+                        </c:if>
+                        <c:if test="${empty type || type eq 'Suggest'}">
+                            <button type="submit" class="btn btn-info" 
+                                    style="width: 150px; margin-bottom: 20px"
+                                    name="btAction" value="ShowAll">
+                                Show all engineer
+                            </button>    
+                        </c:if>
+                    </form>
+                    <div style="width: 50%; float: right">
+                        From: <input type="text" name="" value="" style="width: 30%" />
+                        To: <input type="text" name="" value="" style="width: 30%" />
+                        <button type="submit" value="" 
+                                class="btn btn-info" style="width: 100px">List</button>
+                    </div>
+                    
+                </div>
                 <form style="margin: 0 0; padding: 0 0; max-width: none; color: black">
                     <c:if test="${empty type || type eq 'Suggest'}">
                         <table class="table" id="suggestTable">  
@@ -51,12 +63,15 @@
                                 <tr>  
                                     <th>ID</th> 
                                     <th>Full name</th> 
+                                    <th>Project</th>                               
+                                    <th>From</th>                               
+                                    <th>To</th>                               
                                     <th>Status</th>                               
                                     <th>Skill</th>                               
-                                    <th>Interest</th>                               
+                                    <!--<th>Interest</th>-->                               
                                     <th>Point</th>  
-                                    <th>Assign as</th>
-                                    <th>Type</th>
+                                    <!--<th>Assign as</th>-->
+                                    <!--<th>Type</th>-->
                                     <th>Select</th>
                                 </tr>  
                             </thead>  
@@ -66,18 +81,27 @@
                                         <a href="#">HoangLM2</a>
                                     </td>
                                     <td>Le Minh Hoang</td>
-                                    <td>Free</td>
+                                    <td>OHRM</td>
+                                    <td>06/06/2015 <br/>
+                                        06/07/2015
+                                    </td>
+                                    <td>06/06/2015 <br/>
+                                        06/15/2015
+                                    </td>
+                                    <td>Part-time <br/>
+                                        Free
+                                    </td>
                                     <td>
-                                        Java <br/>
+                                        Java <label class="interest">Interest</label> <br/>
                                         C# <br/>
                                         SQL Server
                                     </td>
-                                    <td>
+<!--                                    <td>
                                         Java <br/>
                                         SQL server
-                                    </td>
+                                    </td>-->
                                     <td>8.5</td>
-                                    <td>
+<!--                                    <td>
                                         <select onchange=""> 
                                             <option value="Department 1">Developer</option>
                                             <option value="Department 2">Tester</option>                                                   
@@ -91,9 +115,11 @@
                                             <option value="Department 1">Full-time</option>
                                             <option value="Department 2">Part-time</option>                                                   
                                         </select>
-                                    </td>
+                                    </td>-->
                                     <td>
-                                        <input type="checkbox">
+                                        <!--<input type="checkbox">-->
+                                        <button class="btn btn-primary" style="width: auto"
+                                                type="submit" >Assign</button>
                                     </td> 
                                 </tr>
                                 <tr>
@@ -101,15 +127,18 @@
                                         <a href="#">PhuocNH</a>
                                     </td>
                                     <td>Nguyen Huu Phuoc</td>
+                                    <td>KPMG</td>
+                                    <td>06/06/2015</td>
+                                    <td>06/06/2015</td>
                                     <td>Part-time</td>
                                     <td>
-                                        Java <br/>
+                                        Java <label class="interest">Interest</label> <br/>
                                     </td>
-                                    <td>
+<!--                                    <td>
                                         Java <br/>
-                                    </td>
+                                    </td>-->
                                     <td>7.5</td>
-                                    <td>
+<!--                                    <td>
                                         <select style=" width: 80%" onchange=""> 
                                             <option value="Department 1">Developer</option>
                                             <option value="Department 2">Tester</option>                                                   
@@ -123,9 +152,11 @@
                                             <option value="Department 1">Full-time</option>
                                             <option value="Department 2">Part-time</option>                                                   
                                         </select>
-                                    </td>
+                                    </td>-->
                                     <td>
-                                        <input type="checkbox">
+                                        <!--<input type="checkbox">-->
+                                        <button class="btn btn-primary" style="width: auto"
+                                                type="submit" >Assign</button>
                                     </td> 
                                 </tr>
                             </tbody>
@@ -137,12 +168,15 @@
                                 <tr>  
                                     <th>ID</th> 
                                     <th>Full name</th> 
+                                    <th>Project</th>                               
+                                    <th>From</th>                               
+                                    <th>To</th>                               
                                     <th>Status</th>                               
                                     <th>Skill</th>                               
-                                    <th>Interest</th>                               
+                                    <!--<th>Interest</th>-->                               
                                     <th>Point</th>  
-                                    <th>Assign as</th>
-                                    <th>Type</th>
+                                    <!--<th>Assign as</th>-->
+                                    <!--<th>Type</th>-->
                                     <th>Select</th>
                                 </tr>  
                             </thead>  
@@ -152,18 +186,23 @@
                                         <a href="#">HoangLM2</a>
                                     </td>
                                     <td>Le Minh Hoang</td>
-                                    <td>Free</td>
+                                    <td>OHRM</td>
+                                    <td>06/06/2015 <br/>
+                                        06/07/2015
+                                    </td>
+                                    <td>06/06/2015 <br/>
+                                        06/15/2015
+                                    </td>
+                                    <td>Part-time <br/>
+                                        Free
+                                    </td>
                                     <td>
-                                        Java <br/>
+                                        Java <label class="interest">Interest</label> <br/>
                                         C# <br/>
                                         SQL Server
                                     </td>
-                                    <td>
-                                        Java <br/>
-                                        SQL server
-                                    </td>
                                     <td>8.5</td>
-                                    <td>
+<!--                                    <td>
                                         <select onchange=""> 
                                             <option value="Department 1">Developer</option>
                                             <option value="Department 2">Tester</option>                                                   
@@ -177,9 +216,10 @@
                                             <option value="Department 1">Full-time</option>
                                             <option value="Department 2">Part-time</option>                                                   
                                         </select>
-                                    </td>
+                                    </td>-->
                                     <td>
-                                        <input type="checkbox">
+                                        <button class="btn btn-primary" style="width: auto"
+                                                type="submit" >Assign</button>
                                     </td> 
                                 </tr>
                                 <tr>
@@ -187,15 +227,18 @@
                                         <a href="#">PhuocNH</a>
                                     </td>
                                     <td>Nguyen Huu Phuoc</td>
+                                    <td>KPMG</td>
+                                    <td>06/06/2015</td>
+                                    <td>06/06/2015</td>
                                     <td>Part-time</td>
                                     <td>
-                                        Java <br/>
+                                        Java <label class="interest">Interest</label> <br/>
                                     </td>
-                                    <td>
+<!--                                    <td>
                                         Java <br/>
-                                    </td>
+                                    </td>-->
                                     <td>7.5</td>
-                                    <td>
+<!--                                    <td>
                                         <select style=" width: 80%" onchange=""> 
                                             <option value="Department 1">Developer</option>
                                             <option value="Department 2">Tester</option>                                                   
@@ -209,9 +252,10 @@
                                             <option value="Department 1">Full-time</option>
                                             <option value="Department 2">Part-time</option>                                                   
                                         </select>
-                                    </td>
+                                    </td>-->
                                     <td>
-                                        <input type="checkbox">
+                                        <button class="btn btn-primary" style="width: auto"
+                                                type="submit" >Assign</button>
                                     </td> 
                                 </tr>
                                 <tr style="background-color: rgb(199, 199, 199)">
@@ -219,15 +263,18 @@
                                         <a href="#">KienNT</a>
                                     </td>
                                     <td>Ngo Trac Kien</td>
+                                    <td>KPMG</td>
+                                    <td>06/06/2015</td>
+                                    <td>06/06/2015</td>
                                     <td>Full-time</td>
                                     <td>
                                         Java <br/>
                                     </td>
-                                    <td>
+<!--                                    <td>
                                         Java <br/>
-                                    </td>
+                                    </td>-->
                                     <td>9.0</td>
-                                    <td>
+<!--                                    <td>
                                         <select style=" width: 80%" onchange=""> 
                                             <option value="Department 1">Developer</option>
                                             <option value="Department 2">Tester</option>                                                   
@@ -241,15 +288,17 @@
                                             <option value="Department 1">Full-time</option>
                                             <option value="Department 2">Part-time</option>                                                   
                                         </select>
-                                    </td>
+                                    </td>-->
                                     <td>
-                                        <input type="checkbox">
+                                        <button class="btn btn-primary" style="width: auto"
+                                                type="submit" >Assign</button>
                                     </td> 
                                 </tr>
                             </tbody>
                         </table>
                     </c:if>
-                    <button type="button" class="btn btn-primary" style="width: 150px;float: right;">Assign</button>   
+                    <button type="button" class="btn btn-primary" style="width: 150px;
+                            ">Back to project</button>   
                 </form>
             </div>
         </main>
