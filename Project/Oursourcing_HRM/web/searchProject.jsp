@@ -46,11 +46,14 @@
                 <h1 style="text-align: center">Search Project</h1>
                 <div style="margin-bottom: 20px">
                     <form action="ListAllProject" style="background-color: inherit; display: inline">
-                        Project name
-                        <input type="text" name="projname" value="${param.projname}" style="width: 15%">
-                        in Year 
+                        Project code
+                        <input type="text" name="projname" value="${param.code}" style="width: 15%">
+                        From: 
+                        <input  name ="date1" type="text" id="datepicker1" style="width: 12%" value="${param.date1}">
+                        To:
+                        <input  name ="date2" type="text" id="datepicker2" style="width: 12%" value="${param.date2}">
 
-                        <select style=" width: 15%" name="year">
+                        <%--<select style=" width: 15%" name="year">
                             <c:if test="${param.year eq '2014'}" >
                                 <option value="2015">2015</option>
                                 <option value="2014" selected="true">2014</option>
@@ -77,7 +80,7 @@
                             </c:if>
 
 
-                        </select>
+                        </select>--%>
 
                         <button type="submit" class="btn btn-success" name="btAction" 
                                 value="search project" style="width: auto">
@@ -127,12 +130,13 @@
                                 <td>Working</td>
                             </tr>
                         </c:forEach>
+                        <tr style="background-color: #fcb322">
                             <tr>
                             <td>
                                 2
                             </td>
                             <td>
-                                    KPMG 
+                                KPMG 
                             </td>
                             <td>
                                 <a href="ProjectDetailServlet?btAction=pdetail&projCode=KPMG" >
@@ -152,7 +156,7 @@
                                 3
                             </td>
                             <td>
-                                    KPMG 
+                                KPMG 
                             </td>
                             <td>
                                 <a href="ProjectDetailServlet?btAction=pdetail&projCode=KPMG" >
@@ -222,4 +226,14 @@
             </div>
         </main>
     </div>
+    <script>
+        $(function() {
+            $("#datepicker1").datepicker();
+        });
+    </script>
+    <script>
+    $(function() {
+        $("#datepicker2").datepicker();
+    });
+</script>
     <%@include file="firstFoot.jsp" %>
